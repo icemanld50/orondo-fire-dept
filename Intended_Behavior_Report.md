@@ -1,0 +1,180 @@
+# Douglas County Fire District No. 4 (Orondo Fire Department)
+## Intended Behavior & Requirements Specification Report
+
+### 1. Project Purpose & Scope
+This project delivers a state-of-the-art, mobile-first web portal for **Douglas County Fire District No. 4 (DCFD4 / Orondo Fire Department)**, completely replacing the legacy GoDaddy builder website (`dcfd4.com`). The portal provides vital public safety communications, real-time burn ban status tracking, open burning regulations and permit notifications, volunteer firefighter recruitment, an interactive 12-month community calendar with a category sidebar key, an authentic 40-year photo archive gallery, an interagency wildfire tracking and smoke resource directory, an edge-routed form processing system on Cloudflare Workers, an actively burning logo flame circle with a hidden water-extinguish Easter egg, an AI community assistant acting as an interactive site navigator with clickable links, and a browser-native wildland fire tower defense simulator.
+
+---
+
+### 2. Standard Use Case Behaviors
+
+#### 2.1 Action-Oriented Home Page Roadmap ("How Can We Help You Today?")
+* **Direct 6-Action Service Flow:**
+  - Organized around a clear 6-step action roadmap directly aligned with primary resident tasks:
+    1. **Submit Burn Request (`burn-permits`):** Check live seasonal burn status and submit online outdoor burning notifications for natural yard debris (4ft x 4ft x 4ft max pile).
+    2. **Volunteer With DCFD4 (`volunteer`):** 100% volunteer firefighter & EMT recruitment with free NFPA turnout gear, academy training, and resident station housing.
+    3. **Donate to Association (`contact` & Online PayPal):** Orondo Firefighters Volunteer Association (501(c)(3) tax-exempt non-profit) direct equipment donations with dual action buttons: instant online PayPal donation (`https://www.paypal.com/donate?token=...`) and tax/mail information navigation.
+    4. **District Calendar (`calendar`):** Monthly Fire Commissioner meetings (3rd Wednesday @ 5:30 PM at Station 241) and bi-weekly Tuesday training evolutions.
+    5. **Wildfire Maps & Radar (`resources`):** Watch Duty radio incident tracking, WA DNR active fire dashboard, and EPA AirNow smoke plumes.
+    6. **Contact Headquarters (`contact`):** Station 241 address, administrative office phone `(509) 784-2941`, and 24/7 RiverCom Dispatch `(509) 663-9911`.
+* **Zero Pill & Badge Clutter:**
+  - Removed excessive decorative pills, badges, and nested micro-cards. Icons are strictly functional to help users rapidly identify actionable items.
+  - Every card features a bold, high-contrast title and full-width 44px+ tap target action buttons.
+* **Online 501(c)(3) PayPal Donation Integration:**
+  - Verified official PayPal donation checkout URL for "Douglas County Fire District 4":
+    `https://www.paypal.com/donate?token=_0oLbUMVORj9lEdQGnlH3L_VMTZTAk-OsQN6wcJAb_9i-HsHqkwRQUIl-kZfZ3ggL2E6ubc1Lbs8cvTG`
+  - Integrated across 4 key touchpoints:
+    1. **Home Overview Roadmap (Card #3):** High-contrast "Donate Online via PayPal" button and secondary "Mail Check / Tax Info" button.
+    2. **Contact & Donate Page (`/contact`):** Dedicated 501(c)(3) Volunteer Association card featuring gradient PayPal button, multi-card/recurring support notice, and physical check mailing instructions (PO Box 258, Orondo, WA 98843).
+    3. **Global Footer:** Direct "Donate via PayPal (501c3)" link with Heart icon under Quick Resources.
+    4. **AI Assistant Knowledge Base:** Returns the direct PayPal link whenever residents ask about donations, contributing, or supporting volunteers.
+* **Secondary Facility Exploration:**
+  - Kept distinct facilities (Fire Stations 241–244, Photo Gallery, and Fire Attack Simulator) cleanly organized in a quiet secondary directory strip below the roadmap.
+
+#### 2.2 Streamlined Desktop Navigation Bar
+* **Action-Aligned Links:**
+  - Desktop navbar links directly match the roadmap: `Home`, `Burn Rules`, `Volunteer`, `Calendar`, `Resources`, and `Donate & Contact`.
+  - Secondary pages are housed neatly inside the "Explore & Archive ▾" dropdown menu (`Stations & Fleet`, `Photo Gallery`, `Fire Attack Game`, `About DCFD4`).
+
+#### 2.3 Station 244 (23420 US-97) Authentic Photo & Fleet Map
+* **Station 244 (Beebe Bridge / Columbia River Gateway - 23420 US Highway 97):**
+  - Updated with the authentic user-provided photograph showing the 3 red apparatus bays positioned against the hillside on US-97.
+  - Station cards for all 4 facilities provide verified apparatus rosters, physical addresses, and direct Google Maps navigation links.
+
+#### 2.4 Hero Header, Zero-Duplication Hierarchy & Canvas Water Spray Easter Egg
+* **Strict Single-Source Content Architecture (Zero Duplication):**
+  - Eliminated all repetitive phrasing and overlapping labels across the hero section:
+    - *Station Location:* Stated once in the top dispatch row: `Station 241 Headquarters • Orondo, WA` alongside the emergency and office phone buttons.
+    - *District Title:* Subhead below the motto headline cleanly reads `Douglas County Fire District No. 4` without redundant volunteer suffixes.
+    - *Mission Narrative:* Focused purely on 24/7 all-hazard fire suppression, wildland protection, and emergency medical services across the East Columbia River corridor and orchards without repeating the stats.
+    - *100% Volunteer Dedication & Key Metrics:* Highlighted once directly under the official department emblem as a styled `100% Volunteer Fire & EMS` badge with `4 Stations • 100+ Sq Miles • Est. 1946` and `Protecting Orondo • Brays • Lone Pine • Beebe Bridge`.
+    - *Alert Banner Subtitle:* Replaced duplicate district name with `Orondo & East Columbia Corridor`.
+* **Fire Attack Game Canvas Water Spray & Permanent Extinguish:**
+  - Clicking the burning Rattlesnake emblem activates an authentic canvas particle simulation matching the physics from the Fire Attack game:
+    - High-velocity pressurized cyan water droplet stream (`#38bdf8`) arcing from a brass nozzle.
+    - Droplet collision with the flame perimeter triggering billowing white steam puffs that expand and float upward.
+    - Procedural dual-frequency Web Audio synthesis generating realistic pressurized water rush and boiling steam sizzle.
+    - Douses and permanently extinguishes the flame ring into cool grayscale.
+    - **Strict No-Relight Rule:** Once extinguished, it never rekindles or relights automatically.
+    - Pure Easter egg with zero instructional text.
+
+#### 2.5 Wildfire Maps, Air Quality, Emergency Alerts & Codified Regulations (`/resources`)
+* **Dedicated Resource & Regulatory Directory:**
+  - 100% verified live via BrowserOS Neo browser automation, eliminating legacy 404 dead links and misdirected public records pages:
+    1. *Watch Duty Wildfire App & Web Map (`https://app.watchduty.org`):* Real-time radio-monitored fire tracking, perimeter shapefiles, and flight tracking with direct App Store & Google Play links.
+    2. *WA DNR Wildfire Incident Dashboard (`https://www.dnr.wa.gov/Wildfires`):* Official Washington State Department of Natural Resources incident map, active fires, and county fire danger ratings.
+    3. *InciWeb All-Risk Incident System (`https://inciweb.wildfire.gov`):* Federal interagency command tracking for complex fires.
+    4. *NASA FIRMS Satellite Hotspot Detection (`https://firms.modaps.eosdis.nasa.gov/map`):* 3-hour orbital thermal anomaly detections.
+    5. *AirNow Fire & Smoke Map (`https://fire.airnow.gov`):* Real-time EPA PM2.5 air quality and smoke plume tracking.
+    6. *Washington Smoke Information Blog (`https://wasmoke.blogspot.com`):* Central WA meteorological smoke transport forecasts.
+    7. *RiverCom 911 Communications (`https://rivercom911.org`):* Chelan-Douglas 911 regional dispatch.
+    8. *Douglas County Emergency Management (`https://www.douglascountywa.gov/231/Emergency-Management`):* Official county emergency management operations (verified replacing obsolete `/165/Emergency-Management` public records page).
+    9. *Douglas County Everbridge Alert Signup (`https://www.douglascountywa.gov/693/Everbridge-Emergency-Alert-System`):* Direct registration portal for citizen Level 1, 2, and 3 evacuation notifications.
+    10. *Douglas County Emergency Incidents Map (`https://www.douglascountywa.gov/697/Emergency-Incidents-Map`):* Live public safety GIS map tracking road washouts, closures, and active hazard perimeters.
+    11. *Douglas County Code Chapter 8.12 Open Burning (`https://www.codepublishing.com/WA/DouglasCounty/html/DouglasCounty08/DouglasCounty0812.html`):* Codified municipal burning ordinance governing unincorporated areas from June 1st to October 1st, IFC 307.4.2 adherence, adult care, and misdemeanor penalties.
+    12. *WA Dept of Ecology Outdoor & Residential Burning (`https://ecology.wa.gov/air-climate/air-quality/smoke-fire/outdoor-residential-burning`):* State residential clean air standards (verified replacing broken 404 URL).
+    13. *WA Dept of Ecology Burn Permits Portal (`https://ecology.wa.gov/regulations-permits/permits-certifications/air-quality-permits/burn-permits`):* Central portal for commercial agricultural burning and orchard tear-out permits.
+    14. *WAC 173-425 Outdoor Burning (`https://app.leg.wa.gov/wac/default.aspx?cite=173-425`):* Washington Administrative Code Clean Air Act regulations and Urban Growth Area prohibitions.
+    15. *WA DNR Burn Restrictions & Burn Portal (`https://dnr.wa.gov/wildfire-resources/outdoor-burning/burn-restrictions`):* State forest fire protection regulations under WAC 332-24 and online DNR Burn Portal.
+    16. *Douglas County Burn Bans & Restrictions Notice (`https://www.douglascountywa.gov/821/Burn-Bans-and-Restrictions`):* Official county administrative announcements.
+    17. *NWS Spokane Fire Weather Briefing (`https://www.weather.gov/wrh/fire?wfo=otx&layer=fwx`):* Official NOAA National Weather Service Western Region fire weather briefing for Eastern Washington and Zone WAZ704 / Douglas County (verified replacing obsolete `/otx/fire` 404).
+    18. *USGS Washington Water Conditions & River Flow (`https://waterdata.usgs.gov/state/Washington/`):* Official USGS real-time hydrologic monitoring for Washington and the Columbia River reach (verified replacing decommissioned legacy NWISWeb `/wa/nwis/current/?type=flow` 404).
+  - Interactive category filtering pills: `All Resources (18)`, `Wildfire Maps & Apps`, `Smoke & Weather`, `Local Douglas County`, and `Codes & Regulations`.
+
+#### 2.6 Form Routing Architecture & Legacy Site Inspection Findings
+* **Inspection of Original `dcfd4.com/open-burning` GoDaddy Form:**
+  - Audited using BrowserOS Neo React DOM and fiber inspection:
+    - Target backend endpoint: `https://contact.apps-api.instantpage.secureserver.net/v3/messages`
+    - GoDaddy Account ID: `b043253e-f7f7-499d-8cda-9482877d5e98`
+    - Website ID: `c3ca08d7-f8f3-4ebe-ad65-7a2d414c7f4d`
+    - Widget ID: `ed286f30-58f7-4cde-9517-4ae52f713bb8`
+    - Form Identifier: `CONTACT_US`
+    - DNS MX Verification: `dcfd4.com` points to Google Workspace (`aspmx.l.google.com`), routing submissions to `info@dcfd4.com`.
+  - In our modern edge router (`src/worker.ts`), all forms route seamlessly by default to `info@dcfd4.com`, with zero dependency on GoDaddy's proprietary backend, and allow setting custom destinations via the `DESTINATION_EMAIL` environment secret.
+
+#### 2.6 AI Community Safety Assistant & Site Navigator
+* **Full Sitemap Context & Clickable Navigation Links:**
+  - System prompt in `src/services/aiGateway.ts` provides complete context of the website structure and official external agencies with verified live URLs.
+  - AI responses include clickable markdown links `[Page Title](/tab-name)` for internal pages (`/burn-permits`, `/volunteer`, `/calendar`, `/contact`, `/resources`, `/gallery`, `/stations`, `/fire-game`, `/about`) and verified external links to Watch Duty, WA DNR, InciWeb, Ecology Outdoor Burning, Ecology Permits, Douglas County Code Chapter 8.12, WAC 173-425, and Douglas County Everbridge Alerts.
+* **Interactive In-Modal Navigation:**
+  - The modal (`AiAssistantModal.tsx`) parses markdown links:
+    - Internal `/tab` links render as styled interactive buttons that switch pages via `onNavigate(tab)` and close the modal.
+    - External `http` links render with `ExternalLink` icons opening in a new tab.
+  - Quick suggested prompt chips guide users to wildfire maps, burn notices, volunteer applications, and meeting schedules.
+
+#### 2.7 Bloons TD 5 Style Wildland Firefighting Tower Defense Game (`/fire-game`)
+* **Bloons TD 5/6 Mechanics Re-Themed for Wildland Fire Suppression:**
+  - **Serpentine Cobblestone Track:** Fires travel along a continuous 2,090px winding track starting from the coulee hills, traversing lush Orondo apple orchards, crossing the Columbia River over a wooden plank bridge, and terminating at Station 241 Headquarters.
+  - **Fire Balloon Tiers (Popping & Splitting Physics):**
+    - *Tier 1: Red Grass Spark* (1 HP, Speed 1.35) - Pops into steam.
+    - *Tier 2: Blue Campfire Blaze* (2 HP, Speed 1.7) - Pops and splits into 1 Red Spark.
+    - *Tier 3: Green Brush Fire* (3 HP, Speed 2.1) - Pops and splits into 1 Blue Campfire.
+    - *Tier 4: Yellow Crown Fire* (4 HP, Speed 2.8) - High-velocity flare, pops into 1 Green Brush Fire.
+    - *Tier 5: Pink Timber Flame* (5 HP, Speed 3.4) - Rapid timber runner, pops into 1 Yellow Crown Fire.
+    - *Tier 6: Charcoal Armored Smolder* (8 HP, Speed 1.1) - Heavy protective ember crust immune to light water; requires foam/cannon splash to pierce; splits into 2 Pink Timber Flames.
+    - *Tier 7: Canyon Firestorm* (12 HP, Speed 2.0) - High-heat vortex; splits into 2 Armored Smolders.
+    - *Tier 8: Badger Mountain Boss Inferno* (80 HP, Speed 0.9) - Massive wildfire boss with boss health bar; splits into 4 Canyon Firestorms upon containment.
+  - **Phased Gameplay (Placement Stage vs. Wave Active):**
+    - *Placement Stage:* Players review cash reserves ($650 start), strategize unit placement, buy apparatus, and configure dual upgrade tiers before triggering the wave.
+    - *Wave Active Stage:* Fires spawn from the queue; water cannons engage targets; cash is earned per layer popped ($1) plus round completion bonuses ($100+); speed can be toggled between 1X and 2X.
+  - **Bloons TD 5 Right-Hand Sidebar & Tower Upgrade Depot:**
+    - Apparatus Store featuring 6 distinct units:
+      1. *Hose Volunteer ($175, Land):* Volunteer with fog nozzle. Upgrade Path 1: Fog Nozzle / Twin Handlines / Tri-Nozzle Deluge. Upgrade Path 2: Hose Reel Reach / Class A Foam / High-Pressure CAF Nozzle.
+      2. *Deck Gun Monitor ($350, Land):* Master stream turret with area-of-effect splash damage. Upgrade Path 1: Stang Monitor / Industrial Deluge / Hydro-Cannon. Upgrade Path 2: Reach / Piercing Hydro-Jet / Dual Heavy Water Cannons.
+      3. *Perimeter Sprinkler ($240, Land):* 360-degree radial mist manifold. Upgrade Path 1: 12-Nozzle / 16-Nozzle / Orchard Deluge Grid. Upgrade Path 2: Radius Expansion / Wetting Agent / Sustained Mist Blanket.
+      4. *Type 6 Brush Engine ($480, Land):* Mobile 4x4 attack rig shooting high-speed foam. Upgrade Path 1: Rapid Pump / Dual Crosslay Lines / Wildland Attack Beast. Upgrade Path 2: Long-Distance Foam / Heavy Gel / Thermal Quench Foam.
+      5. *Columbia River Fireboat ($420, River-Only):* High-volume marine draft vessel that can only be deployed in the river channel. Upgrade Path 1: Twin Marine Monitors / Triple Jet Array / Columbia Deluge Flagship. Upgrade Path 2: High-Volume Draft / Foam Proportioner / Regional River Monitor.
+      6. *Dozer Line Scrape ($160, Land Trap):* Mineral soil trench acting as a passive contact trap (absorbs 12 hits before being consumed).
+    - *Targeting AI Selector:* First, Last, Strongest, and Closest target modes.
+    - *Sell Unit:* Recoups 70% of total invested capital for strategic apparatus repositioning.
+  - **Tactical Abilities & Mobile-First Controls:**
+    - *Air Tanker Phos-Chek Strike:* Drops crimson chemical retardant barrier for 16 seconds; earned every 5 rounds.
+    - *RiverCom Pump 2X Overdrive:* Doubles water delivery pump speed for 10 seconds ($150).
+    - *Background Visibility Fallback & Frame Batching:* Automatically switches to a fallback ticker if the browser tab is minimized or hidden, and batches state updates to React once per frame for guaranteed 60 FPS performance without render thrashing.
+  - **Volunteer Service Cards (`/volunteer`):**
+    - Redundant "Role Overview" pills removed from all 4 service track cards, maintaining clean, unencumbered headings and minimum 44px tap targets.
+
+#### 2.8 Pure Visual Interactive Movable Flex Photo Gallery (`/gallery`)
+* **Strictly Zero Words On Images or Cards:**
+  - Pure uninterrupted photography with zero text, badges, titles, year tags, or locations on photo cards.
+  - HTML5 drag-and-drop reordering, 3D mouse perspective tilt, dual layouts (Flex Grid and Movable Ribbon Stream), and zero-word theater lightbox.
+
+#### 2.9 Automated Seasonal Burn Ban Transition Architecture (October 1st Lifting Mechanics)
+* **Deterministic Seasonal Calendar Windows:**
+  - **Summer Burn Ban Active:** June 1 at 00:00:00 through September 30 at 23:59:59 (Douglas County Code Chapter 8.12).
+  - **Open Burning Permitted:** October 1 at 00:00:00 through May 31 at 23:59:59 (Natural vegetation only, max 4x4x4 ft pile size).
+* **30-Second Real-Time Heartbeat & Tab Focus Rollover:**
+  - `App.tsx` and `LiveAlertBanner.tsx` maintain an active 30-second interval ticker and listen to browser `visibilitychange` events via [`src/services/burnBanService.ts`](file:///E:/App%20Projects/orondo%20fire%20dept/src/services/burnBanService.ts).
+  - At exactly 00:00:00 on October 1st, `isBurnBanActive` flips automatically from `true` to `false` without requiring any user browser reload, server restart, or code deployment.
+* **Component-Level Visual & Functional Transformations on October 1st:**
+  1. *Live Alert Banner (`LiveAlertBanner.tsx`):* Switches from deep alert red (`from-red-950 via-red-900 border-red-800 text-red-100`) to vibrant emerald green (`from-emerald-950 via-slate-900 border-emerald-800 text-emerald-100`). Icon changes from pulsing `ShieldAlert` to `CheckCircle2`. Badge flips to `Season Status: Open Burning Permitted`. Countdown switches from `X Days Until Lifted (Oct 1)` to `243 Days Until Next Ban (June 1)`. Button flips from `Restrictions >` to `Notice Form >`.
+  2. *Hero Header Button (`Hero.tsx`):* CTA button text dynamically changes from `Burn Ban Details` (red border) to `Submit Burn Request` (emerald border).
+  3. *Home Page Action Roadmap - Card 1 (`HomeOverview.tsx`):* Border switches from red to emerald (`border-emerald-800/80 hover:border-emerald-500`). Icon turns emerald. Status dot changes from `● Burn Ban in Effect` to `● Open Burning Permitted (Oct 1 – May 31)`. Main action button turns into an emerald button: `Submit Burn Notice Online`.
+  4. *Regulations Page (`OpenBurningPage.tsx`):* Top status banner turns emerald with headline `Open Burning Season Is Active in Douglas County`, guiding residents on lawful 4x4x4 ft pile burning, adult supervision, and water on site.
+  5. *Footer Quick Resources (`Footer.tsx`):* Link flips from `Burn Ban Rules` to `Open Burn Form`.
+  6. *Calendar (`CalendarPage.tsx`):* Highlights October 1st with the official `Open Burning Season Begins` milestone badge.
+  7. *AI Community Assistant (`aiGateway.ts`):* System prompt and local fallback engine provide open burning rules and notice form links.
+
+#### 2.10 Calendar Past Months Filtering & Current Slice Default
+* **Default Active Slicing (Current Month to End of Year):**
+  - In `CalendarPage.tsx`, for the current year (2026), past months (January through August) are hidden by default, immediately presenting the current month (September) through December.
+  - An amber `CURRENT` badge is automatically displayed on the active month header (`September`).
+  - A dedicated toggle button `Show Past Months (Jan – Aug)` / `Hide Past Months` with an eye icon allows users to reveal or collapse historical months on demand.
+  - Chronological Agenda view similarly scopes by default to upcoming events (`September – December`) with the identical toggle option to view the full year.
+
+#### 2.11 Home Overview Community Apparatus Banner Placement
+* **Authentic Frontline Photography at Bottom of Section:**
+  - Placed at the bottom of the "How Can We Help You Today?" section, directly after the 6 action-oriented service cards in `HomeOverview.tsx`.
+  - Displays the authentic high-resolution community photo:
+    `/assets/gallery/structure_attack_2014.jpg` (`https://orondo-fire-dept.isaac-king5050.workers.dev/assets/gallery/structure_attack_2014.jpg`).
+  - Features volunteer firefighters, apparatus, and American flag leading the community parade with cheering spectators.
+  - Beautifully framed with responsive rounded corners (`rounded-2xl sm:rounded-3xl`), border styling (`border-slate-800 shadow-2xl`), responsive aspect ratio (`aspect-[16/7] sm:aspect-[24/8] max-h-[360px]`), and subtle slate gradient overlay with zero distracting overlaid text pills or labels.
+
+---
+
+### 3. Undesired Behaviors to Explicitly Avoid
+1. **Never Show Instructions for the Logo Easter Egg:** Do NOT write "Click to put out", "Click to ignite", or any tooltip instructions. The water splash and steam sizzle must remain a delightful hidden secret.
+2. **Never Plaster Duplicate Information Across Multiple Pages:** Avoid repeating station addresses, 911 blurbs, and commissioner meeting times on every screen; present them cleanly in their dedicated single source of truth.
+3. **Never Output Raw LaTeX Math Syntax:** All calculations and dimensions must use clean plain English arithmetic (e.g., 4 x 4 x 4 feet).
+4. **Never Generate AI Mock Images:** Only authentic photos scraped from `dcfd4.com` are used.
+5. **Never Render Plain Text for Links in AI Responses:** All page references and regulatory sources must be rendered as interactive, clickable buttons or links.
