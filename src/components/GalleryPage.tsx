@@ -72,7 +72,7 @@ const PhotoCard: React.FC<PhotoCardProps> = ({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={() => onSelect(item)}
-      className={`group relative cursor-grab active:cursor-grabbing rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-900 border transition-all duration-300 shadow-xl select-none ${
+      className={`group relative cursor-grab active:cursor-grabbing rounded-2xl sm:rounded-3xl overflow-hidden app-card border transition-all duration-300 shadow-lg select-none ${
         isStreamMode 
           ? 'flex-shrink-0 w-72 sm:w-96 aspect-[4/3]' 
           : 'flex-1 min-w-[280px] sm:min-w-[340px] max-w-[460px] aspect-[4/3]'
@@ -81,7 +81,7 @@ const PhotoCard: React.FC<PhotoCardProps> = ({
           ? 'opacity-30 scale-95 border-amber-500 ring-2 ring-amber-500/50' 
           : isDragOver
           ? 'border-amber-400 scale-[1.04] ring-4 ring-amber-500/40 z-10'
-          : 'border-slate-800/80 hover:border-red-500/60 hover:shadow-2xl hover:shadow-red-950/40'
+          : 'app-border hover:border-red-500/60 hover:shadow-xl'
       }`}
       style={{
         transformStyle: 'preserve-3d',
@@ -229,25 +229,25 @@ export const GalleryPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 py-10 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen app-bg py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-8">
 
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/60 border border-red-600/40 text-red-300 text-xs font-bold uppercase tracking-wider">
-            <Camera className="w-3.5 h-3.5 text-amber-400" />
-            <span>Interactive Movable Photo Gallery</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-xs font-bold uppercase tracking-wider">
+            <Camera className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
+            <span>Interactive Photo Gallery</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
+          <h1 className="text-3xl sm:text-5xl font-black app-text-primary uppercase tracking-tight">
             District Photo Gallery
           </h1>
-          <p className="text-sm sm:text-base text-slate-400">
+          <p className="text-sm sm:text-base app-text-secondary">
             Drag to rearrange photos • Move your cursor for 3D tilt • Click any photo for full-screen inspection
           </p>
         </div>
 
         {/* Minimal Control Bar: Category Filters & Movable Layout Toggle */}
-        <div className="glass-panel rounded-2xl p-3 sm:p-4 border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="app-card rounded-2xl p-3 sm:p-4 border app-border flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
           
           {/* Category Filter Buttons */}
           <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center">
@@ -255,10 +255,10 @@ export const GalleryPage: React.FC = () => {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all min-h-[44px] ${
                   selectedCategory === cat.id
-                    ? 'bg-red-600 text-white shadow-lg shadow-red-900/40 border border-red-500'
-                    : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+                    ? 'bg-red-600 text-white shadow-md border border-red-500'
+                    : 'app-surface text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 border app-border'
                 }`}
               >
                 {cat.label}
@@ -268,14 +268,14 @@ export const GalleryPage: React.FC = () => {
 
           {/* Movable View Modes & Reset Order Action */}
           <div className="flex items-center gap-2">
-            <div className="flex items-center bg-slate-900 p-1 rounded-xl border border-slate-800">
+            <div className="flex items-center app-surface p-1 rounded-xl border app-border">
               <button
                 onClick={() => setViewMode('flex')}
                 title="Fluid Flex Grid"
-                className={`p-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
+                className={`p-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 min-h-[40px] ${
                   viewMode === 'flex'
-                    ? 'bg-red-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-red-600 text-white shadow-sm'
+                    : 'text-slate-600 dark:text-slate-400 hover:app-text-primary'
                 }`}
               >
                 <LayoutGrid className="w-4 h-4" />
@@ -284,10 +284,10 @@ export const GalleryPage: React.FC = () => {
               <button
                 onClick={() => setViewMode('stream')}
                 title="Movable Draggable Ribbon"
-                className={`p-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
+                className={`p-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 min-h-[40px] ${
                   viewMode === 'stream'
-                    ? 'bg-red-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-red-600 text-white shadow-sm'
+                    : 'text-slate-600 dark:text-slate-400 hover:app-text-primary'
                 }`}
               >
                 <MoveHorizontal className="w-4 h-4" />
@@ -298,7 +298,7 @@ export const GalleryPage: React.FC = () => {
             <button
               onClick={handleResetOrder}
               title="Reset Photo Order"
-              className="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 transition-all flex items-center gap-1 text-xs font-bold"
+              className="p-2 rounded-xl app-surface hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:app-text-primary border app-border transition-all flex items-center gap-1 text-xs font-bold min-h-[44px] px-3"
             >
               <RotateCcw className="w-4 h-4" />
               <span className="hidden sm:inline">Reset</span>

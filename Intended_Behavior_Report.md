@@ -2,7 +2,7 @@
 ## Intended Behavior & Requirements Specification Report
 
 ### 1. Project Purpose & Scope
-This project delivers a state-of-the-art, mobile-first web portal for **Douglas County Fire District No. 4 (DCFD4 / Orondo Fire Department)**, completely replacing the legacy GoDaddy builder website (`dcfd4.com`). The portal provides vital public safety communications, real-time burn ban status tracking, open burning regulations and permit notifications, volunteer firefighter recruitment, an interactive 12-month community calendar with a category sidebar key, an authentic 40-year photo archive gallery, an interagency wildfire tracking and smoke resource directory, an edge-routed form processing system on Cloudflare Workers, an actively burning logo flame circle with a hidden water-extinguish Easter egg, an AI community assistant acting as an interactive site navigator with clickable links, and a browser-native wildland fire tower defense simulator.
+This project delivers a state-of-the-art, mobile-first web portal for **Douglas County Fire District No. 4 (DCFD4 / Orondo Fire Department)**, completely replacing the legacy GoDaddy builder website (`dcfd4.com`). The portal provides vital public safety communications, real-time burn ban status tracking, open burning regulations and permit notifications, volunteer firefighter recruitment, an interactive community calendar with past-month hiding, an authentic 40-year photo archive gallery, an interagency wildfire tracking and smoke resource directory, an edge-routed form processing system on Cloudflare Workers, an AI community assistant acting as an interactive site navigator with clickable links, an adaptable multi-theme system defaulting to a clean municipal Light Theme, and a standalone wildland fire tower defense simulator.
 
 ---
 
@@ -17,8 +17,9 @@ This project delivers a state-of-the-art, mobile-first web portal for **Douglas 
     4. **District Calendar (`calendar`):** Monthly Fire Commissioner meetings (3rd Wednesday @ 5:30 PM at Station 241) and bi-weekly Tuesday training evolutions.
     5. **Wildfire Maps & Radar (`resources`):** Watch Duty radio incident tracking, WA DNR active fire dashboard, and EPA AirNow smoke plumes.
     6. **Contact Headquarters (`contact`):** Station 241 address, administrative office phone `(509) 784-2941`, and 24/7 RiverCom Dispatch `(509) 663-9911`.
-* **Zero Pill & Badge Clutter:**
-  - Removed excessive decorative pills, badges, and nested micro-cards. Icons are strictly functional to help users rapidly identify actionable items.
+* **Zero Pill & Badge Clutter; Subtle Secondary Icons:**
+  - Icons on action cards are small and secondary accents, keeping primary visual focus squarely on clear, concise action titles.
+  - Excessive decorative pills, badges, and redundant labels have been removed across all sections.
   - Every card features a bold, high-contrast title and full-width 44px+ tap target action buttons.
 * **Online 501(c)(3) PayPal Donation Integration:**
   - Verified official PayPal donation checkout URL for "Douglas County Fire District 4":
@@ -29,34 +30,28 @@ This project delivers a state-of-the-art, mobile-first web portal for **Douglas 
     3. **Global Footer:** Direct "Donate via PayPal (501c3)" link with Heart icon under Quick Resources.
     4. **AI Assistant Knowledge Base:** Returns the direct PayPal link whenever residents ask about donations, contributing, or supporting volunteers.
 * **Secondary Facility Exploration:**
-  - Kept distinct facilities (Fire Stations 241–244, Photo Gallery, and Fire Attack Simulator) cleanly organized in a quiet secondary directory strip below the roadmap.
+  - Kept distinct facilities (Fire Stations 241–244, Photo Gallery) cleanly organized in a quiet secondary directory strip below the roadmap. Mini-game is hidden from all menus.
 
-#### 2.2 Streamlined Desktop Navigation Bar
+#### 2.2 Streamlined Desktop Navigation Bar & Multi-Theme Switcher
 * **Action-Aligned Links:**
   - Desktop navbar links directly match the roadmap: `Home`, `Burn Rules`, `Volunteer`, `Calendar`, `Resources`, and `Donate & Contact`.
-  - Secondary pages are housed neatly inside the "Explore & Archive ▾" dropdown menu (`Stations & Fleet`, `Photo Gallery`, `Fire Attack Game`, `About DCFD4`).
+  - Secondary pages are housed neatly inside the "Explore & Archive ▾" dropdown menu (`Stations & Fleet`, `Photo Gallery`, `About DCFD4`). Mini-game (`/fire-game`) is hidden from menus.
+* **Theme Switcher:**
+  - Accessible dropdown in top-right navbar supporting 3 themes: `Civic Light` (default), `Warm Slate`, and `Midnight Dark`.
+  - Automatically persists user preference in `localStorage`.
 
 #### 2.3 Station 244 (23420 US-97) Authentic Photo & Fleet Map
 * **Station 244 (Beebe Bridge / Columbia River Gateway - 23420 US Highway 97):**
   - Updated with the authentic user-provided photograph showing the 3 red apparatus bays positioned against the hillside on US-97.
   - Station cards for all 4 facilities provide verified apparatus rosters, physical addresses, and direct Google Maps navigation links.
 
-#### 2.4 Hero Header, Zero-Duplication Hierarchy & Canvas Water Spray Easter Egg
+#### 2.4 Hero Header, Authoritative Emblem & Zero-Duplication Hierarchy
 * **Strict Single-Source Content Architecture (Zero Duplication):**
-  - Eliminated all repetitive phrasing and overlapping labels across the hero section:
-    - *Station Location:* Stated once in the top dispatch row: `Station 241 Headquarters • Orondo, WA` alongside the emergency and office phone buttons.
-    - *District Title:* Subhead below the motto headline cleanly reads `Douglas County Fire District No. 4` without redundant volunteer suffixes.
-    - *Mission Narrative:* Focused purely on 24/7 all-hazard fire suppression, wildland protection, and emergency medical services across the East Columbia River corridor and orchards without repeating the stats.
-    - *100% Volunteer Dedication & Key Metrics:* Highlighted once directly under the official department emblem as a styled `100% Volunteer Fire & EMS` badge with `4 Stations • 100+ Sq Miles • Est. 1946` and `Protecting Orondo • Brays • Lone Pine • Beebe Bridge`.
-    - *Alert Banner Subtitle:* Replaced duplicate district name with `Orondo & East Columbia Corridor`.
-* **Fire Attack Game Canvas Water Spray & Permanent Extinguish:**
-  - Clicking the burning Rattlesnake emblem activates an authentic canvas particle simulation matching the physics from the Fire Attack game:
-    - High-velocity pressurized cyan water droplet stream (`#38bdf8`) arcing from a brass nozzle.
-    - Droplet collision with the flame perimeter triggering billowing white steam puffs that expand and float upward.
-    - Procedural dual-frequency Web Audio synthesis generating realistic pressurized water rush and boiling steam sizzle.
-    - Douses and permanently extinguishes the flame ring into cool grayscale.
-    - **Strict No-Relight Rule:** Once extinguished, it never rekindles or relights automatically.
-    - Pure Easter egg with zero instructional text.
+  - Eliminated all repetitive phrasing and overlapping labels across the hero section.
+  - Station location and office contact stated calmly: `Office: (509) 784-2941 • Emergencies: Dial 911`. No disruptive flashing 911 call buttons.
+  - District title and mission narrative focused on essential public safety facts without fluff.
+* **Authoritative Crest Emblem:**
+  - Replaced the water-spray canvas animation, flame loop, and Web Audio synthesizer with an official, high-resolution static DCFD4 department crest emblem.
 
 #### 2.5 Wildfire Maps, Air Quality, Emergency Alerts & Codified Regulations (`/resources`)
 * **Dedicated Resource & Regulatory Directory:**

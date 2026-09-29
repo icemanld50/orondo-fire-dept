@@ -128,7 +128,7 @@ export const App: React.FC = () => {
   }, [activeTab]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between selection:bg-red-600 selection:text-white overflow-x-hidden">
+    <div className="min-h-screen app-bg app-text-primary flex flex-col justify-between selection:bg-red-600 selection:text-white overflow-x-hidden">
       
       {/* Top Navbar Header */}
       <div>

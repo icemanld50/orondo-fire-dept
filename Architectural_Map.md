@@ -81,17 +81,15 @@ sequenceDiagram
   - Station 244 (23420 US Highway 97, Orondo, WA): Updated with authentic user-provided photograph capturing the 3 red apparatus bays positioned against the hillside on US-97.
   - Full district readiness documented across Stations 241, 242, 243, and 244 with direct Google Maps navigation links.
 
-#### 2.4 Active Burning Flame Circle & Canvas Water Spray Easter Egg (`src/components/Hero.tsx`)
-* **Continuous Combustion Simulation:**
-  - The flame ring around the Rattlesnake emblem features dual rotating dashed SVG rings, glowing radial embers, and fiery amber box shadows active by default.
-* **Fire Attack Game Canvas Spray Physics & Permanent Extinguish:**
-  - Clicking the logo emblem activates an interactive canvas particle spray matching the exact physics from the Fire Attack game:
-    - Pressurized stream of glowing cyan water droplets (`#38bdf8`) shooting from a brass nozzle with gravity arc.
-    - Droplets strike the burning ring, spawning billowing white steam clouds that drift upward and fade.
-    - Procedural dual-tone Web Audio synthesis simulating pressurized water rush and boiling steam sizzle.
-    - Douses and permanently extinguishes the flame ring into cool grayscale.
-    - **Permanent Extinguish Law:** Once put out, the flame never relights or rekindles automatically.
-  - Pure Easter egg with zero instruction text or prompt clutter.
+#### 2.4 Adaptive Theme System & Static Official Crest Emblem (`src/context/ThemeContext.tsx`, `src/components/ThemeSwitcher.tsx`, `src/components/Hero.tsx`)
+* **Multi-Theme Architecture:**
+  - `ThemeContext` provides `civic-light` (default municipal white/slate), `warm-light` (warm stone/charcoal), and `midnight-dark` (deep navy-slate).
+  - Managed via CSS custom properties (`--bg-page`, `--bg-surface`, `--bg-card`, `--text-primary`, `--text-secondary`, `--border-main`) keyed to `[data-theme]`.
+  - Persisted in `localStorage` under `dcfd4_theme` and synchronized dynamically on document root.
+  - Interactive `ThemeSwitcher` accessible from the top navbar.
+* **Authoritative Static Department Crest Emblem:**
+  - Removed high-resource water-spray canvas loops, continuous flame animations, and Web Audio synthesizers in favor of an official, clean, static DCFD4 crest emblem.
+  - Aligns with municipal government web accessibility and civic design standards.
 * **Single-Source Content Hierarchy (Zero Redundancy):**
   - Stated all core facts in dedicated, authoritative locations:
     - `Station 241 Headquarters • Orondo, WA` resides solely in the top dispatch row.

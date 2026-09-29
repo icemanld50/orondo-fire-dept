@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { 
   Map, 
   Wind, 
-  Radio, 
   ExternalLink, 
   ShieldAlert, 
   Smartphone, 
@@ -250,44 +249,40 @@ export const ResourcesPage: React.FC = () => {
       
       {/* Page Header */}
       <div className="space-y-4 text-center max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/60 border border-red-600/40 text-red-300 text-xs font-bold uppercase tracking-wider">
-          <Compass className="w-3.5 h-3.5 text-amber-400" />
+        <div className="flex items-center justify-center gap-2 text-xs font-bold text-red-700 dark:text-red-400 uppercase tracking-wider">
+          <Compass className="w-4 h-4 text-amber-500" />
           <span>Interagency Coordination & Public Safety</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
+        <h1 className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
           Wildfire Maps & Public Resources
         </h1>
-        <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
           Direct access to real-time satellite fire scans, interagency wildfire tracking apps, EPA smoke plumes, Douglas County emergency notification channels, and official burning regulations.
         </p>
       </div>
 
-      {/* Emergency Notice Callout */}
-      <div className="glass-panel p-4 sm:p-5 rounded-2xl border border-red-600/50 bg-red-950/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+      {/* Emergency Advisory Callout - Clean, Calm Civic Advisory without flashy buttons */}
+      <div className="app-card p-4 sm:p-5 rounded-2xl border-amber-200 dark:border-amber-900/50 bg-amber-50/50 dark:bg-amber-950/20 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3 text-left">
-          <div className="p-2.5 rounded-xl bg-red-600/30 text-red-400 border border-red-500/50 flex-shrink-0">
-            <AlertTriangle className="w-6 h-6 animate-pulse" />
+          <div className="p-2.5 rounded-xl bg-amber-600/10 dark:bg-amber-600/20 text-amber-700 dark:text-amber-400 border border-amber-500/30 flex-shrink-0">
+            <AlertTriangle className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-sm sm:text-base font-black text-white uppercase">
-              Active Fire or Smoke Emergency?
+            <h2 className="text-sm sm:text-base font-black text-slate-900 dark:text-white uppercase">
+              Immediate Fire or Smoke Emergency?
             </h2>
-            <p className="text-xs text-red-200 mt-0.5">
-              Do not rely on web maps or delayed reports during life-threatening situations. Call 911 immediately.
+            <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5">
+              Online maps reflect satellite telemetry and delayed reports. For active flames or emergencies, contact RiverCom dispatch at 911.
             </p>
           </div>
         </div>
-        <a 
-          href="tel:911"
-          className="min-h-[44px] flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-white font-black text-sm uppercase tracking-wider shadow-lg shadow-red-950/60 border border-red-400 transition-all active:scale-95 flex-shrink-0 w-full sm:w-auto"
-        >
-          <Radio className="w-4 h-4" />
-          <span>Dial 911</span>
-        </a>
+        <div className="text-xs font-bold text-slate-700 dark:text-slate-300 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 flex-shrink-0 shadow-sm">
+          Emergencies: Dial 911
+        </div>
       </div>
 
       {/* Category Tabs & Quick Search */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pb-2 border-b border-slate-800">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pb-2 border-b border-slate-200 dark:border-slate-800">
         
         {/* Category Filter Pills */}
         <div className="flex flex-wrap items-center gap-2">
@@ -295,8 +290,8 @@ export const ResourcesPage: React.FC = () => {
             onClick={() => setSelectedCategory('all')}
             className={`min-h-[40px] px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'all'
-                ? 'bg-red-600 text-white shadow-md shadow-red-950/60'
-                : 'bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800'
+                ? 'bg-red-600 text-white shadow-md shadow-red-950/20'
+                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800'
             }`}
           >
             All Resources ({RESOURCES_DATA.length})
@@ -305,8 +300,8 @@ export const ResourcesPage: React.FC = () => {
             onClick={() => setSelectedCategory('maps')}
             className={`min-h-[40px] flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'maps'
-                ? 'bg-orange-600 text-white shadow-md shadow-orange-950/60'
-                : 'bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800'
+                ? 'bg-orange-600 text-white shadow-md shadow-orange-950/20'
+                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800'
             }`}
           >
             <Map className="w-3.5 h-3.5" />
@@ -316,8 +311,8 @@ export const ResourcesPage: React.FC = () => {
             onClick={() => setSelectedCategory('weather')}
             className={`min-h-[40px] flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'weather'
-                ? 'bg-blue-600 text-white shadow-md shadow-blue-950/60'
-                : 'bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800'
+                ? 'bg-blue-600 text-white shadow-md shadow-blue-950/20'
+                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800'
             }`}
           >
             <Wind className="w-3.5 h-3.5" />
@@ -327,8 +322,8 @@ export const ResourcesPage: React.FC = () => {
             onClick={() => setSelectedCategory('local')}
             className={`min-h-[40px] flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'local'
-                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-950/60'
-                : 'bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800'
+                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-950/20'
+                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800'
             }`}
           >
             <ShieldAlert className="w-3.5 h-3.5" />
@@ -338,8 +333,8 @@ export const ResourcesPage: React.FC = () => {
             onClick={() => setSelectedCategory('regulations')}
             className={`min-h-[40px] flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'regulations'
-                ? 'bg-purple-600 text-white shadow-md shadow-purple-950/60'
-                : 'bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800'
+                ? 'bg-purple-600 text-white shadow-md shadow-purple-950/20'
+                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800'
             }`}
           >
             <Scale className="w-3.5 h-3.5" />
@@ -355,7 +350,7 @@ export const ResourcesPage: React.FC = () => {
             placeholder="Search maps, apps, or alerts..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs sm:text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-red-500 transition-colors"
+            className="w-full pl-10 pr-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-xs sm:text-sm text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-red-500 transition-colors shadow-sm"
           />
         </div>
       </div>
@@ -365,7 +360,7 @@ export const ResourcesPage: React.FC = () => {
         {filteredResources.map((item) => (
           <div
             key={item.id}
-            className="glass-panel-elevated rounded-3xl p-6 border border-slate-800 hover:border-slate-700 flex flex-col justify-between space-y-5 transition-all hover:scale-[1.01] shadow-xl group"
+            className="app-card rounded-3xl p-6 flex flex-col justify-between space-y-5 transition-all shadow-md group"
           >
             <div className="space-y-4">
               
@@ -374,32 +369,32 @@ export const ResourcesPage: React.FC = () => {
                 <span className={`text-[10px] font-black uppercase px-2.5 py-1 rounded-full border ${item.badgeColor}`}>
                   {item.providerType}
                 </span>
-                {item.category === 'maps' && <Map className="w-4 h-4 text-orange-400 flex-shrink-0" />}
-                {item.category === 'weather' && <Wind className="w-4 h-4 text-blue-400 flex-shrink-0" />}
-                {item.category === 'local' && <ShieldAlert className="w-4 h-4 text-emerald-400 flex-shrink-0" />}
-                {item.category === 'regulations' && <Scale className="w-4 h-4 text-purple-400 flex-shrink-0" />}
+                {item.category === 'maps' && <Map className="w-4 h-4 text-orange-500 flex-shrink-0" />}
+                {item.category === 'weather' && <Wind className="w-4 h-4 text-blue-500 flex-shrink-0" />}
+                {item.category === 'local' && <ShieldAlert className="w-4 h-4 text-emerald-500 flex-shrink-0" />}
+                {item.category === 'regulations' && <Scale className="w-4 h-4 text-purple-500 flex-shrink-0" />}
               </div>
 
               {/* Title & Organization */}
               <div>
-                <h3 className="text-lg sm:text-xl font-black text-white group-hover:text-amber-400 transition-colors">
+                <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-amber-400 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-xs text-slate-400 font-semibold mt-0.5">
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">
                   {item.provider}
                 </p>
               </div>
 
               {/* Description */}
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                 {item.description}
               </p>
 
               {/* Feature Checklist */}
-              <div className="space-y-1.5 pt-2 border-t border-slate-800/80">
+              <div className="space-y-1.5 pt-2 border-t border-slate-200 dark:border-slate-800/80">
                 {item.features.map((feature, fIdx) => (
-                  <div key={fIdx} className="flex items-center gap-2 text-[11px] text-slate-400">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />
+                  <div key={fIdx} className="flex items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 dark:bg-amber-400 flex-shrink-0" />
                     <span>{feature}</span>
                   </div>
                 ))}
@@ -407,15 +402,15 @@ export const ResourcesPage: React.FC = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="space-y-2 pt-3 border-t border-slate-800">
+            <div className="space-y-2 pt-3 border-t border-slate-200 dark:border-slate-800">
               <a
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-h-[44px] w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-red-600 text-white font-bold text-xs uppercase tracking-wider border border-slate-700 hover:border-red-500 transition-all active:scale-95 shadow-md"
+                className="min-h-[44px] w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-red-600 text-slate-900 hover:text-white dark:bg-slate-800 dark:hover:bg-red-600 dark:text-white font-bold text-xs uppercase tracking-wider border border-slate-300 hover:border-red-500 dark:border-slate-700 transition-all active:scale-95 shadow-sm"
               >
                 <span>Launch {item.title.split(' ')[0]} Web</span>
-                <ExternalLink className="w-3.5 h-3.5 text-amber-400" />
+                <ExternalLink className="w-3.5 h-3.5 text-red-600 group-hover:text-white dark:text-amber-400" />
               </a>
 
               {/* Mobile App Links if available */}
@@ -426,9 +421,9 @@ export const ResourcesPage: React.FC = () => {
                       href={item.appLinks.ios}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="min-h-[40px] flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-[11px] font-semibold text-slate-300 hover:text-white border border-slate-800 transition-colors"
+                      className="min-h-[40px] flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800 transition-colors"
                     >
-                      <Smartphone className="w-3 h-3 text-cyan-400" />
+                      <Smartphone className="w-3 h-3 text-cyan-500" />
                       <span>iOS App</span>
                     </a>
                   )}
@@ -437,9 +432,9 @@ export const ResourcesPage: React.FC = () => {
                       href={item.appLinks.android}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="min-h-[40px] flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-[11px] font-semibold text-slate-300 hover:text-white border border-slate-800 transition-colors"
+                      className="min-h-[40px] flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800 transition-colors"
                     >
-                      <Smartphone className="w-3 h-3 text-emerald-400" />
+                      <Smartphone className="w-3 h-3 text-emerald-500" />
                       <span>Android App</span>
                     </a>
                   )}
@@ -452,8 +447,8 @@ export const ResourcesPage: React.FC = () => {
       </div>
 
       {filteredResources.length === 0 && (
-        <div className="text-center py-12 glass-panel rounded-2xl border border-slate-800">
-          <p className="text-slate-400 text-sm">No resources found matching your search term.</p>
+        <div className="text-center py-12 app-card rounded-2xl">
+          <p className="text-slate-500 dark:text-slate-400 text-sm">No resources found matching your search term.</p>
           <button
             onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}
             className="mt-3 px-4 py-2 rounded-xl bg-red-600 text-white text-xs font-bold"
@@ -464,9 +459,9 @@ export const ResourcesPage: React.FC = () => {
       )}
 
       {/* Local River Corridor Info Footer Strip */}
-      <div className="glass-panel p-5 rounded-2xl border border-slate-800 text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <div className="app-card p-5 rounded-2xl text-xs text-slate-600 dark:text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
         <div className="flex items-center gap-2">
-          <Waves className="w-4 h-4 text-blue-400 flex-shrink-0" />
+          <Waves className="w-4 h-4 text-blue-500 flex-shrink-0" />
           <span>Orondo Columbia River Corridor • Washington State Public Safety Network</span>
         </div>
         <span>Douglas County Fire District No. 4</span>

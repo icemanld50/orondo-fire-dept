@@ -18,7 +18,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
   };
 
   return (
-    <footer className="w-full bg-slate-950 border-t border-slate-800/90 text-slate-400 text-xs pt-12 pb-8">
+    <footer className="w-full app-surface app-border border-t app-text-secondary text-xs pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Main 4-Column Footer Grid */}
@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
           {/* Col 1: Brand & Identity (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-slate-900 border-2 border-red-600/70 p-0.5 flex items-center justify-center overflow-hidden">
+              <div className="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-900 border-2 border-red-600/70 p-0.5 flex items-center justify-center overflow-hidden">
                 <img
                   src="/assets/logo.png"
                   alt="Orondo Fire Department Rattlesnake Patch"
@@ -35,35 +35,35 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
                 />
               </div>
               <div>
-                <h3 className="text-lg font-black text-white uppercase tracking-tight">
+                <h3 className="text-lg font-black text-slate-900 dark:text-white uppercase tracking-tight">
                   Douglas County Fire Dist. 4
                 </h3>
-                <p className="text-[11px] text-amber-400 font-bold uppercase tracking-wider">
+                <p className="text-[11px] text-red-700 dark:text-amber-400 font-bold uppercase tracking-wider">
                   Orondo Fire Department • Est. 1946
                 </p>
               </div>
             </div>
 
-            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-sm">
+            <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed max-w-sm">
               Providing all-hazard fire suppression, wildland protection, emergency medical care, and public safety education to Orondo and the East Columbia River corridor for 80 years.
             </p>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-[11px] font-semibold text-slate-300">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <div className="flex items-center gap-2 text-[11px] font-semibold text-slate-600 dark:text-slate-300">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0" />
               <span>100% Volunteer Dedicated • Dispatched 24/7/365</span>
             </div>
           </div>
 
           {/* Col 2: Navigation Links (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-black uppercase text-white tracking-wider">
+            <h4 className="text-xs font-black uppercase text-slate-900 dark:text-white tracking-wider">
               Navigation
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <button 
                   onClick={() => onNavigate('home')} 
-                  className="hover:text-red-400 transition-colors"
+                  className="text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
                 >
                   Home Overview
                 </button>
@@ -71,7 +71,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
               <li>
                 <button 
                   onClick={() => onNavigate('calendar')} 
-                  className="hover:text-red-400 transition-colors"
+                  className="text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
                 >
                   Full Year Calendar
                 </button>
@@ -79,7 +79,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
               <li>
                 <button 
                   onClick={() => onNavigate('burn-permits')} 
-                  className="hover:text-red-400 transition-colors"
+                  className="text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
                 >
                   Burn Regulations
                 </button>
@@ -87,7 +87,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
               <li>
                 <button 
                   onClick={() => onNavigate('volunteer')} 
-                  className="hover:text-red-400 transition-colors"
+                  className="text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
                 >
                   Volunteer Opportunities
                 </button>
@@ -95,7 +95,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
               <li>
                 <button 
                   onClick={() => onNavigate('stations')} 
-                  className="hover:text-red-400 transition-colors"
+                  className="text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
                 >
                   Stations & Fleet
                 </button>
@@ -103,7 +103,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
               <li>
                 <button 
                   onClick={() => onNavigate('about')} 
-                  className="hover:text-red-400 transition-colors"
+                  className="text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
                 >
                   About & Leadership
                 </button>
@@ -111,7 +111,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
               <li>
                 <button 
                   onClick={() => onNavigate('contact')} 
-                  className="hover:text-red-400 transition-colors"
+                  className="text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
                 >
                   Contact Us
                 </button>
@@ -121,14 +121,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
 
           {/* Col 3: Key Regulations & Meeting (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-black uppercase text-white tracking-wider">
+            <h4 className="text-xs font-black uppercase text-slate-900 dark:text-white tracking-wider">
               Quick Resources
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <button
                   onClick={() => onNavigate('burn-permits')}
-                  className="flex items-center gap-1.5 hover:text-amber-400 transition-colors"
+                  className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                 >
                   <Flame className="w-3.5 h-3.5 text-amber-500" />
                   <span>{isBurnBanActive ? 'Burn Ban Rules' : 'Open Burn Form'}</span>
@@ -137,18 +137,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
               <li>
                 <button
                   onClick={() => onNavigate('calendar')}
-                  className="flex items-center gap-1.5 hover:text-purple-400 transition-colors"
+                  className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
                 >
-                  <Calendar className="w-3.5 h-3.5 text-purple-400" />
+                  <Calendar className="w-3.5 h-3.5 text-purple-500" />
                   <span>Commissioner Dates</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => onNavigate('volunteer')}
-                  className="flex items-center gap-1.5 hover:text-blue-400 transition-colors"
+                  className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
-                  <Heart className="w-3.5 h-3.5 text-pink-400" />
+                  <Heart className="w-3.5 h-3.5 text-pink-500" />
                   <span>Resident Firefighter</span>
                 </button>
               </li>
@@ -157,16 +157,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
                   href="https://www.paypal.com/donate?token=_0oLbUMVORj9lEdQGnlH3L_VMTZTAk-OsQN6wcJAb_9i-HsHqkwRQUIl-kZfZ3ggL2E6ubc1Lbs8cvTG"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-blue-400 hover:text-blue-300 transition-colors font-bold"
+                  className="flex items-center gap-1.5 text-red-600 dark:text-blue-400 hover:underline font-bold"
                 >
-                  <Heart className="w-3.5 h-3.5 text-pink-400 fill-pink-400" />
+                  <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" />
                   <span>Donate via PayPal (501c3)</span>
                 </a>
               </li>
               <li>
                 <a
                   href="tel:18004065322"
-                  className="hover:text-white transition-colors"
+                  className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
                 >
                   Ecology Burn Hotline: (800) 406-5322
                 </a>
@@ -176,20 +176,20 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
 
           {/* Col 4: Station & Dispatch Directory (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-black uppercase text-white tracking-wider">
+            <h4 className="text-xs font-black uppercase text-slate-900 dark:text-white tracking-wider">
               Station & Dispatch
             </h4>
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
-                <span className="text-slate-400 font-bold block">RiverCom 24/7 Dispatch:</span>
-                <a href="tel:5096639911" className="text-base font-black text-amber-400 hover:underline">
+              <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1">
+                <span className="text-slate-600 dark:text-slate-400 font-bold block">RiverCom 24/7 Dispatch:</span>
+                <a href="tel:5096639911" className="text-base font-black text-red-700 dark:text-amber-400 hover:underline">
                   (509) 663-9911
                 </a>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
-                <span className="text-slate-400 font-bold block">Station 241 Administration:</span>
-                <a href="tel:5097842941" className="text-white font-bold hover:text-amber-400">
+              <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1">
+                <span className="text-slate-600 dark:text-slate-400 font-bold block">Station 241 Administration:</span>
+                <a href="tel:5097842941" className="text-slate-900 dark:text-white font-bold hover:text-red-600 dark:hover:text-amber-400">
                   (509) 784-2941
                 </a>
                 <span className="text-slate-500 block text-[11px]">PO Box 258, Orondo, WA 98843</span>
@@ -197,25 +197,24 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
             </div>
           </div>
 
-
         </div>
 
         {/* SEO Tagline Row */}
-        <div className="pt-6 border-t border-slate-800 text-[11px] text-slate-300 leading-relaxed">
+        <div className="pt-6 border-t border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
           <p>
             Official digital portal for Douglas County Fire District No. 4 (Orondo Fire Department / DCFD4 / Orondo Fire Station). Protecting Orondo, WA, Brays Landing, Lone Pine, Turtle Rock, and Beebe Bridge with fire protection, emergency medical services (EMS), open burning permits, and volunteer recruitment.
           </p>
         </div>
 
         {/* Bottom Copyright & Back to Top */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-800/60 text-slate-300 text-[11px]">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200 dark:border-slate-800/60 text-slate-500 dark:text-slate-400 text-[11px]">
           <div>
             © 2026 Douglas County Fire Dist. No. 4 — All Rights Reserved.
           </div>
 
           <button
             onClick={scrollToTop}
-            className="min-h-[44px] inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 transition-colors"
+            className="min-h-[44px] inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-800 transition-colors"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5" />
