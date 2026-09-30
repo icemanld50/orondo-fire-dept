@@ -184,8 +184,10 @@ describe('DCFD4 Verified External Links and Regulatory Sources', () => {
 
   it('ensures official PayPal donation link is provided for donation queries', async () => {
     const { getLocalFallbackAnswer } = await import('../services/aiGateway');
+    const { PAYPAL_DONATION_URL } = await import('../data/donationConfig');
+    expect(PAYPAL_DONATION_URL).toBe('https://www.paypal.com/donate?token=LQfu7bDATzaKBFVpCduqQ-R2Tr5fS-0Zug10MliAC4oz1oYzNxi2eNgAZ2tco_OvyZ0c_1cVhfmrZ2qS');
     const donateAns = getLocalFallbackAnswer('How do I donate online to Orondo Fire?');
-    expect(donateAns).toContain('https://www.paypal.com/donate?token=_0oLbUMVORj9lEdQGnlH3L_VMTZTAk-OsQN6wcJAb_9i-HsHqkwRQUIl-kZfZ3ggL2E6ubc1Lbs8cvTG');
+    expect(donateAns).toContain(PAYPAL_DONATION_URL);
     expect(donateAns).toContain('Orondo Firefighters Volunteer Association (501(c)(3))');
   });
 });

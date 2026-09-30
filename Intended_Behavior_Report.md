@@ -24,7 +24,8 @@ This project delivers a state-of-the-art, mobile-first web portal for **Douglas 
   - Every card features a bold, high-contrast title and full-width 44px+ tap target action buttons.
 * **Online 501(c)(3) PayPal Donation Integration:**
   - Verified official PayPal donation checkout URL for "Douglas County Fire District 4":
-    `https://www.paypal.com/donate?token=_0oLbUMVORj9lEdQGnlH3L_VMTZTAk-OsQN6wcJAb_9i-HsHqkwRQUIl-kZfZ3ggL2E6ubc1Lbs8cvTG`
+    `https://www.paypal.com/donate?token=LQfu7bDATzaKBFVpCduqQ-R2Tr5fS-0Zug10MliAC4oz1oYzNxi2eNgAZ2tco_OvyZ0c_1cVhfmrZ2qS`
+  - Centralized single source of truth in `src/data/donationConfig.ts` (`PAYPAL_DONATION_URL`).
   - Integrated across 4 key touchpoints:
     1. **Home Overview Roadmap (Card #3):** High-contrast "Donate Online via PayPal" button and secondary "Mail Check / Tax Info" button.
     2. **Contact & Donate Page (`/contact`):** Dedicated 501(c)(3) Volunteer Association card featuring gradient PayPal button, multi-card/recurring support notice, and physical check mailing instructions (PO Box 258, Orondo, WA 98843).

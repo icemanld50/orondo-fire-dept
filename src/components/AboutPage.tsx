@@ -11,8 +11,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { LEADERSHIP_DATA } from '../data/leadershipData';
-
-const PAYPAL_DONATION_URL = 'https://www.paypal.com/donate?token=_0oLbUMVORj9lEdQGnlH3L_VMTZTAk-OsQN6wcJAb_9i-HsHqkwRQUIl-kZfZ3ggL2E6ubc1Lbs8cvTG';
+import { PAYPAL_DONATION_URL } from '../data/donationConfig';
 
 export const AboutPage: React.FC = () => {
   const chiefOfficers = LEADERSHIP_DATA.filter(l => l.titleGroup === 'Chief' || l.titleGroup === 'Captain' || l.titleGroup === 'Lieutenant');

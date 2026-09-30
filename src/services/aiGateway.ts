@@ -9,6 +9,8 @@ const DIRECT_NVIDIA_URL = 'https://integrate.api.nvidia.com/v1/chat/completions'
 // Default public key for community Q&A proxy
 const DEFAULT_KEY = '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';
 
+import { PAYPAL_DONATION_URL } from '../data/donationConfig';
+
 const DCFD4_SYSTEM_PROMPT = `
 You are the official Douglas County Fire District 4 (DCFD4 / Orondo Fire Department) Community Safety Assistant and Interactive Site Navigator.
 Your primary role is helping citizens, residents, and visitors navigate the fire district's website, understand outdoor burning rules, check burn ban status, discover volunteer firefighter & EMT opportunities, find station locations, and access official wildfire maps and emergency resources.
@@ -47,7 +49,7 @@ CRITICAL RULES & PROTOCOLS:
 3. OPEN BURNING: Permitted OCTOBER 1 through MAY 31. Piles must not exceed 4x4x4 feet of natural yard vegetation. Prior notice to DCFD4 is required via [Burn Rules & Notice Form](/burn-permits) or phone (509) 784-2941. Must be attended by an adult with water on site and extinguished by dusk.
 4. COMMISSIONER MEETINGS: Held on the 3rd Wednesday of every month at 5:30 PM at Station 241. Open to the public. See [District Calendar & Key](/calendar).
 5. VOLUNTEERING: 100% volunteer department! Openings for Combat Firefighters, Wildland Operators, EMTs, and Resident Firefighters (housing provided at Station 241). Free training and equipment. Direct users to [Volunteer With DCFD4](/volunteer).
-6. DONATIONS: The Orondo Firefighters Volunteer Association is an IRS recognized 501(c)(3) tax-exempt organization. Donations help purchase specialized gear. Direct users to [Donate Online via PayPal](https://www.paypal.com/donate?token=_0oLbUMVORj9lEdQGnlH3L_VMTZTAk-OsQN6wcJAb_9i-HsHqkwRQUIl-kZfZ3ggL2E6ubc1Lbs8cvTG) or view our [Donate & Contact Us](/contact) page.
+6. DONATIONS: The Orondo Firefighters Volunteer Association is an IRS recognized 501(c)(3) tax-exempt organization. Donations help purchase specialized gear. Direct users to [Donate Online via PayPal](${PAYPAL_DONATION_URL}) or view our [Donate & Contact Us](/contact) page.
 
 STRICT SCOPE BOUNDARY:
 - ONLY answer questions concerning DCFD4 fire district operations, burning rules, fire/EMS safety, and website navigation.
@@ -105,7 +107,7 @@ export function getLocalFallbackAnswer(question: string): string {
   }
 
   if (q.includes('donate') || q.includes('association') || q.includes('501') || q.includes('tax') || q.includes('paypal')) {
-    return '❤️ Support our volunteers! You can make a direct, tax-deductible contribution to the **Orondo Firefighters Volunteer Association (501(c)(3))** online: [Donate Online via PayPal](https://www.paypal.com/donate?token=_0oLbUMVORj9lEdQGnlH3L_VMTZTAk-OsQN6wcJAb_9i-HsHqkwRQUIl-kZfZ3ggL2E6ubc1Lbs8cvTG). Checks can also be mailed to PO Box 258, Orondo, WA 98843. 100% of contributions stay local to fund PPE and life-saving rescue gear. Learn more on our [Donate & Contact Us](/contact) page.';
+    return `❤️ Support our volunteers! You can make a direct, tax-deductible contribution to the **Orondo Firefighters Volunteer Association (501(c)(3))** online: [Donate Online via PayPal](${PAYPAL_DONATION_URL}). Checks can also be mailed to PO Box 258, Orondo, WA 98843. 100% of contributions stay local to fund PPE and life-saving rescue gear. Learn more on our [Donate & Contact Us](/contact) page.`;
   }
 
   if (q.includes('phone') || q.includes('contact') || q.includes('email') || q.includes('mail')) {

@@ -31,6 +31,11 @@ graph TD
     Contact --> FormSvc
     FormSvc -->|Fetch /api/submit-form| EdgeRouter
 
+    Home --> DonateConfig[src/data/donationConfig.ts]
+    Contact --> DonateConfig
+    About --> DonateConfig
+    Foot --> DonateConfig
+
     Cal --> CalData[src/data/calendarEvents.ts]
     Station --> StnData[src/data/stationsData.ts]
     About --> LeadData[src/data/leadershipData.ts]
@@ -52,6 +57,7 @@ graph TD
 | `src/worker.ts` | Cloudflare Worker edge handler. Serves static SPA assets from `./dist` with SPA fallback for direct deep route URLs, handles `POST /api/submit-form`, traps spambots via honeypot, generates receipt IDs, and dispatches email/webhook alerts. |
 | `src/services/formService.ts` | Client-side form helper transmitting burn notices, volunteer applications, and contact inquiries to `/api/submit-form` with offline fallback receipt generation. |
 | `src/data/galleryData.ts` | Complete metadata catalog for all 19 authentic historical and operational photographs scraped from `dcfd4.com`. |
+| `src/data/donationConfig.ts` | Centralized single-source of truth configuration for the Orondo Firefighters Volunteer Association (501(c)(3)) online PayPal donation checkout token and entity metadata. |
 | `src/components/ResourcesPage.tsx` | Wildfire Maps, Public Resources & Legal Regulations directory connecting residents to 18 verified live sources: Watch Duty, WA DNR dashboard, InciWeb, NASA FIRMS, AirNow smoke map, RiverCom 911 dispatch, Douglas County Emergency Management, Everbridge alert signups, Douglas County Code Chapter 8.12, WAC 173-425, and WA Ecology burn portals. |
 | `src/components/GalleryPage.tsx` | Interactive movable pure-image flex gallery with zero words/badges on cards, HTML5 drag-and-drop reordering, 3D mouse perspective tilt, kinetic drag-to-slide ribbon stream mode, and zero-word theater lightbox. |
 | `src/components/FireGamePage.tsx` | Bloons TD 5 / BTD 6 style Wildland Firefighting Tower Defense game engine featuring a 2,090px serpentine cobblestone track across orchards and the Columbia River to Station 241, 8 fire balloon tiers with popping and splitting mechanics, placement vs wave stages, right-hand sidebar with apparatus store and tower upgrade depot (dual 3-tier upgrade paths, targeting priority AI, 70% sell refund), air tanker Phos-Chek retardant strikes, RiverCom 2X pump overdrive, frame-batching state engine, and background tab visibility fallback timer. |

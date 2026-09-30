@@ -73,8 +73,9 @@ sequenceDiagram
   - Removed decorative pills, badges, and repetitive micro-cards. Icons are functional anchors for eye-scanning.
   - Every card includes a bold title, concise description, contained contextual facts, and full-width 44px+ tap target buttons.
 * **PayPal 501(c)(3) Online Donation Pipeline:**
-  - Integrated official checkout token (`_0oLbUMVORj9lEdQGnlH3L_VMTZTAk-OsQN6wcJAb_9i-HsHqkwRQUIl-kZfZ3ggL2E6ubc1Lbs8cvTG`) verified via BrowserOS Neo for "Douglas County Fire District 4".
-  - Implemented across Home Overview (Card #3), Contact & Donate page (`/contact`), Global Footer, and AI assistant knowledge base.
+  - Integrated official checkout token (`LQfu7bDATzaKBFVpCduqQ-R2Tr5fS-0Zug10MliAC4oz1oYzNxi2eNgAZ2tco_OvyZ0c_1cVhfmrZ2qS`) verified for "Douglas County Fire District 4".
+  - Centrally managed via `src/data/donationConfig.ts` (`PAYPAL_DONATION_URL`).
+  - Implemented across Home Overview (Card #3), Contact & Donate page (`/contact`), About page (`/about`), Global Footer, and AI assistant knowledge base.
 
 #### 2.3 Full-Bleed 16:9 Station Cards & Strategic Fleet Assets (`src/components/StationsPage.tsx`)
 * **Full-Bleed 16:9 Edge-to-Edge Architecture (Zero Letterboxing):**

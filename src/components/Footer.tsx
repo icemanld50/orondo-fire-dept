@@ -7,6 +7,7 @@ import {
   Code2,
   Mail
 } from 'lucide-react';
+import { PAYPAL_DONATION_URL } from '../data/donationConfig';
 
 export const DEVELOPER_ATTRIBUTION = {
   designer: 'Isaac King',
@@ -164,7 +165,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
               </li>
               <li>
                 <a
-                  href="https://www.paypal.com/donate?token=_0oLbUMVORj9lEdQGnlH3L_VMTZTAk-OsQN6wcJAb_9i-HsHqkwRQUIl-kZfZ3ggL2E6ubc1Lbs8cvTG"
+                  href={PAYPAL_DONATION_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-red-400 hover:underline font-bold"

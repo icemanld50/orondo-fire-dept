@@ -13,6 +13,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { submitDistrictForm } from '../services/formService';
+import { PAYPAL_DONATION_URL } from '../data/donationConfig';
 
 export const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -98,7 +99,7 @@ export const ContactPage: React.FC = () => {
 
               <div className="pt-1 space-y-2">
                 <a
-                  href="https://www.paypal.com/donate?token=_0oLbUMVORj9lEdQGnlH3L_VMTZTAk-OsQN6wcJAb_9i-HsHqkwRQUIl-kZfZ3ggL2E6ubc1Lbs8cvTG"
+                  href={PAYPAL_DONATION_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="min-h-[44px] w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-black text-xs uppercase tracking-wide bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 shadow-md transition-all active:scale-95"
