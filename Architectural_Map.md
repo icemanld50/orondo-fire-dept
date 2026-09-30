@@ -76,9 +76,14 @@ sequenceDiagram
   - Integrated official checkout token (`_0oLbUMVORj9lEdQGnlH3L_VMTZTAk-OsQN6wcJAb_9i-HsHqkwRQUIl-kZfZ3ggL2E6ubc1Lbs8cvTG`) verified via BrowserOS Neo for "Douglas County Fire District 4".
   - Implemented across Home Overview (Card #3), Contact & Donate page (`/contact`), Global Footer, and AI assistant knowledge base.
 
-#### 2.3 Station 244 (23420 US-97) Authentic Photo & Strategic Fleet Assets (`src/components/StationsPage.tsx`)
-* **Authentic Station 244 Documentation:**
-  - Station 244 (23420 US Highway 97, Orondo, WA): Updated with authentic user-provided photograph capturing the 3 red apparatus bays positioned against the hillside on US-97.
+#### 2.3 Full-Bleed 16:9 Station Cards & Strategic Fleet Assets (`src/components/StationsPage.tsx`)
+* **Full-Bleed 16:9 Edge-to-Edge Architecture (Zero Letterboxing):**
+  - Re-engineered station cards so photos bleed edge-to-edge across the top of each card (`aspect-[16/9] w-full object-cover`), eliminating black letterbox bars and nested borders.
+  - Featured Showcase: Displays 4K Station 241 Headquarters and apparatus photograph (`/assets/station41.jpg`).
+  - Station 241 Card: 4K Station 241 Headquarters and frontline emergency fleet.
+  - Station 242 Card: Restored and upscaled borderless 16:9 photograph of the 4-bay central corridor station on US-97.
+  - Station 243 Card: High-resolution Google Maps satellite aerial imagery of 20 Greens Canyon Rd with Columbia River & station marker.
+  - Station 244 Card: Restored and upscaled borderless 16:9 photograph of the 3-bay facility on US-97 near Beebe Bridge.
   - Full district readiness documented across Stations 241, 242, 243, and 244 with direct Google Maps navigation links.
 
 #### 2.4 Prominently Featured Station 241 Header & Official Crest (`src/components/Hero.tsx`)

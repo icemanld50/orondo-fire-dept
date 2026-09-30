@@ -58,8 +58,13 @@ Deploys the static assets and edge form router directly to Cloudflare Workers at
      - 06. **Contact:** Station 241 office, RiverCom dispatch, and online message dispatch.
    - Removed decorative pill clutter and nested micro-badges; each card features clear bold titles, contained data, and full 44px+ tap target buttons.
 
-3. **Authentic Station 244 (23420 US-97) Photo & Fleet Directory (StationsPage.tsx):**
-   - Updated Station 244 (Beebe Bridge / Columbia River Station) with the authentic photograph showing the red 3-bay station positioned against the hillside on US-97.
+3. **Full-Bleed 16:9 Station Cards & Strategic Fleet Directory (StationsPage.tsx):**
+   - Re-engineered station cards so photos bleed edge-to-edge across the top of each card (`aspect-[16/9] w-full object-cover`), eliminating black letterboxing and nested container frames.
+   - Featured Showcase: Displays 4K Station 241 Headquarters and apparatus photograph (`/assets/station41.jpg`).
+   - Station 241 Card: Razor-sharp 4K Station 241 Headquarters and frontline emergency fleet.
+   - Station 242 Card: Restored and upscaled borderless 16:9 photograph of the 4-bay central corridor station on US-97.
+   - Station 243 Card: High-resolution Google Maps satellite aerial imagery of 20 Greens Canyon Rd with Columbia River & station marker.
+   - Station 244 Card: Restored and upscaled borderless 16:9 photograph of the 3-bay facility on US-97 near Beebe Bridge.
    - Comprehensive fleet specifications and Google Maps navigation links for all 4 DCFD4 stations.
 
 4. **Prominently Featured Station 241 Header & Official Department Crest (Hero.tsx):**

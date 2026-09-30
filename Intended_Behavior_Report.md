@@ -40,10 +40,15 @@ This project delivers a state-of-the-art, mobile-first web portal for **Douglas 
 * **Authoritative Dark Emergency Aesthetic:**
   - Clean `#0b0f19` deep-slate dark palette with glass panels, high-contrast typography, and amber/red emergency accents. Multi-theme switcher removed to preserve visual gravity and avoid clutter.
 
-#### 2.3 Station 244 (23420 US-97) Authentic Photo & Fleet Map
-* **Station 244 (Beebe Bridge / Columbia River Gateway - 23420 US Highway 97):**
-  - Updated with the authentic user-provided photograph showing the 3 red apparatus bays positioned against the hillside on US-97.
-  - Station cards for all 4 facilities provide verified apparatus rosters, physical addresses, and direct Google Maps navigation links.
+#### 2.3 Full-Bleed 16:9 Station Cards & Verified Facility Directory (`/stations`)
+* **Full-Bleed Edge-to-Edge Card Architecture (Zero Black Bars):**
+  - Eliminated letterboxing and nested container frames across all station cards.
+  - Every card features a full-width 16:9 header image with smooth hover scaling, a floating glass Station ID pill, and contained information below:
+    1. **Station 241 Headquarters (13984 US Highway 2):** Showcases the razor-sharp 4K photograph of the headquarters building, 4 apparatus bays, and frontline fleet (Command, Engine, Brush, Tender) across both the top hero showcase and the Station 241 card.
+    2. **Station 242 (22170 US Highway 97):** Restored and upscaled 16:9 photograph of the 4-bay central corridor station with "DCFD 4" lettering under bright Washington skies with zero black margins.
+    3. **Station 243 (20 Greens Canyon Rd):** Integrated high-resolution Google Maps satellite aerial imagery capturing the Columbia River, Highway 97, Greens Canyon Rd, and the station parcel marker.
+    4. **Station 244 (23420 US Highway 97):** Restored and upscaled 16:9 photograph of the 3-bay facility against the coulee hillside near Beebe Bridge.
+  - Complete facility highlights, apparatus assignments, and direct 44px+ Google Maps navigation buttons on every station card.
 
 #### 2.4 Hero Header, Authoritative Emblem & Prominent Station 241 Photography
 * **Prominent Station 241 Headquarters & Apparatus Photography:**
