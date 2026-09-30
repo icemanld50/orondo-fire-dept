@@ -179,6 +179,17 @@ This project delivers a state-of-the-art, mobile-first web portal for **Douglas 
   - **3. Authentic Wildland Crew Photo + Leadership & Commissioners:** Displays the authentic high-resolution photograph of the DCFD4 wildland crew in yellow Nomex jackets and helmets standing with Pulaskis and shovels (`/assets/gallery/leadership_station_2019.jpg`) using an uncropped responsive `aspect-[16/10] sm:aspect-[16/9]` frame with `object-[center_35%]`, immediately followed by Command Officers and the Board of Fire Commissioners cards.
   - **4. District Operational Jurisdiction & Heritage Archive:** Coverage map, 100+ sq mile territory details, Title 52 RCW fast facts, and the 40+ year heritage archive (1984 Engine 2441, 1985 Crew, 1990 Extrication).
 
+#### 2.13 Developer Attribution & Professional Inquiries Link Architecture (`Footer.tsx`)
+* **Clear Distinction Between Municipal Ownership & Engineering Attribution:**
+  - Preserves official Douglas County Fire District No. 4 copyright (`© 2026 Douglas County Fire Dist. No. 4 — All Rights Reserved.`) as the primary legal entity.
+  - Features an elegant developer attribution line:
+    `Website Custom Designed & Built by Isaac King — 2026`
+  - Includes a direct, clickable inquiries badge:
+    `Email for Inquiries: isaac.king5050@gmail.com`
+  - Pre-configures subject line (`mailto:isaac.king5050@gmail.com?subject=Website%20Design%20%26%20Development%20Inquiry`).
+  - Strict minimum 44px tap target (`min-h-[44px]`) to guarantee effortless mobile touch interaction.
+  - Exported as a strongly typed `DEVELOPER_ATTRIBUTION` object with verified unit tests.
+
 ---
 
 ### 3. Undesired Behaviors to Explicitly Avoid

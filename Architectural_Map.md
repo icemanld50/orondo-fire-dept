@@ -187,4 +187,13 @@ sequenceDiagram
     3. *Frontline Wildland Crew Photo & Leadership Team:* Authentic 2525 x 1841 photo (`/assets/gallery/leadership_station_2019.jpg`) displayed in an uncropped `aspect-[16/10] sm:aspect-[16/9]` container with `object-[center_35%]`, leading directly into Command Officers and Board of Fire Commissioners cards with RCW Title 52 legal references.
     4. *Operational Boundary & 40-Year Heritage Archive:* Embedded district coverage map and historic photo archive from 1984 through 1990.
 
+#### 2.13 Developer Attribution & Professional Inquiries Architecture (`src/components/Footer.tsx`)
+* **Structured Attribution Ledger:**
+  - Segregates the official district copyright notice (`© 2026 Douglas County Fire Dist. No. 4 — All Rights Reserved.`) from web developer branding.
+  - Implements the developer credit: `Website Custom Designed & Built by Isaac King — 2026`.
+  - Pairs with a dedicated inquiries action item: `Email for Inquiries: isaac.king5050@gmail.com` using a `mailto:` scheme pre-configured with a clean subject line.
+  - Formatted with a responsive flex layout maintaining strict `min-h-[44px]` touch targets on mobile devices.
+  - Exported through `DEVELOPER_ATTRIBUTION` constant and verified through automated Vitest regression suites.
+
+
 

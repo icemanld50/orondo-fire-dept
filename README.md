@@ -147,3 +147,9 @@ Deploys the static assets and edge form router directly to Cloudflare Workers at
       3. **Authentic Wildland Crew Photo + Leadership & Commissioners:** Uncropped high-resolution photo (`/assets/gallery/leadership_station_2019.jpg`) of firefighters in yellow Nomex gear with hand tools, followed directly by Command Officers and the Board of Fire Commissioners cards.
       4. **District Operational Jurisdiction & Heritage Archive:** Coverage territory, boundary map, Title 52 RCW facts, and the 40+ year heritage archive (1984 Engine 2441, 1985 Crew, 1990 Extrication).
 
+15. **Developer Attribution & Professional Inquiries Link (`Footer.tsx`):**
+    - Displays official Douglas County Fire District No. 4 legal copyright alongside developer engineering credit:
+      `Website Custom Designed & Built by Isaac King — 2026`
+    - Seamless interactive email inquiry badge (`mailto:isaac.king5050@gmail.com`) with pre-configured subject lines and minimum 44px mobile touch targets.
+
+

@@ -3,8 +3,19 @@ import {
   Flame, 
   Calendar, 
   Heart, 
-  ArrowUp
+  ArrowUp,
+  Code2,
+  Mail
 } from 'lucide-react';
+
+export const DEVELOPER_ATTRIBUTION = {
+  designer: 'Isaac King',
+  year: 2026,
+  role: 'Website Custom Designed & Built',
+  inquiryEmail: 'isaac.king5050@gmail.com',
+  inquiryMailto: 'mailto:isaac.king5050@gmail.com?subject=Website%20Design%20%26%20Development%20Inquiry',
+  copyright: '© 2026 Douglas County Fire Dist. No. 4 — All Rights Reserved.',
+};
 
 interface FooterProps {
   onNavigate: (tab: string) => void;
@@ -205,19 +216,38 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isBurnBanActive }) =
           </p>
         </div>
 
-        {/* Bottom Copyright & Back to Top */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-800/60 text-slate-500 text-[11px]">
-          <div>
-            © 2026 Douglas County Fire Dist. No. 4 — All Rights Reserved.
-          </div>
+        {/* Bottom Copyright, Developer Credit & Back to Top */}
+        <div className="pt-4 border-t border-slate-800/60 space-y-3">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
+            <div className="space-y-1.5 text-center md:text-left">
+              <div>
+                © 2026 Douglas County Fire Dist. No. 4 — All Rights Reserved.
+              </div>
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-2 gap-y-1 text-slate-400">
+                <span className="inline-flex items-center gap-1.5">
+                  <Code2 className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Website Custom Designed &amp; Built by <strong className="text-slate-200 font-bold">Isaac King</strong> — 2026</span>
+                </span>
+                <span className="hidden sm:inline text-slate-600">•</span>
+                <a
+                  href="mailto:isaac.king5050@gmail.com?subject=Website%20Design%20%26%20Development%20Inquiry"
+                  className="min-h-[44px] inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-amber-400 hover:text-amber-300 hover:bg-slate-900 border border-transparent hover:border-slate-800 transition-colors"
+                >
+                  <Mail className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Email for Inquiries: <span className="underline font-medium">isaac.king5050@gmail.com</span></span>
+                </a>
+              </div>
+            </div>
 
-          <button
-            onClick={scrollToTop}
-            className="min-h-[44px] inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-colors"
-          >
-            <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5" />
-          </button>
+            <button
+              onClick={scrollToTop}
+              className="min-h-[44px] inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-colors flex-shrink-0"
+              aria-label="Scroll back to top of page"
+            >
+              <span>Back to top</span>
+              <ArrowUp className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
 
       </div>

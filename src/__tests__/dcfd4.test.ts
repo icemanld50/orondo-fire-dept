@@ -408,6 +408,19 @@ describe('DCFD4 Bloons TD 5 Style Firefighting Tower Defense Engine', () => {
   });
 });
 
+describe('DCFD4 Footer Attribution & Developer Contact Verification', () => {
+  it('validates designer attribution and inquiry email standards', async () => {
+    const { DEVELOPER_ATTRIBUTION } = await import('../components/Footer');
 
+    // Verifies designer name, year, and custom built notice
+    expect(DEVELOPER_ATTRIBUTION.designer).toBe('Isaac King');
+    expect(DEVELOPER_ATTRIBUTION.year).toBe(2026);
+    expect(DEVELOPER_ATTRIBUTION.role).toBe('Website Custom Designed & Built');
 
-
+    // Verifies email address and mailto protocol
+    expect(DEVELOPER_ATTRIBUTION.inquiryEmail).toBe('isaac.king5050@gmail.com');
+    expect(DEVELOPER_ATTRIBUTION.inquiryMailto).toContain('mailto:isaac.king5050@gmail.com');
+    expect(DEVELOPER_ATTRIBUTION.inquiryMailto).toContain('subject=Website%20Design%20%26%20Development%20Inquiry');
+    expect(DEVELOPER_ATTRIBUTION.copyright).toContain('All Rights Reserved');
+  });
+});
