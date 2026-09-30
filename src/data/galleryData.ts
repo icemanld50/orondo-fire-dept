@@ -58,14 +58,14 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: 'structure-attack-2014',
-    title: 'Structural Protection Operations',
+    title: 'Independence Day Community Parade & Apparatus',
     src: '/assets/gallery/structure_attack_2014.jpg',
-    category: 'action',
-    categoryLabel: 'Frontline Action',
+    category: 'community',
+    categoryLabel: 'Training & Community',
     year: '2014',
-    location: 'Douglas County Fire District 4',
-    description: 'Firefighters operating deck guns and 2.5-inch attack handlines to protect structures and exposures from advancing wildfire fronts.',
-    badge: 'Structural Defense'
+    location: 'Orondo Community Parade',
+    description: 'DCFD4 volunteer firefighters and youth cadet walking with the American flag and patriotic bunting ahead of the district frontline engine and brush truck during the Orondo community parade.',
+    badge: 'Community Parade'
   },
   {
     id: 'apparatus-drill-2019',
