@@ -21,11 +21,11 @@ npm run dev
 ```
 Starts the high-speed Vite development server at `http://localhost:5173`.
 
-### 3. Run Automated Unit Tests (27 Verifiable Tests)
+### 3. Run Automated Unit Tests (26 Verifiable Tests)
 ```bash
 npx vitest run
 ```
-Executes all 27 unit tests verifying calendar recurrence logic, past month slicing and filtering, burn ban boundaries, seasonal automated transitions (Oct 1 lifting & June 1 ban initiation), countdown math, station fleet data, authentic gallery integrity, verified live regulatory URLs, USGS & NWS weather URLs, PayPal 501(c)(3) donation checkout integration, AI domain guardrails with clickable navigation links, form submission edge routing, and Wildland Strategy Tower Defense game physics (downward advancing fire head velocity, dozer mineral soil collision blocks, WUI structure protection sprinkler moisture domes with 82% damage mitigation, Phos-Chek aerial retardant line barriers, earned air drop reward calculations, and water supply logistics).
+Executes all 26 unit tests verifying calendar recurrence logic, past month slicing and filtering, burn ban boundaries, seasonal automated transitions (Oct 1 lifting & June 1 ban initiation), countdown math, station fleet data, authentic gallery integrity, verified live regulatory URLs, USGS & NWS weather URLs, PayPal 501(c)(3) donation checkout integration, form submission edge routing, and Wildland Strategy Tower Defense game physics.
 
 ### 4. Build for Production
 ```bash
@@ -62,16 +62,15 @@ Deploys the static assets and edge form router directly to Cloudflare Workers at
    - Updated Station 244 (Beebe Bridge / Columbia River Station) with the authentic photograph showing the red 3-bay station positioned against the hillside on US-97.
    - Comprehensive fleet specifications and Google Maps navigation links for all 4 DCFD4 stations.
 
-4. **Burning Logo Flame Circle, Water Spray Easter Egg & Zero-Duplication Hierarchy (Hero.tsx):**
-   - The Rattlesnake emblem is actively burning by default with rotating fiery dashed rings and ambient embers.
-   - Clicking the emblem activates an interactive canvas particle spray matching the exact physics from the Fire Attack game: pressurized cyan droplets (#38bdf8) shooting from a brass nozzle, colliding with the flame, and bursting into billowing white steam clouds with Web Audio sound.
-   - Permanently extinguishes the flame ring into cool grayscale without relighting (strictly zero prompt text).
+4. **Prominently Featured Station 241 Header & Official Department Crest (Hero.tsx):**
+   - The authentic high-resolution photograph of Station 241 Headquarters (`/assets/station41.jpg`) is prominently displayed across the hero header with elevated clarity (65% opacity, balanced directional gradients).
+   - Showcases the red firehouse bays and frontline apparatus fleet (Command vehicle, Type 1 Structural Engine, Type 6 4x4 Brush Truck, and Heavy Water Tender) clearly behind the layout.
+   - Official static Douglas County Fire District 4 crest emblem rendered with a subtle glass-morphism container backdrop.
    - **Zero Duplication Hierarchy:** All core facts are organized cleanly so each appears exactly once:
-     - Headquarters location in top dispatch pill (`Station 241 Headquarters • Orondo, WA`).
+     - Headquarters location in top dispatch row (`Station 241 Headquarters • Orondo, WA`).
      - District title cleanly under motto (`Douglas County Fire District No. 4`).
      - Operational scope in narrative (`24/7 all-hazard fire suppression, wildland protection, and emergency medical services across the East Columbia River corridor and orchards`).
      - Dedicated `100% Volunteer Fire & EMS` badge, physical metrics (`4 Stations • 100+ Sq Miles • Est. 1946`), and service areas (`Protecting Orondo • Brays • Lone Pine • Beebe Bridge`) unified under the emblem.
-   - Station 241 background image brought through visibly behind the typography.
 
 5. **Wildfire Maps, Air Quality, Emergency Alerts & Legal Regulations (`/resources`, `/burn-permits`):**
    - 100% verified live via BrowserOS Neo browser automation, eliminating legacy 404 dead links and misdirected public records pages:
@@ -92,11 +91,10 @@ Deploys the static assets and edge form router directly to Cloudflare Workers at
      - **Douglas County Burn Bans & Restrictions Notice:** Official county administrative announcements (`https://www.douglascountywa.gov/821/Burn-Bans-and-Restrictions`).
    - Interactive category filtering pills: `All Resources (18)`, `Wildfire Maps & Apps`, `Smoke & Weather`, `Local Douglas County`, and `Codes & Regulations`.
 
-6. **AI Community Assistant & Interactive Site Navigator (`aiGateway.ts`, `AiAssistantModal.tsx`):**
-   - Powered by Cloudflare AI Edge Gateway with full website context.
-   - Automatically provides clickable markdown navigation links (`[Page Title](/tab-name)`) to help users navigate directly to any page on the website.
-   - In-modal link parser renders internal links as interactive buttons that switch tabs instantly and dismiss the modal, while external agency links open in secure new tabs.
-   - Hardened guardrails politely decline off-topic queries (coding, recipes, homework, trivia) with direct links back to district topics.
+6. **Clean, Uncluttered Emergency Navigation:**
+   - Navigation links streamlined to essential resident actions (`Home`, `Burn Rules`, `Volunteer`, `Calendar`, `Resources`, and `Donate & Contact`).
+   - Secondary facilities placed in the dropdown (`Stations & Fleet`, `Photo Gallery`, `About DCFD4`).
+   - Disruption-free emergency interface with "Ask Assistant" button removed from the global navigation bar to keep resident attention focused on public safety notices and district services.
 
 7. **Streamlined Action-First Community Hub ("Cut the Fat"):**
    - Removed generic marketing filler and duplicate paragraphs.

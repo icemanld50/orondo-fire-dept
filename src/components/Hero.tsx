@@ -18,14 +18,17 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, isBurnBanActive }) => {
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <img
           src="/assets/station41.jpg"
-          alt="DCFD4 Station 241"
-          className="w-full h-full object-cover object-center opacity-25 filter contrast-110"
+          alt="DCFD4 Station 241 Headquarters & Apparatus"
+          className="w-full h-full object-cover object-[center_55%] opacity-65 filter contrast-105 brightness-95"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/40" />
+        {/* Directional gradient: ensures text contrast on left while keeping station & fire trucks clearly visible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-slate-950/20" />
+        {/* Soft bottom blend to seamlessly merge into the next section */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/30" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pt-16 lg:pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Main Hero Column */}
@@ -52,7 +55,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, isBurnBanActive }) => {
             </div>
 
             {/* Headline */}
-            <div className="space-y-1.5">
+            <div className="space-y-1.5 drop-shadow-lg">
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase leading-tight">
                 Courage • Dedication <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-amber-400">
@@ -102,7 +105,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, isBurnBanActive }) => {
             <div className="w-full max-w-xs flex flex-col items-center">
               
               <div className="relative mx-auto w-44 h-44 sm:w-52 sm:h-52 rounded-full flex items-center justify-center select-none">
-                <div className="w-full h-full rounded-full p-1.5 bg-slate-900 border-2 border-red-600/70 shadow-2xl flex items-center justify-center">
+                <div className="w-full h-full rounded-full p-1.5 bg-slate-950/80 backdrop-blur-md border-2 border-red-600/70 shadow-2xl flex items-center justify-center">
                   <img
                     src="/assets/logo.png"
                     alt="Douglas County Fire District 4 Crest"

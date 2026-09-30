@@ -13,7 +13,6 @@ import { GalleryPage } from './components/GalleryPage';
 import { FireGamePage } from './components/FireGamePage';
 import { ResourcesPage } from './components/ResourcesPage';
 import { Footer } from './components/Footer';
-import { AiAssistantModal } from './components/AiAssistantModal';
 import { isBurnBanDate } from './services/burnBanService';
 
 const TAB_TO_PATH: Record<string, string> = {
@@ -65,8 +64,6 @@ export const App: React.FC = () => {
     }
     return 'home';
   });
-
-  const [isAiModalOpen, setIsAiModalOpen] = useState<boolean>(false);
 
   // Real-time date ticker: updates every 30s and on tab focus to catch midnight rollover instantly
   const [currentDate, setCurrentDate] = useState<Date>(() => new Date());
@@ -135,7 +132,6 @@ export const App: React.FC = () => {
         <Navbar
           activeTab={activeTab}
           setActiveTab={(tab) => handleNavigate(tab, true)}
-          onOpenAiAssistant={() => setIsAiModalOpen(true)}
           isBurnBanActive={isBurnBanActive}
         />
 
@@ -157,7 +153,6 @@ export const App: React.FC = () => {
               />
               <HomeOverview
                 onNavigate={(tab) => handleNavigate(tab, true)}
-                onOpenAi={() => setIsAiModalOpen(true)}
                 isBurnBanActive={isBurnBanActive}
               />
             </>
@@ -180,14 +175,6 @@ export const App: React.FC = () => {
         onNavigate={(tab) => handleNavigate(tab, true)}
         isBurnBanActive={isBurnBanActive}
       />
-
-      {/* Cloudflare Edge AI Assistant Modal */}
-      <AiAssistantModal
-        isOpen={isAiModalOpen}
-        onClose={() => setIsAiModalOpen(false)}
-        onNavigate={(tab) => handleNavigate(tab, true)}
-      />
-
     </div>
   );
 };

@@ -81,7 +81,11 @@ sequenceDiagram
   - Station 244 (23420 US Highway 97, Orondo, WA): Updated with authentic user-provided photograph capturing the 3 red apparatus bays positioned against the hillside on US-97.
   - Full district readiness documented across Stations 241, 242, 243, and 244 with direct Google Maps navigation links.
 
-#### 2.4 Authoritative Dark Emergency Theme & Static Crest Emblem (`src/components/Hero.tsx`, `src/index.css`)
+#### 2.4 Prominently Featured Station 241 Header & Official Crest (`src/components/Hero.tsx`)
+* **Prominent Station 241 Photography & Multi-Directional Gradient:**
+  - Station 241 photograph (`/assets/station41.jpg`) is showcased with elevated clarity (opacity-65, contrast-105, brightness-95).
+  - Uses directional gradients (`from-slate-950/90 via-slate-950/50 to-slate-950/20`) to guarantee crisp readability for headings on the left while displaying the station building and all 4 emergency apparatus (Command SUV, Type 1 Engine, Type 6 Brush Truck, Tender) clearly on the right.
+  - Expanded vertical padding (`pt-12 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28`) balances visual weight across mobile and desktop displays.
 * **Authoritative Dark Emergency Aesthetic:**
   - High-contrast emergency services palette: Deep slate `#0b0f19` root (`bg-slate-950`), semi-transparent glass panels (`glass-panel`), crisp white typography, and red/amber hazard indicators.
   - Multi-theme switcher removed to eliminate visual clutter and ensure an authoritative emergency command presence across mobile and desktop.
@@ -108,15 +112,14 @@ sequenceDiagram
     - *Codified County & State Burning Regulations:* Douglas County Code Chapter 8.12 Open Burning (`https://www.codepublishing.com/WA/DouglasCounty/html/DouglasCounty08/DouglasCounty0812.html`), WAC 173-425 Outdoor Burning rule (`https://app.leg.wa.gov/wac/default.aspx?cite=173-425`), WA DNR Burn Restrictions under WAC 332-24 (`https://dnr.wa.gov/wildfire-resources/outdoor-burning/burn-restrictions`), and WA Department of Ecology Burn Permits Portal (`https://ecology.wa.gov/regulations-permits/permits-certifications/air-quality-permits/burn-permits`).
   - Equipped with real-time text search and 5 category filter pills: `All Resources (18)`, `Wildfire Maps & Apps`, `Smoke & Weather`, `Local Douglas County`, and `Codes & Regulations`.
 
-#### 2.6 AI Assistant Interactive Markdown Navigator (`src/services/aiGateway.ts`, `src/components/AiAssistantModal.tsx`)
-* **Full Sitemap Context:**
-  - AI system prompt incorporates complete route mappings for all district pages and external state agencies.
+#### 2.6 Clean Emergency Interface & Modular AI Assistant Architecture
+* **Streamlined UI Navigation:**
+  - Removed "Ask Assistant" button from the global navigation bar and hero action rows to maintain a distraction-free, authoritative municipal emergency presence.
+  - Direct public safety pathways (Burn Rules, Volunteer, Calendar, Resources, Contact & Donate) take precedence.
+* **Underlying Edge AI Gateway Architecture (`src/services/aiGateway.ts`):**
+  - Modular AI assistant service preserved for headless edge queries or standalone citizen assistance.
+  - System prompt incorporates complete route mappings for all district pages and external state agencies.
   - Answers include structured markdown links formatted as `[Page Title](/tab-name)`.
-* **In-Modal Navigation Parser:**
-  - Parses markdown syntax in client memory:
-    - Internal `/tab` links render as styled interactive buttons that execute `onNavigate(tab)` and dismiss the modal.
-    - External URLs render with `ExternalLink` icons opening in secure new tabs (`rel="noopener noreferrer"`).
-  - Client-side fallback knowledge base matches all core inquiries with markdown navigation links even during edge network fluctuations.
 
 #### 2.7 Bloons TD 5 / BTD 6 Wildland Firefighting Tower Defense Engine (`src/components/FireGamePage.tsx`)
 * **Bloons TD 5 Track Geometry & Interpolated Movement Physics:**

@@ -7,7 +7,6 @@ import {
   Phone, 
   Menu, 
   X, 
-  Sparkles,
   Home,
   Camera,
   ChevronDown,
@@ -18,14 +17,12 @@ import {
 interface NavbarProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
-  onOpenAiAssistant: () => void;
   isBurnBanActive: boolean;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   activeTab,
   setActiveTab,
-  onOpenAiAssistant,
   isBurnBanActive: _isBurnBanActive,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -177,17 +174,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
             </nav>
 
-            {/* Right Action: Ask Assistant & Mobile Toggle */}
+            {/* Right Action: Mobile Toggle */}
             <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-              <button
-                onClick={onOpenAiAssistant}
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-amber-300 border border-slate-800 hover:border-amber-500/50 hover:bg-slate-800 transition-all shadow-sm"
-                title="Ask Assistant"
-              >
-                <Sparkles className="w-4 h-4 text-amber-400" />
-                <span className="whitespace-nowrap">Ask Assistant</span>
-              </button>
-
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="lg:hidden min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded-xl text-slate-300 hover:bg-slate-800 border border-slate-800 transition-colors"

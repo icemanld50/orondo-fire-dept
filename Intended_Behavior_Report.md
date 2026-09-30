@@ -2,7 +2,7 @@
 ## Intended Behavior & Requirements Specification Report
 
 ### 1. Project Purpose & Scope
-This project delivers a state-of-the-art, mobile-first web portal for **Douglas County Fire District No. 4 (DCFD4 / Orondo Fire Department)**, completely replacing the legacy GoDaddy builder website (`dcfd4.com`). The portal provides vital public safety communications, real-time burn ban status tracking, open burning regulations and permit notifications, volunteer firefighter recruitment, an interactive community calendar with past-month hiding, an authentic 40-year photo archive gallery, an interagency wildfire tracking and smoke resource directory, an edge-routed form processing system on Cloudflare Workers, an AI community assistant acting as an interactive site navigator with clickable links, an authoritative distraction-free Dark Theme (`#0b0f19`), and a standalone wildland fire tower defense simulator.
+This project delivers a state-of-the-art, mobile-first web portal for **Douglas County Fire District No. 4 (DCFD4 / Orondo Fire Department)**, completely replacing the legacy GoDaddy builder website (`dcfd4.com`). The portal provides vital public safety communications, real-time burn ban status tracking, open burning regulations and permit notifications, volunteer firefighter recruitment, an interactive community calendar with past-month hiding, an authentic 40-year photo archive gallery, an interagency wildfire tracking and smoke resource directory, an edge-routed form processing system on Cloudflare Workers, a prominently featured header photograph of Station 241 and the frontline emergency apparatus, an authoritative distraction-free Dark Theme (`#0b0f19`), and a standalone wildland fire tower defense simulator.
 
 ---
 
@@ -45,13 +45,17 @@ This project delivers a state-of-the-art, mobile-first web portal for **Douglas 
   - Updated with the authentic user-provided photograph showing the 3 red apparatus bays positioned against the hillside on US-97.
   - Station cards for all 4 facilities provide verified apparatus rosters, physical addresses, and direct Google Maps navigation links.
 
-#### 2.4 Hero Header, Authoritative Emblem & Zero-Duplication Hierarchy
+#### 2.4 Hero Header, Authoritative Emblem & Prominent Station 241 Photography
+* **Prominent Station 241 Headquarters & Apparatus Photography:**
+  - Station 241 photograph (`/assets/station41.jpg`) is showcased with elevated clarity (opacity-65, contrast-105, brightness-95).
+  - Employs a calibrated directional gradient overlay (`from-slate-950/90 via-slate-950/50 to-slate-950/20`) ensuring high-contrast legibility for text on the left, while displaying the station building and all 4 emergency apparatus (Command SUV, Type 1 Engine, Type 6 Brush Truck, Tender) clearly on the right.
+  - Generous vertical padding (`pt-12 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28`) gives the photograph breathing room.
 * **Strict Single-Source Content Architecture (Zero Duplication):**
   - Eliminated all repetitive phrasing and overlapping labels across the hero section.
   - Station location and office contact stated calmly: `Office: (509) 784-2941 • Emergencies: Dial 911`. No disruptive flashing 911 call buttons.
   - District title and mission narrative focused on essential public safety facts without fluff.
 * **Authoritative Crest Emblem:**
-  - Replaced the water-spray canvas animation, flame loop, and Web Audio synthesizer with an official, high-resolution static DCFD4 department crest emblem.
+  - Replaced the water-spray canvas animation, flame loop, and Web Audio synthesizer with an official, high-resolution static DCFD4 department crest emblem set within a subtle glass-morphism container backdrop.
 
 #### 2.5 Wildfire Maps, Air Quality, Emergency Alerts & Codified Regulations (`/resources`)
 * **Dedicated Resource & Regulatory Directory:**
@@ -87,15 +91,13 @@ This project delivers a state-of-the-art, mobile-first web portal for **Douglas 
     - DNS MX Verification: `dcfd4.com` points to Google Workspace (`aspmx.l.google.com`), routing submissions to `info@dcfd4.com`.
   - In our modern edge router (`src/worker.ts`), all forms route seamlessly by default to `info@dcfd4.com`, with zero dependency on GoDaddy's proprietary backend, and allow setting custom destinations via the `DESTINATION_EMAIL` environment secret.
 
-#### 2.6 AI Community Safety Assistant & Site Navigator
-* **Full Sitemap Context & Clickable Navigation Links:**
-  - System prompt in `src/services/aiGateway.ts` provides complete context of the website structure and official external agencies with verified live URLs.
-  - AI responses include clickable markdown links `[Page Title](/tab-name)` for internal pages (`/burn-permits`, `/volunteer`, `/calendar`, `/contact`, `/resources`, `/gallery`, `/stations`, `/fire-game`, `/about`) and verified external links to Watch Duty, WA DNR, InciWeb, Ecology Outdoor Burning, Ecology Permits, Douglas County Code Chapter 8.12, WAC 173-425, and Douglas County Everbridge Alerts.
-* **Interactive In-Modal Navigation:**
-  - The modal (`AiAssistantModal.tsx`) parses markdown links:
-    - Internal `/tab` links render as styled interactive buttons that switch pages via `onNavigate(tab)` and close the modal.
-    - External `http` links render with `ExternalLink` icons opening in a new tab.
-  - Quick suggested prompt chips guide users to wildfire maps, burn notices, volunteer applications, and meeting schedules.
+#### 2.6 Streamlined Emergency Interface & AI Assistant Architecture
+* **Streamlined Navbar (Zero Distraction):**
+  - The "Ask Assistant" button was completely removed from the global navigation bar and hero action rows to maintain a distraction-free, authoritative municipal emergency presence.
+  - Direct public safety pathways (Burn Rules, Volunteer, Calendar, Resources, Contact & Donate) take precedence.
+* **Underlying Edge AI Gateway Architecture (`src/services/aiGateway.ts`):**
+  - Standalone service modules remain preserved in codebase architecture for headless queries or future integration.
+  - System prompt provides complete context of the website structure and official external agencies with verified live URLs.
 
 #### 2.7 Bloons TD 5 Style Wildland Firefighting Tower Defense Game (`/fire-game`)
 * **Bloons TD 5/6 Mechanics Re-Themed for Wildland Fire Suppression:**

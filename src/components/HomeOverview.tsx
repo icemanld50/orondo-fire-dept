@@ -14,7 +14,6 @@ import {
 
 interface HomeOverviewProps {
   onNavigate: (tab: string) => void;
-  onOpenAi: () => void;
   isBurnBanActive: boolean;
 }
 

@@ -24,7 +24,6 @@ graph TD
     App --> About[src/components/AboutPage.tsx - Heritage Archive & Leadership Banner]
     App --> Contact[src/components/ContactPage.tsx - Donate 501c3 & Contact Station 241]
     App --> Foot[src/components/Footer.tsx]
-    App --> AIModal[src/components/AiAssistantModal.tsx - Interactive Link Navigator]
 
     Gal --> GalData[src/data/galleryData.ts - 19 Authentic Records]
     Burn --> FormSvc[src/services/formService.ts]
@@ -35,14 +34,12 @@ graph TD
     Cal --> CalData[src/data/calendarEvents.ts]
     Station --> StnData[src/data/stationsData.ts]
     About --> LeadData[src/data/leadershipData.ts]
-    AIModal --> AIGateway[src/services/aiGateway.ts - Full Sitemap Context & Clickable Links]
 
     CalData --> Types[src/types/index.ts]
     StnData --> Types
     LeadData --> Types
     Burn --> Types
     Vol --> Types
-    AIGateway --> CloudflareEdge[Cloudflare AI Edge Gateway / Direct NVIDIA NIM]
 ```
 
 ---
