@@ -179,3 +179,12 @@ sequenceDiagram
   - Responsive image element configured with `w-full h-full object-cover object-center` and native browser `loading="lazy"`.
   - Seamless dark slate edge gradient overlay (`bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 pointer-events-none`) for clean integration without distracting text overlays.
 
+#### 2.12 Revamped About Page Architectural Hierarchy (`src/components/AboutPage.tsx`)
+* **Civic Public Safety Hierarchy:**
+  - Component renders four structured visual bands:
+    1. *Community Gratitude & 501(c)(3) Support Banner:* Immediate civic acknowledgment explaining how volunteer donations fund frontline turnout gear, AEDs, and extrication tools. Direct PayPal donation button and PO Box 258 mailing instructions.
+    2. *Sleek Mission & Core Values Card:* Redesigned with subtle SVG crest watermark, high-contrast typography, and a 4-pillar Core Values grid (Courage, Dedication, Teamwork, Tradition).
+    3. *Frontline Wildland Crew Photo & Leadership Team:* Authentic 2525 x 1841 photo (`/assets/gallery/leadership_station_2019.jpg`) displayed in an uncropped `aspect-[16/10] sm:aspect-[16/9]` container with `object-[center_35%]`, leading directly into Command Officers and Board of Fire Commissioners cards with RCW Title 52 legal references.
+    4. *Operational Boundary & 40-Year Heritage Archive:* Embedded district coverage map and historic photo archive from 1984 through 1990.
+
+

@@ -172,6 +172,13 @@ This project delivers a state-of-the-art, mobile-first web portal for **Douglas 
   - Features volunteer firefighters, apparatus, and American flag leading the community parade with cheering spectators.
   - Beautifully framed with responsive rounded corners (`rounded-2xl sm:rounded-3xl`), border styling (`border-slate-800 shadow-2xl`), responsive aspect ratio (`aspect-[16/7] sm:aspect-[24/8] max-h-[360px]`), and subtle slate gradient overlay with zero distracting overlaid text pills or labels.
 
+#### 2.12 Revamped About DCFD4 Page Hierarchy & Sleek Mission Architecture (`/about`)
+* **Community-First Information Flow:**
+  - **1. Community Donations & Gratitude Header:** Prominently positions gratitude to district residents and supporters at the very top: *"Thank You to Our Donors & Supporters — Made Possible by Community Generosity"*. Details how community contributions directly fund frontline turnout gear, AEDs, extrication tools, and thermal cameras. Includes direct 501(c)(3) PayPal donation button (`min-h-[44px]`) and PO Box 258 mailing instructions.
+  - **2. Sleek District Mission Statement Card:** Redesigned with a deep slate gradient, subtle department crest watermark, stylized quote typography, and a 4-pillar Core Values grid (Courage, Dedication, Teamwork, Tradition).
+  - **3. Authentic Wildland Crew Photo + Leadership & Commissioners:** Displays the authentic high-resolution photograph of the DCFD4 wildland crew in yellow Nomex jackets and helmets standing with Pulaskis and shovels (`/assets/gallery/leadership_station_2019.jpg`) using an uncropped responsive `aspect-[16/10] sm:aspect-[16/9]` frame with `object-[center_35%]`, immediately followed by Command Officers and the Board of Fire Commissioners cards.
+  - **4. District Operational Jurisdiction & Heritage Archive:** Coverage map, 100+ sq mile territory details, Title 52 RCW fast facts, and the 40+ year heritage archive (1984 Engine 2441, 1985 Crew, 1990 Extrication).
+
 ---
 
 ### 3. Undesired Behaviors to Explicitly Avoid

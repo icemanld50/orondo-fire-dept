@@ -139,3 +139,11 @@ Deploys the static assets and edge form router directly to Cloudflare Workers at
     - Placed at the bottom of the "How Can We Help You Today?" section, directly following the 6 action-oriented service cards.
     - Features the authentic community action photograph (`/assets/gallery/structure_attack_2014.jpg`) with volunteer firefighters, frontline apparatus, and American flag leading the community parade.
     - Beautifully framed in a responsive, rounded dark-slate container with zero text badges or pill distractions.
+
+14. **Revamped About DCFD4 Page Hierarchy (`AboutPage.tsx`):**
+    - Re-ordered with a community-first civic hierarchy:
+      1. **Community Gratitude & 501(c)(3) Donations Banner:** Top-level acknowledgment that volunteer operations are powered by community generosity, with direct PayPal donation button and PO Box 258 mailing instructions.
+      2. **Sleek District Mission Statement Card:** Redesigned with deep slate gradient, subtle department crest watermark, stylized quote typography, and a 4-pillar Core Values grid (Courage, Dedication, Teamwork, Tradition).
+      3. **Authentic Wildland Crew Photo + Leadership & Commissioners:** Uncropped high-resolution photo (`/assets/gallery/leadership_station_2019.jpg`) of firefighters in yellow Nomex gear with hand tools, followed directly by Command Officers and the Board of Fire Commissioners cards.
+      4. **District Operational Jurisdiction & Heritage Archive:** Coverage territory, boundary map, Title 52 RCW facts, and the 40+ year heritage archive (1984 Engine 2441, 1985 Crew, 1990 Extrication).
+
