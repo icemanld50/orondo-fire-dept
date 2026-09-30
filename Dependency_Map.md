@@ -8,11 +8,9 @@ graph TD
     Worker[src/worker.ts - Cloudflare Worker Edge Entry] -->|Serves Static Assets| HTML[index.html & main.tsx]
     Worker -->|POST /api/submit-form| EdgeRouter[Edge Form Verification & Email Dispatch]
     
-    HTML --> ThemeCtx[src/context/ThemeContext.tsx - Multi-Theme Provider]
-    ThemeCtx --> App[src/App.tsx]
+    HTML --> App[src/App.tsx - Deep Slate Dark Emergency Layout]
     
-    App --> Nav[src/components/Navbar.tsx - Responsive Navigation & Theme Switcher]
-    Nav --> ThemeSwitch[src/components/ThemeSwitcher.tsx - 3-Theme Selector]
+    App --> Nav[src/components/Navbar.tsx - Responsive Navigation & Assistant Trigger]
     App --> Alert[src/components/LiveAlertBanner.tsx]
     App --> Hero[src/components/Hero.tsx - Static Department Crest & Dispatch Info]
     App --> Home[src/components/HomeOverview.tsx - 6-Action Roadmap Grid]

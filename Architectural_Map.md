@@ -81,12 +81,10 @@ sequenceDiagram
   - Station 244 (23420 US Highway 97, Orondo, WA): Updated with authentic user-provided photograph capturing the 3 red apparatus bays positioned against the hillside on US-97.
   - Full district readiness documented across Stations 241, 242, 243, and 244 with direct Google Maps navigation links.
 
-#### 2.4 Adaptive Theme System & Static Official Crest Emblem (`src/context/ThemeContext.tsx`, `src/components/ThemeSwitcher.tsx`, `src/components/Hero.tsx`)
-* **Multi-Theme Architecture:**
-  - `ThemeContext` provides `civic-light` (default municipal white/slate), `warm-light` (warm stone/charcoal), and `midnight-dark` (deep navy-slate).
-  - Managed via CSS custom properties (`--bg-page`, `--bg-surface`, `--bg-card`, `--text-primary`, `--text-secondary`, `--border-main`) keyed to `[data-theme]`.
-  - Persisted in `localStorage` under `dcfd4_theme` and synchronized dynamically on document root.
-  - Interactive `ThemeSwitcher` accessible from the top navbar.
+#### 2.4 Authoritative Dark Emergency Theme & Static Crest Emblem (`src/components/Hero.tsx`, `src/index.css`)
+* **Authoritative Dark Emergency Aesthetic:**
+  - High-contrast emergency services palette: Deep slate `#0b0f19` root (`bg-slate-950`), semi-transparent glass panels (`glass-panel`), crisp white typography, and red/amber hazard indicators.
+  - Multi-theme switcher removed to eliminate visual clutter and ensure an authoritative emergency command presence across mobile and desktop.
 * **Authoritative Static Department Crest Emblem:**
   - Removed high-resource water-spray canvas loops, continuous flame animations, and Web Audio synthesizers in favor of an official, clean, static DCFD4 crest emblem.
   - Aligns with municipal government web accessibility and civic design standards.

@@ -3,7 +3,7 @@
 > 🌐 **Live Public Deployment URL:** **[https://orondo-fire-dept.isaac-king5050.workers.dev](https://orondo-fire-dept.isaac-king5050.workers.dev)**  
 > 📦 **GitHub Repository:** **[https://github.com/icemanld50/orondo-fire-dept](https://github.com/icemanld50/orondo-fire-dept)**
 
-Official modern web portal for **Douglas County Fire District No. 4 (Orondo Fire Department)**, serving Orondo, WA, Brays Landing, Lone Pine, Turtle Rock, and Beebe Bridge along the Columbia River. Built with a municipal **Light Theme** by default, an accessible multi-theme system (`Civic Light`, `Warm Slate`, `Midnight Dark`), and clean civic design principles.
+Official modern web portal for **Douglas County Fire District No. 4 (Orondo Fire Department)**, serving Orondo, WA, Brays Landing, Lone Pine, Turtle Rock, and Beebe Bridge along the Columbia River. Built with an authoritative emergency services **Dark Theme** (`#0b0f19`), high-contrast typography, and clean, distraction-free civic design principles.
 
 ---
 

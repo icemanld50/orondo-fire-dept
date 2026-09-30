@@ -7,7 +7,6 @@ import {
   Phone, 
   Send, 
   Check, 
-  Info,
   ShieldAlert,
   Loader2,
   MapPin,
@@ -67,359 +66,210 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
   };
 
   return (
-    <div className="min-h-screen app-bg py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto space-y-10">
+    <div className="min-h-screen bg-slate-950 py-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto space-y-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="flex items-center justify-center gap-2 text-xs font-bold text-red-700 dark:text-red-400 uppercase tracking-wider">
-            <Flame className="w-4 h-4 text-amber-500" />
-            <span>Douglas County Clean Air & Fire Safety</span>
-          </div>
-          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
-            Outdoor Burning & Burn Permits
+        <div className="text-center max-w-3xl mx-auto space-y-2">
+          <span className="text-xs font-bold uppercase tracking-wider text-red-500">
+            Douglas County Fire District No. 4
+          </span>
+          <h1 className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">
+            Outdoor Burning & Burn Notices
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300">
-            Rules, seasonal ban schedules, and official fire department notification procedures for Douglas County Fire District No. 4.
+          <p className="text-sm text-slate-400">
+            Official guidelines, seasonal restrictions, and online burn notification dispatch.
           </p>
         </div>
 
-        {/* Current Season Alert Banner */}
-        <div className={`app-card rounded-2xl p-6 border ${
-          isBurnBanActive ? 'border-red-300 dark:border-red-600/80 bg-red-50/60 dark:bg-red-950/40 text-red-950 dark:text-red-100' : 'border-emerald-300 dark:border-emerald-600/80 bg-emerald-50/60 dark:bg-emerald-950/30 text-emerald-950 dark:text-emerald-100'
+        {/* Seasonal Alert Banner */}
+        <div className={`rounded-2xl p-5 border ${
+          isBurnBanActive 
+            ? 'bg-red-950/40 border-red-900/60 text-red-200' 
+            : 'bg-emerald-950/40 border-emerald-900/60 text-emerald-200'
         }`}>
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div className="flex items-start gap-4">
-              <div className={`p-3 rounded-2xl ${isBurnBanActive ? 'bg-red-600 text-white' : 'bg-emerald-600 text-white'} flex-shrink-0`}>
-                {isBurnBanActive ? <ShieldAlert className="w-7 h-7" /> : <CheckCircle2 className="w-7 h-7" />}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className={`p-2.5 rounded-xl ${isBurnBanActive ? 'bg-red-600' : 'bg-emerald-600'} text-white flex-shrink-0`}>
+                {isBurnBanActive ? <ShieldAlert className="w-5 h-5" /> : <CheckCircle2 className="w-5 h-5" />}
               </div>
               <div>
-                <span className={`text-xs font-black uppercase px-2.5 py-0.5 rounded-full ${
-                  isBurnBanActive ? 'bg-red-600 text-white' : 'bg-emerald-600 text-white'
-                }`}>
-                  {isBurnBanActive ? 'Burn Ban In Effect: June 1 – September 30' : 'Open Burning Permitted: October 1 – May 31'}
+                <span className="text-xs font-bold uppercase tracking-wider text-white block">
+                  {isBurnBanActive ? 'Annual Burn Ban In Effect (June 1 – Sept 30)' : 'Open Burning Season Active (Oct 1 – May 31)'}
                 </span>
-                <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-1">
+                <p className="text-xs text-slate-300 mt-0.5">
                   {isBurnBanActive 
-                    ? 'Outdoor Debris Burning Is Currently Prohibited' 
-                    : 'Open Burning Season Is Active in Douglas County'}
-                </h2>
-                <p className="text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
-                  {isBurnBanActive
-                    ? 'During the summer high-hazard window, all outdoor yard waste, debris, and land clearing fires are strictly banned by county ordinance. Small cooking fires in approved pits are allowed unless extreme emergency red flag bans occur.'
-                    : 'Residents in DCFD4 territory may conduct clean yard waste burning provided they observe the 4x4x4 pile limit, have adult supervision with water on site, extinguish by dusk, and notify the department.'}
+                    ? 'All outdoor yard debris burning is prohibited by county ordinance.'
+                    : 'Clean vegetative yard burning permitted with 4x4x4 pile limit, water on site, and notification.'}
                 </p>
               </div>
             </div>
 
-            <div className="flex-shrink-0 self-end md:self-center">
-              <a
-                href="tel:5097842941"
-                className="min-h-[44px] inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 transition-colors shadow-sm"
-              >
-                <Phone className="w-4 h-4 text-red-600 dark:text-red-400" />
-                <span>Questions: (509) 784-2941</span>
-              </a>
-            </div>
+            <a
+              href="tel:5097842941"
+              className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 text-white border border-slate-700 transition-colors flex-shrink-0 self-end sm:self-auto"
+            >
+              <Phone className="w-3.5 h-3.5 text-red-400" />
+              <span>(509) 784-2941</span>
+            </a>
           </div>
         </div>
 
-        {/* 2-Column Core Rules Breakdown */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* 2-Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Column: Essential Burning Rules & Guidelines */}
+          {/* Left Column: Core Rules */}
           <div className="lg:col-span-7 space-y-6">
             
-            {/* The 4x4x4 Rule Graphic Card */}
-            <div className="app-card rounded-2xl p-6 space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/40">
-                  <Flame className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-black text-slate-900 dark:text-white uppercase tracking-wide">
-                    The 4ft x 4ft x 4ft Dimension Rule
-                  </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">Strictly enforced Washington clean air limit</p>
-                </div>
+            {/* The 4x4x4 Rule */}
+            <div className="rounded-2xl p-6 bg-slate-900/80 border border-slate-800 space-y-3">
+              <div className="flex items-center gap-2">
+                <Flame className="w-5 h-5 text-amber-400" />
+                <h3 className="text-base font-bold text-white uppercase">
+                  The 4x4x4 Yard Burning Rule
+                </h3>
               </div>
-
-              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                By state law and district safety policy, individual piles of natural vegetation must not exceed <strong className="text-slate-900 dark:text-white">4 feet in width, 4 feet in length, and 4 feet in height</strong>. Piles larger than 4x4x4 generate excessive radiant heat, risk uncontrollable flare-ups, and violate Douglas County clean air rules.
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Residential yard waste piles must not exceed <strong className="text-white">4 feet wide, 4 feet long, and 4 feet high</strong>. Only one pile may be burned at a time.
               </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
-                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center">
-                  <span className="block font-black text-amber-600 dark:text-amber-400 text-base">4 FT MAX</span>
-                  <span className="text-slate-500 dark:text-slate-400">Pile Width</span>
+              <div className="grid grid-cols-3 gap-3 pt-1 text-center">
+                <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                  <span className="text-amber-400 font-black text-sm block">4 FT</span>
+                  <span className="text-[10px] text-slate-400 uppercase">Max Width</span>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center">
-                  <span className="block font-black text-amber-600 dark:text-amber-400 text-base">4 FT MAX</span>
-                  <span className="text-slate-500 dark:text-slate-400">Pile Length</span>
+                <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                  <span className="text-amber-400 font-black text-sm block">4 FT</span>
+                  <span className="text-[10px] text-slate-400 uppercase">Max Length</span>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center">
-                  <span className="block font-black text-amber-600 dark:text-amber-400 text-base">4 FT MAX</span>
-                  <span className="text-slate-500 dark:text-slate-400">Pile Height</span>
+                <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                  <span className="text-amber-400 font-black text-sm block">4 FT</span>
+                  <span className="text-[10px] text-slate-400 uppercase">Max Height</span>
                 </div>
               </div>
             </div>
 
-            {/* Permitted vs Prohibited Materials */}
+            {/* Allowed vs Prohibited */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              
-              {/* Allowed Items */}
-              <div className="app-card rounded-2xl p-5 border-emerald-200 dark:border-emerald-800/50 bg-emerald-50/40 dark:bg-emerald-950/20 space-y-3">
-                <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-extrabold text-sm uppercase">
+              <div className="rounded-2xl p-5 bg-slate-900/80 border border-emerald-900/40 space-y-2">
+                <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase">
                   <CheckCircle2 className="w-4 h-4" />
-                  <span>Allowed During Season</span>
+                  <span>Allowed Materials</span>
                 </div>
-                <ul className="text-xs text-slate-700 dark:text-slate-300 space-y-2">
-                  <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-                    <span>Dry yard waste (leaves, needles, weeds, lawn clippings)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-                    <span>Tree pruning branches and orchard limb trimmings</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-                    <span>Natural vegetative brush cleared on personal property</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-                    <span>Small attended cooking campfires in approved pits</span>
-                  </li>
+                <ul className="text-xs text-slate-300 space-y-1.5">
+                  <li>• Clean dry leaves & needles</li>
+                  <li>• Tree prunings & orchard trimmings</li>
+                  <li>• Untreated brush & vegetative yard debris</li>
                 </ul>
               </div>
 
-              {/* Prohibited Items */}
-              <div className="app-card rounded-2xl p-5 border-red-200 dark:border-red-800/50 bg-red-50/40 dark:bg-red-950/20 space-y-3">
-                <div className="flex items-center gap-2 text-red-700 dark:text-red-400 font-extrabold text-sm uppercase">
+              <div className="rounded-2xl p-5 bg-slate-900/80 border border-red-900/40 space-y-2">
+                <div className="flex items-center gap-2 text-red-400 font-bold text-xs uppercase">
                   <XCircle className="w-4 h-4" />
-                  <span>Strictly Prohibited Always</span>
+                  <span>Strictly Illegal Always</span>
                 </div>
-                <ul className="text-xs text-slate-700 dark:text-slate-300 space-y-2">
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-3.5 h-3.5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
-                    <span>Burning household garbage, plastics, or rubber</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-3.5 h-3.5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
-                    <span>Burning in 55-gallon burn barrels (illegal in WA)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-3.5 h-3.5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
-                    <span>Treated lumber, painted wood, or construction demolition</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-3.5 h-3.5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
-                    <span>Leaving any outdoor fire unattended after dusk</span>
-                  </li>
+                <ul className="text-xs text-slate-300 space-y-1.5">
+                  <li>• 55-gallon burn barrels (illegal in WA)</li>
+                  <li>• Household garbage, plastics, rubber</li>
+                  <li>• Construction debris & treated lumber</li>
                 </ul>
               </div>
-
             </div>
 
-            {/* Department of Ecology Rules & Phone Numbers */}
-            <div className="app-card rounded-2xl p-6 space-y-4">
-              <div className="flex items-center justify-between">
-                <h3 className="text-base font-black text-slate-900 dark:text-white uppercase tracking-wide flex items-center gap-2">
-                  <Info className="w-4 h-4 text-blue-500" />
-                  <span>Agricultural & Department of Ecology (DOE) Permits</span>
-                </h3>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 font-bold border border-blue-200 dark:border-blue-800">
-                  State Regulation
-                </span>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Large-scale orchard tree removal for development or commercial agricultural burning is regulated directly by the Washington State Department of Ecology under the Clean Air Act:
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs pt-1">
-                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                  <span className="font-bold text-slate-900 dark:text-white block">DOE Burn Day Hotline:</span>
-                  <a href="tel:18004065322" className="text-amber-600 dark:text-amber-400 font-black text-sm hover:underline">
-                    1-800-406-5322
-                  </a>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Recording prompts #1 and #2</p>
-                </div>
-                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                  <span className="font-bold text-slate-900 dark:text-white block">DOE Central Regional Office:</span>
-                  <a href="tel:15095752490" className="text-blue-600 dark:text-blue-400 font-black text-sm hover:underline">
-                    1-509-575-2490
-                  </a>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Yakima Air Quality Division</p>
-                </div>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-2 pt-2 border-t app-border">
-                <a
-                  href="https://ecology.wa.gov/air-climate/air-quality/smoke-fire/outdoor-residential-burning"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="min-h-[40px] flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-bold border border-slate-700 transition-colors"
-                >
-                  <span>WA Ecology Residential Rules</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-teal-400" />
-                </a>
-                <a
-                  href="https://ecology.wa.gov/regulations-permits/permits-certifications/air-quality-permits/burn-permits"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="min-h-[40px] flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white text-xs font-bold border border-slate-300 dark:border-slate-700 transition-colors"
-                >
-                  <span>Online Ag Permit Portal</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                </a>
-              </div>
+            {/* Mandatory Safety Requirements */}
+            <div className="rounded-2xl p-5 bg-slate-900/80 border border-slate-800 space-y-2 text-xs text-slate-300">
+              <span className="font-bold text-white uppercase text-xs block">
+                Mandatory Operational Conditions:
+              </span>
+              <ul className="space-y-1.5">
+                <li>• An adult must attend the fire at all times until completely out.</li>
+                <li>• A charged water hose or working shovel/extinguisher must be on site.</li>
+                <li>• Fires must be 50+ feet from any structure and extinguished completely before dusk.</li>
+                <li>• No burning during windy conditions (winds exceeding 7-10 mph).</li>
+              </ul>
             </div>
 
-            {/* Official County & State Burning Regulations */}
-            <div className="app-card rounded-2xl p-6 border-purple-200 dark:border-purple-900/40 bg-purple-50/30 dark:bg-purple-950/10 space-y-4">
+            {/* Official Ordinances & DOE Links */}
+            <div className="rounded-2xl p-5 bg-slate-900/80 border border-slate-800 space-y-3">
               <div className="flex items-center justify-between">
-                <h3 className="text-base font-black text-slate-900 dark:text-white uppercase tracking-wide flex items-center gap-2">
-                  <Scale className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-                  <span>Official County & State Burning Ordinances</span>
-                </h3>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 font-bold border border-purple-200 dark:border-purple-800">
-                  Legal Authority
+                <span className="text-xs font-bold text-white uppercase flex items-center gap-2">
+                  <Scale className="w-4 h-4 text-purple-400" />
+                  <span>Governing Legal Statutes</span>
                 </span>
+                <span className="text-[10px] text-slate-500">WA State Law</span>
               </div>
-              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                Outdoor burning in Orondo is strictly governed by codified municipal and state legal statutes:
-              </p>
-              <div className="space-y-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <a
                   href="https://www.codepublishing.com/WA/DouglasCounty/html/DouglasCounty08/DouglasCounty0812.html"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="min-h-[44px] flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-purple-500/50 transition-all text-xs group"
+                  className="flex-1 flex items-center justify-between p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 text-xs text-slate-300 transition-colors"
                 >
-                  <div>
-                    <span className="font-bold text-slate-900 dark:text-white block group-hover:text-red-600 dark:group-hover:text-amber-400 transition-colors">
-                      Douglas County Code Chapter 8.12 (Open Burning)
-                    </span>
-                    <span className="text-[11px] text-slate-500 dark:text-slate-400">
-                      Seasonal restrictions (June 1 - Oct 1), adult care, IFC 307.4.2 & misdemeanor penalty
-                    </span>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-purple-600 dark:text-purple-400 flex-shrink-0 ml-2" />
+                  <span>Douglas County Code 8.12</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-purple-400" />
                 </a>
-
                 <a
                   href="https://app.leg.wa.gov/wac/default.aspx?cite=173-425"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="min-h-[44px] flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-purple-500/50 transition-all text-xs group"
+                  className="flex-1 flex items-center justify-between p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 text-xs text-slate-300 transition-colors"
                 >
-                  <div>
-                    <span className="font-bold text-slate-900 dark:text-white block group-hover:text-red-600 dark:group-hover:text-amber-400 transition-colors">
-                      WAC 173-425 Washington State Outdoor Burning Rule
-                    </span>
-                    <span className="text-[11px] text-slate-500 dark:text-slate-400">
-                      Clean Air Act prohibitions on garbage/barrel burning and urban growth boundaries
-                    </span>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-purple-600 dark:text-purple-400 flex-shrink-0 ml-2" />
-                </a>
-
-                <a
-                  href="https://dnr.wa.gov/wildfire-resources/outdoor-burning/burn-restrictions"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="min-h-[44px] flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-purple-500/50 transition-all text-xs group"
-                >
-                  <div>
-                    <span className="font-bold text-slate-900 dark:text-white block group-hover:text-red-600 dark:group-hover:text-amber-400 transition-colors">
-                      WA DNR Burn Restrictions & Forest Rules (WAC 332-24)
-                    </span>
-                    <span className="text-[11px] text-slate-500 dark:text-slate-400">
-                      County wildfire danger ratings, campfire rules, and DNR Burn Portal
-                    </span>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-purple-600 dark:text-purple-400 flex-shrink-0 ml-2" />
-                </a>
-
-                <a
-                  href="https://www.douglascountywa.gov/693/Everbridge-Emergency-Alert-System"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="min-h-[44px] flex items-center justify-between p-3 rounded-xl bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 transition-all text-xs group"
-                >
-                  <div>
-                    <span className="font-bold text-slate-900 dark:text-white block group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                      Douglas County Everbridge Emergency Alerts
-                    </span>
-                    <span className="text-[11px] text-slate-500 dark:text-slate-400">
-                      Register mobile numbers for Level 1, 2, and 3 evacuation warnings
-                    </span>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0 ml-2" />
+                  <span>WAC 173-425 Outdoor Burning</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-purple-400" />
                 </a>
               </div>
             </div>
 
-            {/* Official District Boundary Map */}
-            <div className="app-card rounded-2xl p-6 space-y-3">
-              <div className="flex items-center justify-between">
-                <h3 className="text-base font-black text-slate-900 dark:text-white uppercase tracking-wide flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-red-600" />
-                  <span>DCFD4 Jurisdictional Boundary Map</span>
-                </h3>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-red-100 dark:bg-red-950/80 text-red-700 dark:text-red-300 font-bold border border-red-200 dark:border-red-800">
-                  Official Record
+            {/* Boundary Map */}
+            <div className="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 p-4 space-y-2">
+              <div className="flex items-center justify-between text-xs">
+                <span className="font-bold text-white flex items-center gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-red-500" />
+                  <span>DCFD4 Coverage Area Boundary Map</span>
                 </span>
+                <span className="text-[10px] text-slate-500">Turtle Rock to Beebe Bridge</span>
               </div>
-              <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
-                <img
-                  src="/assets/gallery/district_boundary_map.jpg"
-                  alt="Douglas County Fire District No. 4 Official Jurisdictional Boundary Map"
-                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
+              <img
+                src="/assets/gallery/district_boundary_map.jpg"
+                alt="DCFD4 Boundary Map"
+                className="w-full h-auto rounded-xl object-cover"
+                loading="lazy"
+              />
             </div>
 
           </div>
 
-          {/* Right Column: Online Burn Notification Submission Form */}
+          {/* Right Column: Burn Notice Form */}
           <div className="lg:col-span-5">
-            <div className="app-card rounded-2xl p-6 sm:p-8 shadow-xl space-y-6">
+            <div className="rounded-2xl p-6 bg-slate-900 border border-slate-800 space-y-5 sticky top-24">
               
               <div>
-                <div className="flex items-center gap-2 text-red-600 dark:text-red-500 font-black uppercase text-xs tracking-wider">
+                <div className="flex items-center gap-1.5 text-red-500 text-xs font-bold uppercase tracking-wider">
                   <FileText className="w-4 h-4" />
-                  <span>Official Notification</span>
+                  <span>Station 241 Dispatch</span>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-1 uppercase">
+                <h3 className="text-xl font-bold text-white mt-1">
                   Notify Fire Department
                 </h3>
-                <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
-                  Orondo residents must notify DCFD4 prior to lighting outdoor vegetative burns.
+                <p className="text-xs text-slate-400 mt-0.5">
+                  Orondo residents must notify DCFD4 before igniting outdoor yard burns.
                 </p>
               </div>
 
               {submitted ? (
-                <div className="p-6 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-600/80 text-center space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto shadow-lg">
-                    <Check className="w-6 h-6" />
+                <div className="p-6 rounded-2xl bg-emerald-950/50 border border-emerald-700/60 text-center space-y-3">
+                  <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto">
+                    <Check className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-black text-slate-900 dark:text-white">Notice Successfully Logged!</h4>
-                    <p className="text-xs text-emerald-800 dark:text-emerald-200 mt-1">
-                      Your outdoor burn notification has been registered with Station 241 dispatch.
+                    <h4 className="text-base font-bold text-white">Notice Registered!</h4>
+                    <p className="text-xs text-emerald-300 mt-1">
+                      Your burn notice has been logged with Station 241 dispatch.
                     </p>
                   </div>
-
-                  <div className="p-3 rounded-xl bg-white dark:bg-slate-900/90 border border-emerald-200 dark:border-emerald-700/60 text-xs">
-                    <span className="text-slate-500 dark:text-slate-400 block">Reference Confirmation ID:</span>
-                    <span className="font-mono text-red-700 dark:text-amber-400 font-black text-base">{referenceCode}</span>
-                    <span className="text-slate-500 dark:text-slate-400 block mt-1">Address: {formData.address}</span>
+                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs">
+                    <span className="text-slate-400 block text-[10px]">Reference Number:</span>
+                    <span className="font-mono text-amber-400 font-black text-sm">{referenceCode}</span>
                   </div>
-
-                  <p className="text-[11px] text-slate-600 dark:text-slate-300">
-                    Reminder: Have a pressurized water hose ready at all times and extinguish completely prior to dusk.
-                  </p>
-
                   <button
                     onClick={() => {
                       setSubmitted(false);
@@ -434,7 +284,7 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
                         notes: '',
                       });
                     }}
-                    className="min-h-[44px] w-full px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 transition-colors"
+                    className="w-full py-2 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-white transition-colors"
                   >
                     Submit Another Notice
                   </button>
@@ -442,9 +292,8 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   
-                  {/* Full Name */}
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wide mb-1">
+                    <label className="block text-xs font-bold text-slate-300 mb-1">
                       Property Owner / Resident Name *
                     </label>
                     <input
@@ -453,13 +302,12 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
                       placeholder="e.g. John Smith"
                       value={formData.fullName}
                       onChange={e => setFormData({ ...formData, fullName: e.target.value })}
-                      className="min-h-[44px] w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors"
+                      className="min-h-[44px] w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-red-500"
                     />
                   </div>
 
-                  {/* Phone */}
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wide mb-1">
+                    <label className="block text-xs font-bold text-slate-300 mb-1">
                       Contact Phone Number *
                     </label>
                     <input
@@ -468,14 +316,13 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
                       placeholder="e.g. (509) 555-0123"
                       value={formData.phone}
                       onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                      className="min-h-[44px] w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors"
+                      className="min-h-[44px] w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-red-500"
                     />
                   </div>
 
-                  {/* Address */}
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wide mb-1">
-                      Burn Site Physical Address in Orondo *
+                    <label className="block text-xs font-bold text-slate-300 mb-1">
+                      Burn Site Address in Orondo *
                     </label>
                     <input
                       type="text"
@@ -483,13 +330,12 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
                       placeholder="e.g. 14200 Highway 2, Orondo, WA"
                       value={formData.address}
                       onChange={e => setFormData({ ...formData, address: e.target.value })}
-                      className="min-h-[44px] w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors"
+                      className="min-h-[44px] w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-red-500"
                     />
                   </div>
 
-                  {/* Date of Burn */}
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wide mb-1">
+                    <label className="block text-xs font-bold text-slate-300 mb-1">
                       Scheduled Date of Burn *
                     </label>
                     <input
@@ -497,60 +343,54 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
                       required
                       value={formData.burnDate}
                       onChange={e => setFormData({ ...formData, burnDate: e.target.value })}
-                      className="min-h-[44px] w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors"
+                      className="min-h-[44px] w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-red-500"
                     />
                   </div>
 
-                  {/* Mandatory Safety Checkboxes */}
-                  <div className="space-y-3 pt-2">
-                    <label className="flex items-start gap-3 cursor-pointer">
+                  <div className="space-y-2 pt-1 text-xs text-slate-300">
+                    <label className="flex items-start gap-2.5 cursor-pointer">
                       <input
                         type="checkbox"
                         required
                         checked={formData.pileDimensionsConfirmed}
                         onChange={e => setFormData({ ...formData, pileDimensionsConfirmed: e.target.checked })}
-                        className="w-4 h-4 mt-1 rounded text-red-600 focus:ring-red-500 bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-700 cursor-pointer"
+                        className="w-4 h-4 mt-0.5 rounded text-red-600 bg-slate-950 border-slate-700"
                       />
-                      <span className="text-xs text-slate-700 dark:text-slate-300 leading-snug">
-                        I certify that my pile consists solely of natural vegetation and is <strong className="text-slate-900 dark:text-white">4ft x 4ft x 4ft or smaller</strong>.
-                      </span>
+                      <span>I confirm pile is 4ft x 4ft x 4ft or smaller of clean yard debris.</span>
                     </label>
 
-                    <label className="flex items-start gap-3 cursor-pointer">
+                    <label className="flex items-start gap-2.5 cursor-pointer">
                       <input
                         type="checkbox"
                         required
                         checked={formData.waterSupplyConfirmed}
                         onChange={e => setFormData({ ...formData, waterSupplyConfirmed: e.target.checked })}
-                        className="w-4 h-4 mt-1 rounded text-red-600 focus:ring-red-500 bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-700 cursor-pointer"
+                        className="w-4 h-4 mt-0.5 rounded text-red-600 bg-slate-950 border-slate-700"
                       />
-                      <span className="text-xs text-slate-700 dark:text-slate-300 leading-snug">
-                        I confirm an adult will attend the fire continuously with a charged water hose and extinguish it completely before dusk.
-                      </span>
+                      <span>I confirm an adult will attend with water on site and extinguish before dusk.</span>
                     </label>
                   </div>
 
-                  {/* Submit Button */}
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="min-h-[48px] w-full mt-4 flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-black text-sm uppercase tracking-wide bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 disabled:opacity-50 text-white shadow-lg shadow-red-950/20 transition-all active:scale-95"
+                    className="min-h-[44px] w-full mt-2 flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm bg-red-600 hover:bg-red-500 disabled:opacity-50 text-white transition-all shadow-md active:scale-95"
                   >
                     {isSubmitting ? (
                       <>
-                        <Loader2 className="w-4 h-4 animate-spin text-white" />
-                        <span>Transmitting to Edge Router...</span>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Transmitting...</span>
                       </>
                     ) : (
                       <>
                         <Send className="w-4 h-4" />
-                        <span>Submit Outdoor Burn Notice</span>
+                        <span>Submit Burn Notice</span>
                       </>
                     )}
                   </button>
 
-                  <p className="text-[10px] text-center text-slate-500">
-                    You can also notify DCFD4 via phone: leave a message at <strong className="text-slate-700 dark:text-slate-400">(509) 784-2941</strong>.
+                  <p className="text-[11px] text-center text-slate-500">
+                    You can also call DCFD4 to leave a notice: <strong className="text-slate-400">(509) 784-2941</strong>
                   </p>
 
                 </form>

@@ -31,11 +31,11 @@ export const RESOURCES_DATA: ResourceItem[] = [
     title: 'Watch Duty Wildfire App & Map',
     category: 'maps',
     provider: 'Watch Duty 501(c)(3)',
-    providerType: 'Real-Time Volunteer & Radio Monitored',
-    description: 'The premier real-time wildfire tracking service for the Western US. Powered by vetted radio monitors and retired wildland firefighters, delivering real-time perimeter updates, evacuation notices, and flight tracking before official press releases.',
+    providerType: 'Live Radio & Volunteer',
+    description: 'Real-time wildfire perimeters, evacuation notices, and air attack flight tracking for Central Washington.',
     url: 'https://app.watchduty.org',
     badgeColor: 'border-orange-500/50 bg-orange-500/20 text-orange-300',
-    features: ['Active evacuation zones', 'Air attack flight tracking', 'Live dispatch radio notes', 'Push alert notifications'],
+    features: ['Active evacuation zones', 'Air attack flight tracking', 'Radio dispatch notes'],
     appLinks: {
       ios: 'https://apps.apple.com/us/app/watch-duty-wildfire-maps/id1571475727',
       android: 'https://play.google.com/store/apps/details?id=org.watchduty.app'
@@ -47,32 +47,32 @@ export const RESOURCES_DATA: ResourceItem[] = [
     category: 'maps',
     provider: 'Washington Dept of Natural Resources',
     providerType: 'Official State Fire Agency',
-    description: 'The official Washington State wildfire map and incident report dashboard. Provides acreage updates, containment percentages, responding interagency units, and county-by-county wildfire danger ratings.',
+    description: 'Official Washington wildfire map with incident containment percentages, acreage, and danger ratings.',
     url: 'https://www.dnr.wa.gov/Wildfires',
     badgeColor: 'border-emerald-500/50 bg-emerald-500/20 text-emerald-300',
-    features: ['Official acres & containment %', 'DNR initial attack response', 'County industrial fire precaution levels (IFPL)', 'State forest burn restrictions']
+    features: ['Acres & containment %', 'DNR initial attack response', 'County IFPL levels']
   },
   {
     id: 'inciweb',
     title: 'InciWeb Interagency All-Risk System',
     category: 'maps',
     provider: 'National Wildfire Coordinating Group (NWCG)',
-    providerType: 'Federal Interagency Command',
-    description: 'National interagency incident information system tracking large, complex wildfires and federal response efforts managed by Type 1, 2, and 3 Incident Management Teams across Washington and the Pacific Northwest.',
+    providerType: 'Federal Interagency',
+    description: 'National interagency incident tracking for large complex wildfires and federal response teams.',
     url: 'https://inciweb.wildfire.gov',
     badgeColor: 'border-red-500/50 bg-red-500/20 text-red-300',
-    features: ['Incident commander briefs', 'Detailed daily fire perimeter shapefiles', 'Road closure maps', 'Official press releases']
+    features: ['Daily perimeter shapefiles', 'Incident commander briefs', 'Official press releases']
   },
   {
     id: 'nasa-firms',
-    title: 'NASA FIRMS Satellite Thermal Anomaly Scan',
+    title: 'NASA FIRMS Satellite Thermal Scan',
     category: 'maps',
     provider: 'NASA Earthdata',
-    providerType: 'Near Real-Time Orbital Satellites',
-    description: 'Near real-time satellite imagery showing active thermal hotspots detected from MODIS and VIIRS satellite sensors in orbit. Updates every 3 hours to detect new spot fires and active burn lines before ground verification.',
+    providerType: 'Orbital Satellites',
+    description: 'Near real-time MODIS and VIIRS satellite hotspot detection updated every 3 hours.',
     url: 'https://firms.modaps.eosdis.nasa.gov/map',
     badgeColor: 'border-cyan-500/50 bg-cyan-500/20 text-cyan-300',
-    features: ['3-hour satellite thermal passes', 'High-resolution MODIS/VIIRS infrared', 'Historical fire progression tracking', 'Global coverage']
+    features: ['3-hour satellite passes', 'Infrared hotspot detection', 'Global fire tracking']
   },
   {
     id: 'airnow-smoke',
@@ -80,153 +80,153 @@ export const RESOURCES_DATA: ResourceItem[] = [
     category: 'weather',
     provider: 'US EPA & US Forest Service',
     providerType: 'Federal Air Quality Network',
-    description: 'Combined real-time mapping of PM2.5 air quality monitors, satellite-detected smoke plumes, and wildfire locations. Essential for checking air health in Orondo, Chelan, and East Wenatchee during wildfire season.',
+    description: 'Real-time PM2.5 air quality readings and satellite smoke plume overlays across Central Washington.',
     url: 'https://fire.airnow.gov',
     badgeColor: 'border-purple-500/50 bg-purple-500/20 text-purple-300',
-    features: ['Real-time PM2.5 Air Quality Index (AQI)', 'Overlaid NOAA smoke plume polygons', 'Low-cost sensor calibration (PurpleAir)', 'Health advisory guidance']
+    features: ['PM2.5 Air Quality Index', 'NOAA smoke plume polygons', 'Health advisory guidance']
   },
   {
     id: 'wa-smoke-blog',
-    title: 'Washington Smoke Information Forecast',
+    title: 'Washington Smoke Forecast',
     category: 'weather',
     provider: 'Washington Clean Air Agencies & DNR',
-    providerType: 'Multi-Agency Technical Blog',
-    description: 'Expert daily smoke meteorological forecasts published collaboratively by WA Dept of Ecology, DNR, EPA, and Tribal air authorities. Provides 48-hour transport forecasts for Central Washington valleys.',
+    providerType: 'State Forecast Blog',
+    description: 'Expert 48-hour smoke forecasts and valley inversion projections from Washington meteorologists.',
     url: 'https://wasmoke.blogspot.com',
     badgeColor: 'border-blue-500/50 bg-blue-500/20 text-blue-300',
-    features: ['Meteorologist written forecasts', 'Inversion & smoke clearing predictions', 'County burn ban air restrictions', 'Vulnerable group health tips']
+    features: ['Meteorologist daily briefs', 'Smoke clearing timelines', 'Health recommendations']
   },
   {
     id: 'nws-spokane-fire',
     title: 'NWS Spokane Fire Weather Forecast',
     category: 'weather',
     provider: 'National Weather Service (NOAA)',
-    providerType: 'Federal Climatology & Weather Office',
-    description: 'Official fire weather briefings for Eastern Washington (Zone WAZ704 / Douglas County). Features real-time Red Flag Warnings, gusty wind forecasts, Haines Index atmospheric instability, and dry lightning threats.',
+    providerType: 'NOAA Weather Office',
+    description: 'Official Red Flag Warnings, relative humidity minimums, and wind gust alerts for Douglas County.',
     url: 'https://www.weather.gov/wrh/fire?wfo=otx&layer=fwx',
     badgeColor: 'border-amber-500/50 bg-amber-500/20 text-amber-300',
-    features: ['Red Flag Warning notices', 'Relative humidity minimums', 'Wind gust forecasts (Columbia River Corridor)', 'Spot fire weather monitoring']
+    features: ['Red Flag Warnings', 'River corridor wind gusts', 'Lightning hazard tracking']
   },
   {
     id: 'rivercom-911',
     title: 'RiverCom 911 Communications',
     category: 'local',
     provider: 'RiverCom Chelan-Douglas 911',
-    providerType: 'Regional Emergency Dispatch',
-    description: 'The intergovernmental 911 communications agency dispatching Douglas County Fire District 4 apparatus and personnel across all incidents in our jurisdiction. Operates 24/7/365.',
+    providerType: 'Regional Dispatch Center',
+    description: '24/7/365 emergency dispatch center for Douglas County Fire District 4 apparatus and personnel.',
     url: 'https://rivercom911.org',
     badgeColor: 'border-red-600/50 bg-red-600/20 text-red-300',
-    features: ['Douglas & Chelan County coordination', 'Non-emergency dispatch: (509) 663-9911', 'Emergency dispatch call center', 'CAD incident processing']
+    features: ['Emergency dispatch: Dial 911', 'Non-emergency: (509) 663-9911', 'Countywide coordination']
   },
   {
     id: 'douglas-county-em',
     title: 'Douglas County Emergency Management',
     category: 'local',
     provider: "Douglas County Sheriff's Office",
-    providerType: 'County Public Safety & Alerting',
-    description: 'Official county emergency management portal. Coordinates disaster response, hazard mitigation, shelter locations, and public safety alerts across Douglas County.',
+    providerType: 'County Public Safety',
+    description: 'Coordinates county disaster operations, evacuation level declarations, and public safety alerts.',
     url: 'https://www.douglascountywa.gov/231/Emergency-Management',
     badgeColor: 'border-emerald-600/50 bg-emerald-600/20 text-emerald-300',
-    features: ['Level 1 (Ready) / 2 (Set) / 3 (GO!) alerts', 'Emergency operations coordination', 'Hazard mitigation planning', 'Disaster shelter coordination']
+    features: ['Level 1/2/3 evacuation notices', 'Disaster shelter updates', 'Hazard mitigation planning']
   },
   {
     id: 'douglas-county-everbridge',
-    title: 'Douglas County Everbridge Alert Signup',
+    title: 'Douglas County Everbridge Alerts',
     category: 'local',
     provider: 'Douglas County Emergency Management',
-    providerType: 'Official Emergency Broadcast',
-    description: 'Direct citizen registration portal for Douglas County emergency notifications. Register mobile phones and emails for real-time text and phone call alerts during wildfires, evacuations, and flash floods.',
+    providerType: 'Emergency Broadcast Portal',
+    description: 'Sign up your phone and email for automated SMS and call alerts during wildfires and emergencies.',
     url: 'https://www.douglascountywa.gov/693/Everbridge-Emergency-Alert-System',
     badgeColor: 'border-cyan-600/50 bg-cyan-600/20 text-cyan-300',
-    features: ['Instant SMS & automated phone alerts', 'Localized neighborhood targeting', 'Wildfire evacuation warnings', 'Severe weather & road closures']
+    features: ['Instant SMS & phone calls', 'Neighborhood targeted alerts', 'Wildfire evacuation warnings']
   },
   {
     id: 'douglas-county-incident-map',
-    title: 'Douglas County Emergency Incidents Map',
+    title: 'Douglas County Incidents Map',
     category: 'local',
     provider: 'Douglas County Emergency Management',
-    providerType: 'Live Public Safety GIS',
-    description: 'Interactive county GIS portal mapping active emergency incidents, road washouts, active wildfires, evacuation perimeters, and emergency shelter stations in real time.',
+    providerType: 'Live County GIS',
+    description: 'Interactive map displaying active county road closures, fire incidents, and evacuation boundaries.',
     url: 'https://www.douglascountywa.gov/697/Emergency-Incidents-Map',
     badgeColor: 'border-rose-500/50 bg-rose-500/20 text-rose-300',
-    features: ['Live incident GIS layers', 'Active road closures & detours', 'Evacuation boundary shapefiles', 'Shelter & safe zone markers']
+    features: ['Active road closures', 'Evacuation perimeters', 'Shelter locations']
   },
   {
     id: 'usgs-columbia-river',
-    title: 'USGS Washington Water Conditions & River Flow',
+    title: 'USGS Columbia River Flow & Gauge',
     category: 'local',
     provider: 'US Geological Survey (USGS)',
-    providerType: 'Federal Hydrologic Monitoring',
-    description: 'Real-time USGS hydrologic monitoring across Washington State and the Columbia River Basin. Tracks streamflow (cfs), gauge elevations, reservoir reaches, and flood stages bordering Orondo.',
+    providerType: 'Hydrologic Monitoring',
+    description: 'Real-time Columbia River streamflow, dam reservoir levels, and water elevations near Orondo.',
     url: 'https://waterdata.usgs.gov/state/Washington/',
     badgeColor: 'border-blue-600/50 bg-blue-600/20 text-blue-300',
-    features: ['Real-time cubic feet per second (cfs)', 'Gauge elevation near Rocky Reach & Wells', 'Flood stage monitoring', 'National Water Dashboard map layers']
+    features: ['Streamflow in cfs', 'Gauge elevation monitoring', 'Flood condition tracking']
   },
   {
     id: 'douglas-county-code-812',
-    title: 'Douglas County Code Chapter 8.12 Open Burning',
+    title: 'Douglas County Code Ch. 8.12 Open Burning',
     category: 'regulations',
-    provider: 'Douglas County Board of Commissioners',
-    providerType: 'Codified County Ordinance',
-    description: 'Codified outdoor burning ordinance governing unincorporated Douglas County. Establishes seasonal restrictions (June 1 - October 1), fire district permit authority under RCW 52.12.101, IFC Section 307.4.2 adherence, adult supervision, and misdemeanor enforcement under Ordinance TLS 10-01-01B.',
+    provider: 'Douglas County Commissioners',
+    providerType: 'County Ordinance',
+    description: 'Codified county burn regulations defining the seasonal burn ban (June 1 - October 1) and fire rules.',
     url: 'https://www.codepublishing.com/WA/DouglasCounty/html/DouglasCounty08/DouglasCounty0812.html',
     badgeColor: 'border-amber-500/50 bg-amber-500/20 text-amber-300',
-    features: ['Seasonal burn ban: June 1 – Oct 1', 'RCW 52.12.101 Fire District permit authority', 'Mandatory competent adult attendance', 'International Fire Code § 307.4.2 compliance']
+    features: ['Seasonal ban: June 1 – Oct 1', 'Mandatory adult supervision', 'IFC § 307.4.2 adherence']
   },
   {
     id: 'wa-ecology-burning',
-    title: 'WA Dept of Ecology Outdoor & Residential Burning',
+    title: 'WA Dept of Ecology Outdoor Burning',
     category: 'regulations',
-    provider: 'Washington Dept of Ecology Central Region',
-    providerType: 'State Air Quality Regulatory Agency',
-    description: 'Official Washington Department of Ecology guidelines on outdoor residential burning, clean air regulations, burn barrel prohibitions, and air quality burn ban thresholds for Central Washington.',
+    provider: 'Washington Dept of Ecology',
+    providerType: 'State Air Quality Agency',
+    description: 'Clean Air Act rules for residential yard waste, burn barrel bans, and clean air thresholds.',
     url: 'https://ecology.wa.gov/air-climate/air-quality/smoke-fire/outdoor-residential-burning',
     badgeColor: 'border-teal-500/50 bg-teal-500/20 text-teal-300',
-    features: ['Yard waste burning limits', 'Burn barrel ban enforcement', 'Urban Growth Area (UGA) rules', 'Clean Air Act compliance standards']
+    features: ['Burn barrel prohibition', 'Yard waste limitations', 'Air quality ban triggers']
   },
   {
     id: 'wa-ecology-permits',
-    title: 'WA Dept of Ecology Burn Permits Portal',
+    title: 'WA Ecology Agricultural Burn Permits',
     category: 'regulations',
-    provider: 'Washington Dept of Ecology Central Region',
+    provider: 'Washington Dept of Ecology',
     providerType: 'State Environmental Permitting',
-    description: 'Central portal to apply for Washington State agricultural burning permits, orchard tear-outs, and commercial land clearing burns. Features the online permit application system.',
+    description: 'Official permit applications for commercial agricultural burning and orchard tear-outs.',
     url: 'https://ecology.wa.gov/regulations-permits/permits-certifications/air-quality-permits/burn-permits',
     badgeColor: 'border-emerald-500/50 bg-emerald-500/20 text-emerald-300',
-    features: ['Agricultural burn permit applications', 'Central Region hotline: 1-800-406-5322', 'Commercial orchard disposal permits', 'Online permit portal & tutorials']
+    features: ['Agricultural burn permits', 'Hotline: (800) 406-5322', 'Commercial orchard disposal']
   },
   {
     id: 'wa-wac-173-425',
-    title: 'WAC 173-425 Washington State Outdoor Burning Rule',
+    title: 'WAC 173-425 Outdoor Burning Rule',
     category: 'regulations',
     provider: 'Washington State Legislature',
-    providerType: 'Washington Administrative Code (WAC)',
-    description: 'The codified administrative rule implementing the Washington Clean Air Act (RCW 70A.15). Explicitly prohibits burning construction debris, treated wood, plastics, and garbage, and restricts open burning inside designated growth boundaries.',
+    providerType: 'Washington Admin Code',
+    description: 'Codified state administrative code prohibiting burning construction debris, treated wood, and garbage.',
     url: 'https://app.leg.wa.gov/wac/default.aspx?cite=173-425',
     badgeColor: 'border-purple-500/50 bg-purple-500/20 text-purple-300',
-    features: ['Statewide burn barrel prohibition', 'WAC 173-425-050 prohibited materials', 'Urban Growth Area (UGA) burn bans', 'Civil penalty enforcement framework']
+    features: ['Prohibited toxic materials', 'Burn barrel ban', 'Civil penalty framework']
   },
   {
     id: 'wa-dnr-burn-restrictions',
-    title: 'WA DNR Burn Restrictions & Burn Portal',
+    title: 'WA DNR Burn Portal & Restrictions',
     category: 'regulations',
     provider: 'Washington Dept of Natural Resources',
-    providerType: 'State Forest Protection Authority',
-    description: 'Official DNR forest fire protection portal. Details current county fire danger levels, Industrial Fire Precaution Levels (IFPL), campfire restrictions on state lands, and access to the DNR Burn Portal under WAC 332-24.',
+    providerType: 'State Forest Protection',
+    description: 'Forest fire danger ratings, Industrial Fire Precaution Levels (IFPL), and DNR burn portal.',
     url: 'https://dnr.wa.gov/wildfire-resources/outdoor-burning/burn-restrictions',
     badgeColor: 'border-orange-500/50 bg-orange-500/20 text-orange-300',
-    features: ['DNR Burn Portal login (burnportal.dnr.wa.gov)', 'WAC 332-24 forest fire rules', 'IFPL industrial woods restrictions', 'Interactive statewide fire danger map']
+    features: ['DNR Burn Portal login', 'IFPL industrial restrictions', 'State forest campfire rules']
   },
   {
     id: 'douglas-county-burn-restrictions',
-    title: 'Douglas County Burn Bans & Restrictions Notice',
+    title: 'Douglas County Burn Ban Notices',
     category: 'regulations',
     provider: 'Douglas County Administration',
     providerType: 'Official County Notice',
-    description: 'Official county bulletin on seasonal burn restrictions, high-hazard fire season announcements, and direct coordination with local fire districts.',
+    description: 'Current county commissioner resolutions regarding fire season restrictions and emergency bans.',
     url: 'https://www.douglascountywa.gov/821/Burn-Bans-and-Restrictions',
     badgeColor: 'border-red-500/50 bg-red-500/20 text-red-300',
-    features: ['Official county commission burn notices', 'Seasonal start & end date declarations', 'Fire district coordination links', 'Emergency ban amendments']
+    features: ['Current ban resolutions', 'Emergency declarations', 'Interagency notices']
   }
 ];
 
@@ -245,74 +245,74 @@ export const ResourcesPage: React.FC = () => {
   });
 
   return (
-    <div className="py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
+    <div className="py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
       
       {/* Page Header */}
-      <div className="space-y-4 text-center max-w-3xl mx-auto">
-        <div className="flex items-center justify-center gap-2 text-xs font-bold text-red-700 dark:text-red-400 uppercase tracking-wider">
+      <div className="space-y-3 text-center max-w-2xl mx-auto">
+        <div className="flex items-center justify-center gap-2 text-xs font-bold text-red-400 uppercase tracking-wider">
           <Compass className="w-4 h-4 text-amber-500" />
           <span>Interagency Coordination & Public Safety</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
-          Wildfire Maps & Public Resources
+        <h1 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
+          Wildfire Maps & Resources
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-          Direct access to real-time satellite fire scans, interagency wildfire tracking apps, EPA smoke plumes, Douglas County emergency notification channels, and official burning regulations.
+        <p className="text-sm text-slate-400">
+          Direct links to satellite fire maps, smoke forecasts, county alerts, and burn regulations.
         </p>
       </div>
 
-      {/* Emergency Advisory Callout - Clean, Calm Civic Advisory without flashy buttons */}
-      <div className="app-card p-4 sm:p-5 rounded-2xl border-amber-200 dark:border-amber-900/50 bg-amber-50/50 dark:bg-amber-950/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+      {/* Emergency Advisory Callout */}
+      <div className="glass-panel p-4 sm:p-5 rounded-2xl border border-amber-900/40 bg-amber-950/20 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3 text-left">
-          <div className="p-2.5 rounded-xl bg-amber-600/10 dark:bg-amber-600/20 text-amber-700 dark:text-amber-400 border border-amber-500/30 flex-shrink-0">
+          <div className="p-2 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex-shrink-0">
             <AlertTriangle className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-sm sm:text-base font-black text-slate-900 dark:text-white uppercase">
+            <h2 className="text-sm sm:text-base font-bold text-white uppercase">
               Immediate Fire or Smoke Emergency?
             </h2>
-            <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5">
-              Online maps reflect satellite telemetry and delayed reports. For active flames or emergencies, contact RiverCom dispatch at 911.
+            <p className="text-xs text-slate-400 mt-0.5">
+              Maps reflect satellite delays. For active fires or emergencies, dial 911 immediately.
             </p>
           </div>
         </div>
-        <div className="text-xs font-bold text-slate-700 dark:text-slate-300 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 flex-shrink-0 shadow-sm">
+        <div className="text-xs font-bold text-slate-300 px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 flex-shrink-0">
           Emergencies: Dial 911
         </div>
       </div>
 
       {/* Category Tabs & Quick Search */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pb-2 border-b border-slate-800">
         
         {/* Category Filter Pills */}
         <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={() => setSelectedCategory('all')}
-            className={`min-h-[40px] px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+            className={`min-h-[44px] px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'all'
-                ? 'bg-red-600 text-white shadow-md shadow-red-950/20'
-                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800'
+                ? 'bg-red-600 text-white shadow-md shadow-red-950/40'
+                : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'
             }`}
           >
             All Resources ({RESOURCES_DATA.length})
           </button>
           <button
             onClick={() => setSelectedCategory('maps')}
-            className={`min-h-[40px] flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+            className={`min-h-[44px] flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'maps'
-                ? 'bg-orange-600 text-white shadow-md shadow-orange-950/20'
-                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800'
+                ? 'bg-orange-600 text-white shadow-md shadow-orange-950/40'
+                : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'
             }`}
           >
             <Map className="w-3.5 h-3.5" />
-            <span>Wildfire Maps & Apps</span>
+            <span>Wildfire Maps</span>
           </button>
           <button
             onClick={() => setSelectedCategory('weather')}
-            className={`min-h-[40px] flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+            className={`min-h-[44px] flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'weather'
-                ? 'bg-blue-600 text-white shadow-md shadow-blue-950/20'
-                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800'
+                ? 'bg-blue-600 text-white shadow-md shadow-blue-950/40'
+                : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'
             }`}
           >
             <Wind className="w-3.5 h-3.5" />
@@ -320,25 +320,25 @@ export const ResourcesPage: React.FC = () => {
           </button>
           <button
             onClick={() => setSelectedCategory('local')}
-            className={`min-h-[40px] flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+            className={`min-h-[44px] flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'local'
-                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-950/20'
-                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800'
+                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-950/40'
+                : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'
             }`}
           >
             <ShieldAlert className="w-3.5 h-3.5" />
-            <span>Local Douglas County</span>
+            <span>Douglas County</span>
           </button>
           <button
             onClick={() => setSelectedCategory('regulations')}
-            className={`min-h-[40px] flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+            className={`min-h-[44px] flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               selectedCategory === 'regulations'
-                ? 'bg-purple-600 text-white shadow-md shadow-purple-950/20'
-                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800'
+                ? 'bg-purple-600 text-white shadow-md shadow-purple-950/40'
+                : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'
             }`}
           >
             <Scale className="w-3.5 h-3.5" />
-            <span>Codes & Regulations</span>
+            <span>Regulations</span>
           </button>
         </div>
 
@@ -347,54 +347,54 @@ export const ResourcesPage: React.FC = () => {
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
-            placeholder="Search maps, apps, or alerts..."
+            placeholder="Search resources..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-xs sm:text-sm text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-red-500 transition-colors shadow-sm"
+            className="w-full min-h-[44px] pl-10 pr-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs sm:text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-red-500 transition-colors shadow-sm"
           />
         </div>
       </div>
 
       {/* Resources Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredResources.map((item) => (
           <div
             key={item.id}
-            className="app-card rounded-3xl p-6 flex flex-col justify-between space-y-5 transition-all shadow-md group"
+            className="glass-panel rounded-2xl p-5 flex flex-col justify-between space-y-4 border border-slate-800 hover:border-slate-700 transition-all shadow-md group"
           >
-            <div className="space-y-4">
+            <div className="space-y-3">
               
               {/* Top Badges */}
               <div className="flex items-start justify-between gap-2">
-                <span className={`text-[10px] font-black uppercase px-2.5 py-1 rounded-full border ${item.badgeColor}`}>
+                <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full border ${item.badgeColor}`}>
                   {item.providerType}
                 </span>
-                {item.category === 'maps' && <Map className="w-4 h-4 text-orange-500 flex-shrink-0" />}
-                {item.category === 'weather' && <Wind className="w-4 h-4 text-blue-500 flex-shrink-0" />}
-                {item.category === 'local' && <ShieldAlert className="w-4 h-4 text-emerald-500 flex-shrink-0" />}
-                {item.category === 'regulations' && <Scale className="w-4 h-4 text-purple-500 flex-shrink-0" />}
+                {item.category === 'maps' && <Map className="w-4 h-4 text-orange-400 flex-shrink-0" />}
+                {item.category === 'weather' && <Wind className="w-4 h-4 text-blue-400 flex-shrink-0" />}
+                {item.category === 'local' && <ShieldAlert className="w-4 h-4 text-emerald-400 flex-shrink-0" />}
+                {item.category === 'regulations' && <Scale className="w-4 h-4 text-purple-400 flex-shrink-0" />}
               </div>
 
               {/* Title & Organization */}
               <div>
-                <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-amber-400 transition-colors">
+                <h3 className="text-base font-bold text-white group-hover:text-amber-400 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">
+                <p className="text-xs text-slate-400 font-medium mt-0.5">
                   {item.provider}
                 </p>
               </div>
 
               {/* Description */}
-              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="text-xs text-slate-300 leading-relaxed">
                 {item.description}
               </p>
 
               {/* Feature Checklist */}
-              <div className="space-y-1.5 pt-2 border-t border-slate-200 dark:border-slate-800/80">
+              <div className="space-y-1 pt-2 border-t border-slate-800">
                 {item.features.map((feature, fIdx) => (
-                  <div key={fIdx} className="flex items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 dark:bg-amber-400 flex-shrink-0" />
+                  <div key={fIdx} className="flex items-center gap-1.5 text-[11px] text-slate-400">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />
                     <span>{feature}</span>
                   </div>
                 ))}
@@ -402,15 +402,15 @@ export const ResourcesPage: React.FC = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="space-y-2 pt-3 border-t border-slate-200 dark:border-slate-800">
+            <div className="space-y-2 pt-2 border-t border-slate-800">
               <a
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-h-[44px] w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-red-600 text-slate-900 hover:text-white dark:bg-slate-800 dark:hover:bg-red-600 dark:text-white font-bold text-xs uppercase tracking-wider border border-slate-300 hover:border-red-500 dark:border-slate-700 transition-all active:scale-95 shadow-sm"
+                className="min-h-[44px] w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-red-600 text-white font-bold text-xs uppercase tracking-wider border border-slate-700 hover:border-red-500 transition-all active:scale-95 shadow-sm"
               >
-                <span>Launch {item.title.split(' ')[0]} Web</span>
-                <ExternalLink className="w-3.5 h-3.5 text-red-600 group-hover:text-white dark:text-amber-400" />
+                <span>Open {item.title.split(' ')[0]}</span>
+                <ExternalLink className="w-3.5 h-3.5 text-amber-400 group-hover:text-white" />
               </a>
 
               {/* Mobile App Links if available */}
@@ -421,9 +421,9 @@ export const ResourcesPage: React.FC = () => {
                       href={item.appLinks.ios}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="min-h-[40px] flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800 transition-colors"
+                      className="min-h-[44px] flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-slate-900/80 hover:bg-slate-800 text-[11px] font-semibold text-slate-300 hover:text-white border border-slate-800 transition-colors"
                     >
-                      <Smartphone className="w-3 h-3 text-cyan-500" />
+                      <Smartphone className="w-3 h-3 text-cyan-400" />
                       <span>iOS App</span>
                     </a>
                   )}
@@ -432,10 +432,10 @@ export const ResourcesPage: React.FC = () => {
                       href={item.appLinks.android}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="min-h-[40px] flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800 transition-colors"
+                      className="min-h-[44px] flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-slate-900/80 hover:bg-slate-800 text-[11px] font-semibold text-slate-300 hover:text-white border border-slate-800 transition-colors"
                     >
-                      <Smartphone className="w-3 h-3 text-emerald-500" />
-                      <span>Android App</span>
+                      <Smartphone className="w-3 h-3 text-emerald-400" />
+                      <span>Android</span>
                     </a>
                   )}
                 </div>
@@ -447,11 +447,11 @@ export const ResourcesPage: React.FC = () => {
       </div>
 
       {filteredResources.length === 0 && (
-        <div className="text-center py-12 app-card rounded-2xl">
-          <p className="text-slate-500 dark:text-slate-400 text-sm">No resources found matching your search term.</p>
+        <div className="text-center py-10 glass-panel rounded-2xl">
+          <p className="text-slate-400 text-sm">No resources found matching your search.</p>
           <button
             onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}
-            className="mt-3 px-4 py-2 rounded-xl bg-red-600 text-white text-xs font-bold"
+            className="mt-3 min-h-[44px] px-4 py-2 rounded-xl bg-red-600 text-white text-xs font-bold"
           >
             Clear Filters
           </button>
@@ -459,10 +459,10 @@ export const ResourcesPage: React.FC = () => {
       )}
 
       {/* Local River Corridor Info Footer Strip */}
-      <div className="app-card p-5 rounded-2xl text-xs text-slate-600 dark:text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <div className="glass-panel p-4 rounded-2xl text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left border border-slate-800">
         <div className="flex items-center gap-2">
-          <Waves className="w-4 h-4 text-blue-500 flex-shrink-0" />
-          <span>Orondo Columbia River Corridor • Washington State Public Safety Network</span>
+          <Waves className="w-4 h-4 text-blue-400 flex-shrink-0" />
+          <span>Orondo Columbia River Corridor • Washington Public Safety</span>
         </div>
         <span>Douglas County Fire District No. 4</span>
       </div>

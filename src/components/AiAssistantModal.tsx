@@ -186,13 +186,13 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({
         return (
           <div key={lineIdx} className="flex items-start gap-2 pl-2 my-1">
             <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 flex-shrink-0" />
-            <div className="flex-1 leading-relaxed app-text-primary">{parts}</div>
+            <div className="flex-1 leading-relaxed text-slate-200">{parts}</div>
           </div>
         );
       }
 
       return (
-        <p key={lineIdx} className="my-1 leading-relaxed app-text-primary">
+        <p key={lineIdx} className="my-1 leading-relaxed text-slate-200">
           {parts}
         </p>
       );
@@ -200,34 +200,34 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-sm">
-      <div className="relative w-full max-w-xl h-[85vh] max-h-[680px] app-card rounded-3xl border app-border shadow-2xl flex flex-col overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm">
+      <div className="relative w-full max-w-xl h-[85vh] max-h-[680px] bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl flex flex-col overflow-hidden">
         
         {/* Header */}
-        <div className="p-4 sm:p-5 border-b app-border app-surface flex items-center justify-between">
+        <div className="p-4 sm:p-5 border-b border-slate-800 bg-slate-900 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="relative w-10 h-10 rounded-full app-surface border border-amber-500/50 flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-amber-500 dark:text-amber-400" />
-              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900" />
+            <div className="relative w-10 h-10 rounded-full bg-slate-800 border border-amber-500/50 flex items-center justify-center">
+              <Sparkles className="w-5 h-5 text-amber-400" />
+              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-slate-900" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="font-black app-text-primary text-base sm:text-lg">
+                <h3 className="font-black text-white text-base sm:text-lg">
                   DCFD4 Community Assistant
                 </h3>
-                <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-300 border border-amber-500/30">
-                  Site Guide & AI
+                <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30">
+                  AI Guide
                 </span>
               </div>
-              <p className="text-[11px] app-text-muted">
-                Official guide for burning rules, meetings, stations & wildfire maps
+              <p className="text-[11px] text-slate-400">
+                Official guide for burning rules, meetings, stations & resources
               </p>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:app-text-primary hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
+            className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
             aria-label="Close Assistant"
           >
             <X className="w-6 h-6" />
@@ -235,14 +235,14 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({
         </div>
 
         {/* Chat Message Scroll Area */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4 app-bg">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4 bg-slate-950">
           {messages.map(msg => (
             <div
               key={msg.id}
               className={`flex gap-3 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               {msg.sender === 'bot' && (
-                <div className="w-8 h-8 rounded-full bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center flex-shrink-0 mt-1">
                   <Bot className="w-4 h-4" />
                 </div>
               )}
@@ -251,7 +251,7 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({
                 className={`max-w-[85%] rounded-2xl p-4 text-xs sm:text-sm leading-relaxed shadow-sm ${
                   msg.sender === 'user'
                     ? 'bg-red-600 text-white rounded-br-none'
-                    : 'app-surface app-text-primary border app-border rounded-bl-none'
+                    : 'bg-slate-900 text-slate-200 border border-slate-800 rounded-bl-none'
                 }`}
               >
                 {msg.sender === 'bot' ? (
@@ -265,7 +265,7 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({
               </div>
 
               {msg.sender === 'user' && (
-                <div className="w-8 h-8 rounded-full app-surface border app-border text-slate-600 dark:text-slate-300 flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center flex-shrink-0 mt-1">
                   <User className="w-4 h-4" />
                 </div>
               )}
@@ -273,12 +273,12 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({
           ))}
 
           {loading && (
-            <div className="flex items-center gap-3 app-text-muted text-xs">
-              <div className="w-8 h-8 rounded-full bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 flex items-center justify-center flex-shrink-0">
+            <div className="flex items-center gap-3 text-slate-400 text-xs">
+              <div className="w-8 h-8 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center flex-shrink-0">
                 <Bot className="w-4 h-4" />
               </div>
-              <div className="flex items-center gap-2 p-3 rounded-2xl app-surface border app-border">
-                <Loader2 className="w-4 h-4 animate-spin text-amber-500 dark:text-amber-400" />
+              <div className="flex items-center gap-2 p-3 rounded-2xl bg-slate-900 border border-slate-800">
+                <Loader2 className="w-4 h-4 animate-spin text-amber-400" />
                 <span>Consulting DCFD4 regulations and directory...</span>
               </div>
             </div>
@@ -288,13 +288,13 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({
         </div>
 
         {/* Quick Suggested Prompt Chips */}
-        <div className="p-3 border-t app-border app-surface overflow-x-auto">
+        <div className="p-3 border-t border-slate-800 bg-slate-900 overflow-x-auto">
           <div className="flex items-center gap-2 whitespace-nowrap">
             {quickPrompts.map((prompt, idx) => (
               <button
                 key={idx}
                 onClick={() => handleSend(prompt)}
-                className="text-[11px] font-semibold px-3 py-1.5 rounded-full app-card hover:bg-slate-200 dark:hover:bg-slate-800 app-text-primary border app-border transition-colors flex-shrink-0 min-h-[32px]"
+                className="text-[11px] font-semibold px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition-colors flex-shrink-0 min-h-[36px]"
               >
                 {prompt}
               </button>
@@ -303,7 +303,7 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({
         </div>
 
         {/* Input Bar */}
-        <div className="p-3 sm:p-4 border-t app-border app-surface">
+        <div className="p-3 sm:p-4 border-t border-slate-800 bg-slate-900">
           <form
             onSubmit={e => {
               e.preventDefault();
@@ -313,10 +313,10 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({
           >
             <input
               type="text"
-              placeholder="Ask for burning rules, meeting dates, or pages on this site..."
+              placeholder="Ask for burning rules, meeting dates, or stations..."
               value={inputText}
               onChange={e => setInputText(e.target.value)}
-              className="min-h-[44px] flex-1 px-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 app-text-primary placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:border-red-500"
+              className="min-h-[44px] flex-1 px-4 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-red-500"
             />
             <button
               type="submit"

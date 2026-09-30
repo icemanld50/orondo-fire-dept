@@ -2,7 +2,7 @@
 ## Intended Behavior & Requirements Specification Report
 
 ### 1. Project Purpose & Scope
-This project delivers a state-of-the-art, mobile-first web portal for **Douglas County Fire District No. 4 (DCFD4 / Orondo Fire Department)**, completely replacing the legacy GoDaddy builder website (`dcfd4.com`). The portal provides vital public safety communications, real-time burn ban status tracking, open burning regulations and permit notifications, volunteer firefighter recruitment, an interactive community calendar with past-month hiding, an authentic 40-year photo archive gallery, an interagency wildfire tracking and smoke resource directory, an edge-routed form processing system on Cloudflare Workers, an AI community assistant acting as an interactive site navigator with clickable links, an adaptable multi-theme system defaulting to a clean municipal Light Theme, and a standalone wildland fire tower defense simulator.
+This project delivers a state-of-the-art, mobile-first web portal for **Douglas County Fire District No. 4 (DCFD4 / Orondo Fire Department)**, completely replacing the legacy GoDaddy builder website (`dcfd4.com`). The portal provides vital public safety communications, real-time burn ban status tracking, open burning regulations and permit notifications, volunteer firefighter recruitment, an interactive community calendar with past-month hiding, an authentic 40-year photo archive gallery, an interagency wildfire tracking and smoke resource directory, an edge-routed form processing system on Cloudflare Workers, an AI community assistant acting as an interactive site navigator with clickable links, an authoritative distraction-free Dark Theme (`#0b0f19`), and a standalone wildland fire tower defense simulator.
 
 ---
 
@@ -17,7 +17,8 @@ This project delivers a state-of-the-art, mobile-first web portal for **Douglas 
     4. **District Calendar (`calendar`):** Monthly Fire Commissioner meetings (3rd Wednesday @ 5:30 PM at Station 241) and bi-weekly Tuesday training evolutions.
     5. **Wildfire Maps & Radar (`resources`):** Watch Duty radio incident tracking, WA DNR active fire dashboard, and EPA AirNow smoke plumes.
     6. **Contact Headquarters (`contact`):** Station 241 address, administrative office phone `(509) 784-2941`, and 24/7 RiverCom Dispatch `(509) 663-9911`.
-* **Zero Pill & Badge Clutter; Subtle Secondary Icons:**
+* **Zero Pill & Badge Clutter; Subtle Secondary Icons; Drastically Reduced Copy:**
+  - Fluff copy removed across all sections, keeping descriptions concise (1–2 sentences max).
   - Icons on action cards are small and secondary accents, keeping primary visual focus squarely on clear, concise action titles.
   - Excessive decorative pills, badges, and redundant labels have been removed across all sections.
   - Every card features a bold, high-contrast title and full-width 44px+ tap target action buttons.
@@ -32,13 +33,12 @@ This project delivers a state-of-the-art, mobile-first web portal for **Douglas 
 * **Secondary Facility Exploration:**
   - Kept distinct facilities (Fire Stations 241–244, Photo Gallery) cleanly organized in a quiet secondary directory strip below the roadmap. Mini-game is hidden from all menus.
 
-#### 2.2 Streamlined Desktop Navigation Bar & Multi-Theme Switcher
+#### 2.2 Streamlined Desktop Navigation Bar & Authoritative Dark Theme
 * **Action-Aligned Links:**
   - Desktop navbar links directly match the roadmap: `Home`, `Burn Rules`, `Volunteer`, `Calendar`, `Resources`, and `Donate & Contact`.
-  - Secondary pages are housed neatly inside the "Explore & Archive ▾" dropdown menu (`Stations & Fleet`, `Photo Gallery`, `About DCFD4`). Mini-game (`/fire-game`) is hidden from menus.
-* **Theme Switcher:**
-  - Accessible dropdown in top-right navbar supporting 3 themes: `Civic Light` (default), `Warm Slate`, and `Midnight Dark`.
-  - Automatically persists user preference in `localStorage`.
+  - Secondary pages are housed neatly inside the "Explore ▾" dropdown menu (`Stations & Fleet`, `Photo Gallery`, `About DCFD4`). Mini-game (`/fire-game`) is hidden from menus.
+* **Authoritative Dark Emergency Aesthetic:**
+  - Clean `#0b0f19` deep-slate dark palette with glass panels, high-contrast typography, and amber/red emergency accents. Multi-theme switcher removed to preserve visual gravity and avoid clutter.
 
 #### 2.3 Station 244 (23420 US-97) Authentic Photo & Fleet Map
 * **Station 244 (Beebe Bridge / Columbia River Gateway - 23420 US Highway 97):**
