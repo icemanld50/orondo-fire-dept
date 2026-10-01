@@ -24,6 +24,7 @@ export const VolunteerPage: React.FC = () => {
     interestedRoles: ['Firefighter'],
     hasExperience: false,
     experienceDetails: '',
+    bot_field: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -90,6 +91,7 @@ export const VolunteerPage: React.FC = () => {
       address: formData.address,
       roleInterest: formData.interestedRoles,
       notes: formData.hasExperience ? `Experience: ${formData.experienceDetails}` : 'No prior experience',
+      bot_field: formData.bot_field,
     });
     setIsSubmitting(false);
 
@@ -242,6 +244,17 @@ export const VolunteerPage: React.FC = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Honeypot Anti-Spam Field */}
+                  <div className="hidden" aria-hidden="true" style={{ display: 'none' }}>
+                    <input
+                      type="text"
+                      name="bot_field"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formData.bot_field}
+                      onChange={e => setFormData({ ...formData, bot_field: e.target.value })}
+                    />
+                  </div>
                   
                   <div>
                     <label className="block text-xs font-bold text-slate-300 mb-1">

@@ -50,6 +50,7 @@ export interface BurnReportForm {
   pileDimensionsConfirmed: boolean;
   waterSupplyConfirmed: boolean;
   notes?: string;
+  bot_field?: string;
 }
 
 export interface VolunteerApplicationForm {
@@ -61,4 +62,5 @@ export interface VolunteerApplicationForm {
   interestedRoles: string[];
   hasExperience: boolean;
   experienceDetails?: string;
+  bot_field?: string;
 }

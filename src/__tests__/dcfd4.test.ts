@@ -139,7 +139,7 @@ describe('DCFD4 Authentic Photo Gallery Data Integrity', () => {
   });
 });
 
-describe('DCFD4 Edge Form Service', () => {
+describe('DCFD4 Edge Form Service & Honeypot Protection', () => {
   it('generates a valid fallback tracking reference code when offline', async () => {
     const { submitDistrictForm } = await import('../services/formService');
     const res = await submitDistrictForm({
@@ -153,6 +153,58 @@ describe('DCFD4 Edge Form Service', () => {
     expect(res.success).toBe(true);
     expect(res.referenceCode).toMatch(/^DCFD4-BURN-\d{4}-\d{6}$/);
     expect(res.timestamp).toBeTruthy();
+  });
+
+  it('silently traps spambots when honeypot bot_field is populated', async () => {
+    const worker = (await import('../worker')).default;
+    const mockRequest = new Request('http://localhost/api/submit-form', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        formType: 'contact',
+        name: 'Spam Bot 3000',
+        email: 'spammer@auto.ru',
+        message: 'Buy cheap seo backlink services',
+        bot_field: 'http://spam-link.ru',
+      }),
+    });
+
+    const mockEnv = { ASSETS: { fetch: async () => new Response('ok') } };
+    const mockCtx = { waitUntil: () => {}, passThroughOnException: () => {} };
+
+    const res = await worker.fetch(mockRequest, mockEnv, mockCtx);
+    expect(res.status).toBe(200);
+    const data = await res.json();
+    expect(data.success).toBe(true);
+    expect(data.referenceCode).toBe('DCFD4-FILTERED-OK');
+  });
+
+  it('successfully processes valid citizen submissions and routes to info@dcfd4.com', async () => {
+    const worker = (await import('../worker')).default;
+    const mockRequest = new Request('http://localhost/api/submit-form', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        formType: 'open_burning',
+        name: 'Sarah Miller',
+        phone: '509-784-0000',
+        address: '14200 US-2, Orondo, WA',
+        burnDate: '2026-10-15',
+        burnType: 'natural-debris',
+        pileDimensionsConfirmed: true,
+        waterSupplyConfirmed: true,
+      }),
+    });
+
+    const mockEnv = { ASSETS: { fetch: async () => new Response('ok') } };
+    const mockCtx = { waitUntil: () => {}, passThroughOnException: () => {} };
+
+    const res = await worker.fetch(mockRequest, mockEnv, mockCtx);
+    expect(res.status).toBe(200);
+    const data = await res.json();
+    expect(data.success).toBe(true);
+    expect(data.referenceCode).toMatch(/^DCFD4-BURN-\d{4}-\d{6}$/);
+    expect(data.routedTo).toBe('info@dcfd4.com');
   });
 });
 

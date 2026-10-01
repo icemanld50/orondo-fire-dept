@@ -22,6 +22,7 @@ export const ContactPage: React.FC = () => {
     phone: '',
     subject: 'General Question',
     message: '',
+    bot_field: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -42,6 +43,7 @@ export const ContactPage: React.FC = () => {
       email: formData.email,
       phone: formData.phone,
       message: `[Subject: ${formData.subject}] ${formData.message}`,
+      bot_field: formData.bot_field,
     });
     setIsSubmitting(false);
 
@@ -205,6 +207,7 @@ export const ContactPage: React.FC = () => {
                         phone: '',
                         subject: 'General Question',
                         message: '',
+                        bot_field: '',
                       });
                     }}
                     className="w-full py-2 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-white transition-colors"
@@ -214,6 +217,17 @@ export const ContactPage: React.FC = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Honeypot Anti-Spam Field */}
+                  <div className="hidden" aria-hidden="true" style={{ display: 'none' }}>
+                    <input
+                      type="text"
+                      name="bot_field"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formData.bot_field}
+                      onChange={e => setFormData({ ...formData, bot_field: e.target.value })}
+                    />
+                  </div>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
