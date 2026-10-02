@@ -43,6 +43,7 @@ export interface LeaderInfo {
 
 export interface BurnReportForm {
   fullName: string;
+  email: string;
   phone: string;
   address: string;
   burnDate: string;

@@ -102,7 +102,9 @@ async function handleFormSubmission(request: Request, env: Env, ctx: ExecutionCo
     const targetEmail = env.DESTINATION_EMAIL || 'info@dcfd4.com';
 
     // 4. Format Submission Details for Dispatch
-    const emailSubject = `[${referenceCode}] New ${formatFormType(body.formType)} - ${body.name}`;
+    const emailSubject = body.formType === 'open_burning'
+      ? `[${referenceCode}] ACTION REQUIRED: Burn Request Pending Approval - ${body.name}`
+      : `[${referenceCode}] New ${formatFormType(body.formType)} - ${body.name}`;
     const formattedContent = buildEmailContent(body, referenceCode, timestamp);
 
     console.log(`[FORM_ROUTER] Routing ${referenceCode} to ${targetEmail}`);
@@ -110,7 +112,7 @@ async function handleFormSubmission(request: Request, env: Env, ctx: ExecutionCo
     // 5. Dispatch via Resend API (if configured)
     if (env.RESEND_API_KEY) {
       ctx.waitUntil(
-        sendViaResend(env.RESEND_API_KEY, targetEmail, emailSubject, formattedContent)
+        sendViaResend(env.RESEND_API_KEY, targetEmail, emailSubject, formattedContent, body.email)
       );
     }
 
@@ -127,7 +129,9 @@ async function handleFormSubmission(request: Request, env: Env, ctx: ExecutionCo
         referenceCode,
         timestamp,
         routedTo: targetEmail,
-        message: 'Your notice has been processed and routed to DCFD4 station staff.',
+        message: body.formType === 'open_burning'
+          ? 'Your burn request has been submitted and is pending dispatch review. Watch your email for approval.'
+          : 'Your notice has been processed and routed to DCFD4 station staff.',
       }),
       { status: 200, headers: CORS_HEADERS }
     );
@@ -168,13 +172,18 @@ Phone:          ${body.phone || 'None provided'}
 Address/Loc:    ${body.address || 'N/A'}
 
 ${body.formType === 'open_burning' ? `
-BURN DETAILS:
+BURN DETAILS & APPROVAL STATUS:
 --------------------------------------------------------------
+Review Status:  PENDING DISPATCH REVIEW (DO NOT BURN UNTIL APPROVED)
 Burn Date:      ${body.burnDate || 'Today'}
 Burn Type:      ${body.burnType || 'Natural Yard Debris'}
 Pile < 4x4x4ft: ${body.pileDimensionsConfirmed ? 'YES (Confirmed)' : 'NO'}
 Water on site:  ${body.waterSupplyConfirmed ? 'YES (Confirmed)' : 'NO'}
 Notes:          ${body.notes || 'None'}
+
+👉 DISPATCH ACTION REQUIRED:
+To APPROVE or DENY this burn request, simply click "Reply" to this 
+email and send written authorization directly to: ${body.email || 'None provided'}.
 ` : ''}
 
 ${body.formType === 'volunteer' ? `
@@ -194,7 +203,7 @@ Douglas County Fire Dist. 4 • Station 241 • Orondo, WA
   `.trim();
 }
 
-async function sendViaResend(apiKey: string, to: string, subject: string, text: string): Promise<void> {
+async function sendViaResend(apiKey: string, to: string, subject: string, text: string, replyTo?: string): Promise<void> {
   try {
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -205,6 +214,7 @@ async function sendViaResend(apiKey: string, to: string, subject: string, text: 
       body: JSON.stringify({
         from: 'DCFD4 Edge Router <alerts@dcfd4.com>',
         to: [to],
+        reply_to: replyTo || undefined,
         subject: subject,
         text: text,
       }),

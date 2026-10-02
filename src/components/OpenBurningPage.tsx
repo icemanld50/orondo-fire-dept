@@ -6,12 +6,13 @@ import {
   FileText, 
   Phone, 
   Send, 
-  Check, 
   ShieldAlert,
   Loader2,
   MapPin,
   ExternalLink,
-  Scale
+  Scale,
+  Clock,
+  AlertTriangle
 } from 'lucide-react';
 import type { BurnReportForm } from '../types';
 import { submitDistrictForm } from '../services/formService';
@@ -23,6 +24,7 @@ interface OpenBurningPageProps {
 export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActive }) => {
   const [formData, setFormData] = useState<BurnReportForm>({
     fullName: '',
+    email: '',
     phone: '',
     address: '',
     burnDate: new Date().toISOString().split('T')[0],
@@ -39,8 +41,8 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.fullName || !formData.phone || !formData.address) {
-      alert('Please fill in your name, phone number, and burn address.');
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.address) {
+      alert('Please fill in your name, email address (for approval), phone number, and burn address.');
       return;
     }
     if (!formData.pileDimensionsConfirmed || !formData.waterSupplyConfirmed) {
@@ -52,6 +54,7 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
     const result = await submitDistrictForm({
       formType: 'open_burning',
       name: formData.fullName,
+      email: formData.email,
       phone: formData.phone,
       address: formData.address,
       burnDate: formData.burnDate,
@@ -258,25 +261,50 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
               </div>
 
               {submitted ? (
-                <div className="p-6 rounded-2xl bg-emerald-950/50 border border-emerald-700/60 text-center space-y-3">
-                  <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto">
-                    <Check className="w-5 h-5" />
+                <div className="p-6 rounded-2xl bg-amber-950/40 border border-amber-600/60 text-center space-y-4">
+                  <div className="w-12 h-12 rounded-full bg-amber-600/20 text-amber-400 border border-amber-500/40 flex items-center justify-center mx-auto">
+                    <Clock className="w-6 h-6 animate-pulse" />
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-white">Notice Registered!</h4>
-                    <p className="text-xs text-emerald-300 mt-1">
-                      Your burn notice has been logged with Station 241 dispatch.
+                    <span className="inline-block px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30 mb-1.5">
+                      Request Submitted • Pending Review
+                    </span>
+                    <h4 className="text-xl font-black text-white uppercase tracking-tight">DO NOT BURN YET</h4>
+                    <p className="text-xs text-amber-200/90 mt-1 leading-relaxed">
+                      Your burn notice has been transmitted to Station 241 dispatch. Please wait and watch your email inbox for official written approval from DCFD4 before igniting.
                     </p>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs">
-                    <span className="text-slate-400 block text-[10px]">Reference Number:</span>
-                    <span className="font-mono text-amber-400 font-black text-sm">{referenceCode}</span>
+                  <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-left space-y-1.5">
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-400 text-[10px] uppercase font-bold">Tracking Reference:</span>
+                      <span className="font-mono text-amber-400 font-black text-sm">{referenceCode}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-[11px] pt-1.5 border-t border-slate-900">
+                      <span className="text-slate-400">Approval Will Be Sent To:</span>
+                      <span className="text-white font-medium truncate max-w-[200px]">{formData.email}</span>
+                    </div>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 text-[11px] text-slate-300 text-left space-y-2">
+                    <p className="font-bold text-amber-400 flex items-center gap-1.5">
+                      <AlertTriangle className="w-4 h-4 flex-shrink-0" />
+                      <span>Next Steps Before Igniting:</span>
+                    </p>
+                    <p className="text-slate-300 leading-normal">
+                      1. Check your email for authorization from <span className="text-white font-semibold">info@dcfd4.com</span>.
+                    </p>
+                    <p className="text-slate-300 leading-normal">
+                      2. If weather, high winds, or air inversions create safety hazards, burning will be restricted.
+                    </p>
+                    <p className="text-slate-400 text-[10px] pt-0.5">
+                      Need same-day or immediate status? Call Station 241 at <strong className="text-white">(509) 784-1841</strong>.
+                    </p>
                   </div>
                   <button
                     onClick={() => {
                       setSubmitted(false);
                       setFormData({
                         fullName: '',
+                        email: '',
                         phone: '',
                         address: '',
                         burnDate: new Date().toISOString().split('T')[0],
@@ -284,11 +312,12 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
                         pileDimensionsConfirmed: false,
                         waterSupplyConfirmed: false,
                         notes: '',
+                        bot_field: '',
                       });
                     }}
-                    className="w-full py-2 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-white transition-colors"
+                    className="w-full py-2.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-white transition-colors"
                   >
-                    Submit Another Notice
+                    Submit Another Burn Request
                   </button>
                 </div>
               ) : (
@@ -315,6 +344,20 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
                       placeholder="e.g. John Smith"
                       value={formData.fullName}
                       onChange={e => setFormData({ ...formData, fullName: e.target.value })}
+                      className="min-h-[44px] w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-red-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 mb-1">
+                      Email Address (For Written Approval Notice) *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="e.g. john.smith@example.com"
+                      value={formData.email}
+                      onChange={e => setFormData({ ...formData, email: e.target.value })}
                       className="min-h-[44px] w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-red-500"
                     />
                   </div>
@@ -397,7 +440,7 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
                     ) : (
                       <>
                         <Send className="w-4 h-4" />
-                        <span>Submit Burn Notice</span>
+                        <span>Submit Burn Request (Pending Approval)</span>
                       </>
                     )}
                   </button>
