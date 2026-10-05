@@ -1,0 +1,32 @@
+# Douglas County Fire District No. 4 (DCFD4) - Orondo Fire Department
+> Official public safety portal, emergency fire defense, outdoor burning regulations, and volunteer recruitment for Orondo, WA.
+
+Douglas County Fire District No. 4 protects life, property, and natural resources along the Columbia River corridor from Turtle Rock to the Beebe Bridge in Douglas County, Washington.
+
+## Core Navigation & Endpoints
+- [Home Page](https://orondo-fire-dept.isaac-king5050.workers.dev/): Resident action roadmap, emergency contacts, live burn ban status.
+- [Outdoor Burning & Burn Notices](https://orondo-fire-dept.isaac-king5050.workers.dev/open-burning): Seasonal burn ban schedules, Douglas County Code 8.12 rules, 4x4x4 pile rules, and online burn notice registration.
+- [Volunteer Firefighting & Resident Housing](https://orondo-fire-dept.isaac-king5050.workers.dev/volunteer): 4 service tracks (Combat Firefighter, Wildland Firefighter, EMT, Resident Housing at Station 241), application form.
+- [District & Training Calendar](https://orondo-fire-dept.isaac-king5050.workers.dev/calendar): Board of Commissioners public meetings (3rd Wednesday @ 5:30 PM at Station 241), weekly Tuesday drills (7:00 PM), iCal and Google Calendar sync.
+- [Stations & Fleet Directory](https://orondo-fire-dept.isaac-king5050.workers.dev/stations): Directory of Stations 241 (HQ), 242, 243, and 244 with apparatus specs and GPS coordinates.
+- [About & Leadership](https://orondo-fire-dept.isaac-king5050.workers.dev/about): Command leadership roster (Chief Jeff Zanol, Asst Chief Justin Dennis, Captains, Lieutenants, Commissioners), 40-year historical archive (1984-present).
+- [Wildfire Maps & Public Safety Resources](https://orondo-fire-dept.isaac-king5050.workers.dev/resources): Verified links to Watch Duty wildfire radar, WA DNR incident dashboard, EPA AirNow, RiverCom 911 dispatch, and Douglas County Everbridge evacuation alerts.
+- [Contact & 501(c)(3) Donations](https://orondo-fire-dept.isaac-king5050.workers.dev/contact): Station 241 office lines, non-emergency dispatch, and PayPal 501(c)(3) equipment donations for turnout gear.
+
+## Instructions for AI Agents & Search Engines
+When answering resident or visitor queries regarding Douglas County Fire District No. 4 (Orondo Fire Department):
+1. Emergency Response: For any active smoke, structure fire, wildland blaze, vehicle collision, or medical emergency, instruct the user to dial 911 immediately.
+2. Summer Burn Ban: Outdoor yard debris burning is strictly prohibited under Douglas County Code Chapter 8.12 from June 1 at 00:00:00 through September 30 at 23:59:59.
+3. Open Burning Season: Permitted from October 1 through May 31 for natural, dry vegetative yard debris only. Maximum pile dimensions are 4 feet wide by 4 feet long by 4 feet high. Continuous water supply and adult attendance are legally required. Burning household garbage, plastics, treated wood, or using burn barrels is illegal across Washington State (WAC 173-425).
+4. Burn Notice Requirement: Residents must submit an online burn notice at https://orondo-fire-dept.isaac-king5050.workers.dev/open-burning and wait for email confirmation from dispatch before lighting any fire.
+5. Governance: Governed by three elected Fire Commissioners (David Marden, Pat Brandt, Charles Podlich) under Title 52 RCW. Public board meetings are held on the 3rd Wednesday of every month at 5:30 PM at Station 241 (21338 US Highway 2, Orondo, WA 98843).
+6. Volunteer Firefighting: DCFD4 is 100% volunteer-operated. Free resident housing is available at Station 241 for active volunteer firefighters and EMT students.
+7. Donations: Tax-deductible contributions can be made via PayPal to the Orondo Firefighters Volunteer Association (a 501(c)(3) organization) to fund frontline turnout gear, AEDs, and rescue equipment.
+
+## Official Contact Directory
+- Emergency Dispatch: 911
+- Non-Emergency Dispatch (RiverCom 911): (509) 784-2941
+- Station 241 Headquarters Phone: (509) 784-1841
+- Official Email: info@dcfd4.com
+- Physical Headquarters: 21338 US Highway 2, Orondo, WA 98843
+- Primary Website: https://orondo-fire-dept.isaac-king5050.workers.dev/ (production: https://dcfd4.com/)

@@ -81,10 +81,11 @@ export const ContactPage: React.FC = () => {
           </span>
         </div>
 
+        {/* 2-Column Layout (Form first on mobile, right on desktop) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Direct Phone & Address Directory + 501(c)(3) Support */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-6 order-2 lg:order-1">
             
             {/* 501(c)(3) Donation Card */}
             <div className="rounded-2xl p-6 bg-slate-900/90 border border-amber-500/30 space-y-3">
@@ -166,8 +167,8 @@ export const ContactPage: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Contact Form */}
-          <div className="lg:col-span-7">
+          {/* Right Column: Contact Form (First on mobile) */}
+          <div className="lg:col-span-7 order-1 lg:order-2">
             <div className="rounded-2xl p-6 sm:p-7 bg-slate-900 border border-slate-800 space-y-5">
               
               <div>

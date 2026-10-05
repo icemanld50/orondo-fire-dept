@@ -6,7 +6,6 @@ import {
   ShieldAlert, 
   Smartphone, 
   Search, 
-  Compass,
   AlertTriangle,
   Waves,
   Scale
@@ -249,16 +248,15 @@ export const ResourcesPage: React.FC = () => {
       
       {/* Page Header */}
       <div className="space-y-3 text-center max-w-2xl mx-auto">
-        <div className="flex items-center justify-center gap-2 text-xs font-bold text-red-400 uppercase tracking-wider">
-          <Compass className="w-4 h-4 text-amber-500" />
-          <span>Interagency Coordination & Public Safety</span>
-        </div>
         <h1 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
           Wildfire Maps & Resources
         </h1>
         <p className="text-sm text-slate-400">
           Direct links to satellite fire maps, smoke forecasts, county alerts, and burn regulations.
         </p>
+        <div className="inline-block p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-400 max-w-xl mx-auto">
+          <strong className="text-slate-300">Notice:</strong> Third-party resources, satellite feeds, and evacuation maps are provided and maintained by external regional, state, and federal agencies and are not controlled or operated by Douglas County Fire District No. 4 (Orondo Fire).
+        </div>
       </div>
 
       {/* Emergency Advisory Callout */}

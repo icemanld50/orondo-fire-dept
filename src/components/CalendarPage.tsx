@@ -352,10 +352,6 @@ END:VCALENDAR`;
         {/* Page Top Heading & Year Navigation Bar */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/50 border border-red-600/30 text-red-300 text-xs font-bold uppercase tracking-wider mb-2">
-              <CalendarIcon className="w-3.5 h-3.5" />
-              <span>Full Year Master Schedule</span>
-            </div>
             <h1 className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">
               Community & District Calendar
             </h1>

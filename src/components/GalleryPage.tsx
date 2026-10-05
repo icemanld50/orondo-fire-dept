@@ -1,17 +1,12 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
-  Camera, 
   X, 
   ChevronLeft, 
   ChevronRight, 
   Download, 
   ZoomIn, 
   ZoomOut,
-  Maximize2,
-  LayoutGrid,
-  MoveHorizontal,
-  RotateCcw,
-  Sparkles
+  Maximize2
 } from 'lucide-react';
 import { GALLERY_ITEMS } from '../data/galleryData';
 import type { GalleryItem } from '../data/galleryData';
@@ -26,7 +21,6 @@ interface PhotoCardProps {
   onDragEnd: () => void;
   isDragging: boolean;
   isDragOver: boolean;
-  isStreamMode?: boolean;
 }
 
 const PhotoCard: React.FC<PhotoCardProps> = ({
@@ -39,7 +33,6 @@ const PhotoCard: React.FC<PhotoCardProps> = ({
   onDragEnd,
   isDragging,
   isDragOver,
-  isStreamMode = false,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -72,11 +65,7 @@ const PhotoCard: React.FC<PhotoCardProps> = ({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={() => onSelect(item)}
-      className={`group relative cursor-grab active:cursor-grabbing rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-900 border transition-all duration-300 shadow-lg select-none ${
-        isStreamMode 
-          ? 'flex-shrink-0 w-72 sm:w-96 aspect-[4/3]' 
-          : 'flex-1 min-w-[280px] sm:min-w-[340px] max-w-[460px] aspect-[4/3]'
-      } ${
+      className={`group relative cursor-grab active:cursor-grabbing rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-900 border transition-all duration-300 shadow-lg select-none flex-1 min-w-[280px] sm:min-w-[340px] max-w-[460px] aspect-[4/3] ${
         isDragging 
           ? 'opacity-30 scale-95 border-amber-500 ring-2 ring-amber-500/50' 
           : isDragOver
@@ -107,26 +96,12 @@ const PhotoCard: React.FC<PhotoCardProps> = ({
 
 export const GalleryPage: React.FC = () => {
   const [items, setItems] = useState<GalleryItem[]>(GALLERY_ITEMS);
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [viewMode, setViewMode] = useState<'flex' | 'stream'>('flex');
   const [activeItem, setActiveItem] = useState<GalleryItem | null>(null);
   const [isZoomed, setIsZoomed] = useState<boolean>(false);
 
   // Drag and drop state
   const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
   const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
-
-  // Movable horizontal stream drag-to-scroll refs
-  const ribbonRef = useRef<HTMLDivElement>(null);
-  const [isMouseDown, setIsMouseDown] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeftState, setScrollLeftState] = useState(0);
-
-  // Filter gallery items based on category
-  const filteredItems = useMemo(() => {
-    if (selectedCategory === 'all') return items;
-    return items.filter((item) => item.category === selectedCategory);
-  }, [items, selectedCategory]);
 
   // Drag & drop handlers
   const handleDragStart = (e: React.DragEvent, index: number) => {
@@ -144,18 +119,10 @@ export const GalleryPage: React.FC = () => {
     e.preventDefault();
     if (draggedIndex === null || draggedIndex === targetIndex) return;
     
-    // Find the actual global indices in `items`
-    const sourceItem = filteredItems[draggedIndex];
-    const targetItem = filteredItems[targetIndex];
-    const sourceGlobalIdx = items.findIndex(i => i.id === sourceItem.id);
-    const targetGlobalIdx = items.findIndex(i => i.id === targetItem.id);
-
-    if (sourceGlobalIdx !== -1 && targetGlobalIdx !== -1) {
-      const nextItems = [...items];
-      const [moved] = nextItems.splice(sourceGlobalIdx, 1);
-      nextItems.splice(targetGlobalIdx, 0, moved);
-      setItems(nextItems);
-    }
+    const nextItems = [...items];
+    const [moved] = nextItems.splice(draggedIndex, 1);
+    nextItems.splice(targetIndex, 0, moved);
+    setItems(nextItems);
 
     setDraggedIndex(null);
     setDragOverIndex(null);
@@ -164,31 +131,6 @@ export const GalleryPage: React.FC = () => {
   const handleDragEnd = () => {
     setDraggedIndex(null);
     setDragOverIndex(null);
-  };
-
-  const handleResetOrder = () => {
-    setItems(GALLERY_ITEMS);
-    setSelectedCategory('all');
-  };
-
-  // Movable ribbon drag-to-scroll handlers
-  const handleRibbonMouseDown = (e: React.MouseEvent) => {
-    if (!ribbonRef.current) return;
-    setIsMouseDown(true);
-    setStartX(e.pageX - ribbonRef.current.offsetLeft);
-    setScrollLeftState(ribbonRef.current.scrollLeft);
-  };
-
-  const handleRibbonMouseLeaveOrUp = () => {
-    setIsMouseDown(false);
-  };
-
-  const handleRibbonMouseMove = (e: React.MouseEvent) => {
-    if (!isMouseDown || !ribbonRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - ribbonRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    ribbonRef.current.scrollLeft = scrollLeftState - walk;
   };
 
   // Keyboard navigation for lightbox
@@ -208,176 +150,52 @@ export const GalleryPage: React.FC = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [activeItem, filteredItems]);
+  }, [activeItem, items]);
 
   const navigateLightbox = (direction: number) => {
-    if (!activeItem || filteredItems.length === 0) return;
-    const currentIndex = filteredItems.findIndex((i) => i.id === activeItem.id);
+    if (!activeItem || items.length === 0) return;
+    const currentIndex = items.findIndex((i) => i.id === activeItem.id);
     let nextIndex = currentIndex + direction;
-    if (nextIndex < 0) nextIndex = filteredItems.length - 1;
-    if (nextIndex >= filteredItems.length) nextIndex = 0;
-    setActiveItem(filteredItems[nextIndex]);
+    if (nextIndex < 0) nextIndex = items.length - 1;
+    if (nextIndex >= items.length) nextIndex = 0;
+    setActiveItem(items[nextIndex]);
     setIsZoomed(false);
   };
-
-  const categories = [
-    { id: 'all', label: 'All Photos' },
-    { id: 'action', label: 'Frontline Action' },
-    { id: 'apparatus', label: 'Apparatus & Fleet' },
-    { id: 'historic', label: 'Historic Archive' },
-    { id: 'community', label: 'Training & Drills' },
-  ];
 
   return (
     <div className="min-h-screen bg-slate-950 py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-8">
 
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/60 border border-red-600/40 text-red-300 text-xs font-bold uppercase tracking-wider">
-            <Camera className="w-3.5 h-3.5 text-amber-400" />
-            <span>Interactive Photo Gallery</span>
-          </div>
+        <div className="text-center max-w-3xl mx-auto space-y-2">
           <h1 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
             District Photo Gallery
           </h1>
           <p className="text-sm sm:text-base text-slate-400">
-            Drag to rearrange photos • 3D tilt interaction • Click any photo for inspection
+            Click any photograph to inspect in high-resolution.
           </p>
         </div>
 
-        {/* Minimal Control Bar: Category Filters & Movable Layout Toggle */}
-        <div className="glass-panel rounded-2xl p-3 sm:p-4 border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
-          
-          {/* Category Filter Buttons */}
-          <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all min-h-[44px] ${
-                  selectedCategory === cat.id
-                    ? 'bg-red-600 text-white shadow-md border border-red-500'
-                    : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Movable View Modes & Reset Order Action */}
-          <div className="flex items-center gap-2">
-            <div className="flex items-center bg-slate-900 p-1 rounded-xl border border-slate-800">
-              <button
-                onClick={() => setViewMode('flex')}
-                title="Fluid Flex Grid"
-                className={`p-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 min-h-[40px] ${
-                  viewMode === 'flex'
-                    ? 'bg-red-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <LayoutGrid className="w-4 h-4" />
-                <span className="hidden sm:inline">Flex Grid</span>
-              </button>
-              <button
-                onClick={() => setViewMode('stream')}
-                title="Movable Draggable Ribbon"
-                className={`p-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 min-h-[40px] ${
-                  viewMode === 'stream'
-                    ? 'bg-red-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <MoveHorizontal className="w-4 h-4" />
-                <span className="hidden sm:inline">Movable Stream</span>
-              </button>
-            </div>
-
-            <button
-              onClick={handleResetOrder}
-              title="Reset Photo Order"
-              className="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 transition-all flex items-center gap-1 text-xs font-bold min-h-[44px] px-3"
-            >
-              <RotateCcw className="w-4 h-4" />
-              <span className="hidden sm:inline">Reset</span>
-            </button>
-          </div>
-
+        {/* FLUID FLEX GALLERY GRID */}
+        <div className="flex flex-wrap gap-5 sm:gap-6 justify-center">
+          {items.map((item, idx) => (
+            <PhotoCard
+              key={item.id}
+              item={item}
+              index={idx}
+              onSelect={(selected) => {
+                setActiveItem(selected);
+                setIsZoomed(false);
+              }}
+              onDragStart={handleDragStart}
+              onDragOver={handleDragOver}
+              onDrop={handleDrop}
+              onDragEnd={handleDragEnd}
+              isDragging={draggedIndex === idx}
+              isDragOver={dragOverIndex === idx}
+            />
+          ))}
         </div>
-
-        {/* ======================================================== */}
-        {/* VIEW 1: FLUID FLEX GALLERY (ZERO WORDS, DRAGGABLE 3D)    */}
-        {/* ======================================================== */}
-        {viewMode === 'flex' && (
-          <div className="flex flex-wrap gap-5 sm:gap-6 justify-center">
-            {filteredItems.map((item, idx) => (
-              <PhotoCard
-                key={item.id}
-                item={item}
-                index={idx}
-                onSelect={(selected) => {
-                  setActiveItem(selected);
-                  setIsZoomed(false);
-                }}
-                onDragStart={handleDragStart}
-                onDragOver={handleDragOver}
-                onDrop={handleDrop}
-                onDragEnd={handleDragEnd}
-                isDragging={draggedIndex === idx}
-                isDragOver={dragOverIndex === idx}
-                isStreamMode={false}
-              />
-            ))}
-          </div>
-        )}
-
-        {/* ======================================================== */}
-        {/* VIEW 2: MOVABLE DRAGGABLE STREAM (KINETIC DRAG-TO-SLIDE) */}
-        {/* ======================================================== */}
-        {viewMode === 'stream' && (
-          <div className="space-y-4">
-            <div className="flex items-center justify-between text-xs text-slate-400 px-2">
-              <span className="flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4 text-amber-400" />
-                <span>Click and drag horizontally to slide through images</span>
-              </span>
-              <span>Showing {filteredItems.length} photos</span>
-            </div>
-
-            <div
-              ref={ribbonRef}
-              onMouseDown={handleRibbonMouseDown}
-              onMouseLeave={handleRibbonMouseLeaveOrUp}
-              onMouseUp={handleRibbonMouseLeaveOrUp}
-              onMouseMove={handleRibbonMouseMove}
-              className={`flex gap-6 overflow-x-auto pb-6 pt-2 px-2 scrollbar-none cursor-grab active:cursor-grabbing select-none ${
-                isMouseDown ? 'cursor-grabbing' : ''
-              }`}
-              style={{ scrollBehavior: isMouseDown ? 'auto' : 'smooth' }}
-            >
-              {filteredItems.map((item, idx) => (
-                <PhotoCard
-                  key={item.id}
-                  item={item}
-                  index={idx}
-                  onSelect={(selected) => {
-                    setActiveItem(selected);
-                    setIsZoomed(false);
-                  }}
-                  onDragStart={handleDragStart}
-                  onDragOver={handleDragOver}
-                  onDrop={handleDrop}
-                  onDragEnd={handleDragEnd}
-                  isDragging={draggedIndex === idx}
-                  isDragOver={dragOverIndex === idx}
-                  isStreamMode={true}
-                />
-              ))}
-            </div>
-          </div>
-        )}
 
         {/* ======================================================== */}
         {/* PURE IMAGE FULL-SCREEN LIGHTBOX MODAL (ZERO WORDS)       */}

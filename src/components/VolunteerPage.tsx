@@ -116,11 +116,11 @@ export const VolunteerPage: React.FC = () => {
           </p>
         </div>
 
-        {/* 2-Column Layout */}
+        {/* 2-Column Layout (Form first on mobile, right on desktop) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Roles & Benefits */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-6 order-2 lg:order-1">
             
             {/* Roles */}
             <div className="space-y-3">
@@ -203,8 +203,8 @@ export const VolunteerPage: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Application Form */}
-          <div className="lg:col-span-5">
+          {/* Right Column: Application Form (First on mobile) */}
+          <div className="lg:col-span-5 order-1 lg:order-2">
             <div className="rounded-2xl p-6 bg-slate-900 border border-slate-800 space-y-5 sticky top-24">
               
               <div>

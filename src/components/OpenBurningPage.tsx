@@ -120,11 +120,11 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
           </div>
         </div>
 
-        {/* 2-Column Layout */}
+        {/* 2-Column Layout (Form appears first on mobile, right on desktop) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Core Rules */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-6 order-2 lg:order-1">
             
             {/* The 4x4x4 Rule */}
             <div className="rounded-2xl p-6 bg-slate-900/80 border border-slate-800 space-y-3">
@@ -243,8 +243,8 @@ export const OpenBurningPage: React.FC<OpenBurningPageProps> = ({ isBurnBanActiv
 
           </div>
 
-          {/* Right Column: Burn Notice Form */}
-          <div className="lg:col-span-5">
+          {/* Right Column: Burn Notice Form (First on mobile) */}
+          <div className="lg:col-span-5 order-1 lg:order-2">
             <div className="rounded-2xl p-6 bg-slate-900 border border-slate-800 space-y-5 sticky top-24">
               
               <div>
